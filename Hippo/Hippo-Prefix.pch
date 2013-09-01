@@ -19,4 +19,5 @@
 #import "Utils.h"
 #import "HTBlock.h"
 #import "APILoader.h"
+#import "NSDictionary+Utils.h"
 #import "GAI.h"

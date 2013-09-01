@@ -57,7 +57,6 @@
 	NSURLRequest *request = [_client requestWithMethod:method path:[NSString stringWithFormat:@"/api/%@", api] parameters:parameters];
 	
 	return [self sendRequest:request upload:upload download:download success:success failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		
 		NSDictionary *errorInfo = [[NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:nil] objectForKey:@"error"];
 		NSInteger errorCode = [[errorInfo objectForKey:@"code"] integerValue];
 		

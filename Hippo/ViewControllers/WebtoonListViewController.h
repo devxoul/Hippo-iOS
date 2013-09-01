@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeekdaySelector.h"
 
-@interface WebtoonListViewController : GAITrackedViewController
+@interface WebtoonListViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
+
+typedef enum {
+	HippoWebListViewControllerTypeMyWebtoon,
+	HippoWebListViewControllerTypeAllWebtoon,
+} HippoWebListViewControllerType;
+
+@property (nonatomic, assign) HippoWebListViewControllerType type;
+@property (nonatomic, strong) WeekdaySelector *weekdaySelector;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *webtoons;
 
 @end

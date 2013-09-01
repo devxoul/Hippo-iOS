@@ -7,15 +7,32 @@
 //
 
 #import "AppDelegate.h"
+#import "WebtoonListViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	self.myWebtoonListViewController = [[WebtoonListViewController alloc] init];
+	self.myWebtoonListViewController.type = HippoWebListViewControllerTypeMyWebtoon;
+	
+	self.allWebtoonListViewController = [[WebtoonListViewController alloc] init];
+	self.allWebtoonListViewController.type = HippoWebListViewControllerTypeAllWebtoon;
+	
+	UINavigationController *myWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.myWebtoonListViewController];
+	myWebtoonListNavigationController.title = @"내 웹툰";
+	
+	UINavigationController *allWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.allWebtoonListViewController];
+	allWebtoonListNavigationController.title = @"검색";
+	
+	UITabBarController *tabBarController = [[UITabBarController alloc] init];
+	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
+	self.window.rootViewController = tabBarController;
+	
     return YES;
 }
 

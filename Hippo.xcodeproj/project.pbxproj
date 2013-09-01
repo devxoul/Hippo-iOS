@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335B817D350B3007EECCB /* WeekdaySelector.m */; };
+		032335BF17D35310007EECCB /* WebtoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335BE17D35310007EECCB /* WebtoonCell.m */; };
+		032335C217D3532B007EECCB /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C117D3532B007EECCB /* Webtoon.m */; };
+		032335D217D35637007EECCB /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C517D35637007EECCB /* NSDictionary+Utils.m */; };
+		032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */; };
+		032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */; };
+		032335D517D35637007EECCB /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CB17D35637007EECCB /* UIColor+Utils.m */; };
+		032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CD17D35637007EECCB /* UIResponder+Dim.m */; };
+		032335D717D35637007EECCB /* UITableViewCell+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CF17D35637007EECCB /* UITableViewCell+Utils.m */; };
+		032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335D117D35637007EECCB /* UIView+JLAnimations.m */; };
 		03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFD17D345D700CFF891 /* CoreGraphics.framework */; };
 		03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFF17D345D700CFF891 /* UIKit.framework */; };
@@ -19,7 +29,6 @@
 		03367D1717D345D700CFF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFF17D345D700CFF891 /* UIKit.framework */; };
 		03367D1F17D345D700CFF891 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03367D1D17D345D700CFF891 /* InfoPlist.strings */; };
 		03367D2117D345D700CFF891 /* HippoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D2017D345D700CFF891 /* HippoTests.m */; };
-		03367D2D17D3460800CFF891 /* Hippo_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03367D2C17D3460800CFF891 /* Hippo_iPhone.storyboard */; };
 		03367D5A17D3464900CFF891 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D3117D3464800CFF891 /* AFHTTPClient.m */; };
 		03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D3317D3464800CFF891 /* AFHTTPRequestOperation.m */; };
 		03367D5C17D3464900CFF891 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D3517D3464800CFF891 /* AFImageCache.m */; };
@@ -57,6 +66,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032335B717D350B3007EECCB /* WeekdaySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekdaySelector.h; path = Controls/WeekdaySelector.h; sourceTree = "<group>"; };
+		032335B817D350B3007EECCB /* WeekdaySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekdaySelector.m; path = Controls/WeekdaySelector.m; sourceTree = "<group>"; };
+		032335BD17D35310007EECCB /* WebtoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonCell.h; sourceTree = "<group>"; };
+		032335BE17D35310007EECCB /* WebtoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebtoonCell.m; sourceTree = "<group>"; };
+		032335C017D3532B007EECCB /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
+		032335C117D3532B007EECCB /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
+		032335C417D35637007EECCB /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utils.h"; sourceTree = "<group>"; };
+		032335C517D35637007EECCB /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utils.m"; sourceTree = "<group>"; };
+		032335C617D35637007EECCB /* UIButton+ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActivityIndicatorView.h"; sourceTree = "<group>"; };
+		032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ActivityIndicatorView.m"; sourceTree = "<group>"; };
+		032335C817D35637007EECCB /* UIButton+TouchAreaInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TouchAreaInsets.h"; sourceTree = "<group>"; };
+		032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TouchAreaInsets.m"; sourceTree = "<group>"; };
+		032335CA17D35637007EECCB /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		032335CB17D35637007EECCB /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
+		032335CC17D35637007EECCB /* UIResponder+Dim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Dim.h"; sourceTree = "<group>"; };
+		032335CD17D35637007EECCB /* UIResponder+Dim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Dim.m"; sourceTree = "<group>"; };
+		032335CE17D35637007EECCB /* UITableViewCell+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Utils.h"; sourceTree = "<group>"; };
+		032335CF17D35637007EECCB /* UITableViewCell+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Utils.m"; sourceTree = "<group>"; };
+		032335D017D35637007EECCB /* UIView+JLAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JLAnimations.h"; sourceTree = "<group>"; };
+		032335D117D35637007EECCB /* UIView+JLAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JLAnimations.m"; sourceTree = "<group>"; };
 		03367CF817D345D700CFF891 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03367CFB17D345D700CFF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03367CFD17D345D700CFF891 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,7 +102,6 @@
 		03367D1C17D345D700CFF891 /* HippoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HippoTests-Info.plist"; sourceTree = "<group>"; };
 		03367D1E17D345D700CFF891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03367D2017D345D700CFF891 /* HippoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HippoTests.m; sourceTree = "<group>"; };
-		03367D2C17D3460800CFF891 /* Hippo_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hippo_iPhone.storyboard; sourceTree = "<group>"; };
 		03367D3017D3464800CFF891 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		03367D3117D3464800CFF891 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		03367D3217D3464800CFF891 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -157,6 +185,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032335BA17D350B8007EECCB /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				032335B717D350B3007EECCB /* WeekdaySelector.h */,
+				032335B817D350B3007EECCB /* WeekdaySelector.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		032335BB17D352FF007EECCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				032335C017D3532B007EECCB /* Webtoon.h */,
+				032335C117D3532B007EECCB /* Webtoon.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		032335BC17D352FF007EECCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				032335BD17D35310007EECCB /* WebtoonCell.h */,
+				032335BE17D35310007EECCB /* WebtoonCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		032335C317D35637007EECCB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				032335C417D35637007EECCB /* NSDictionary+Utils.h */,
+				032335C517D35637007EECCB /* NSDictionary+Utils.m */,
+				032335C617D35637007EECCB /* UIButton+ActivityIndicatorView.h */,
+				032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */,
+				032335C817D35637007EECCB /* UIButton+TouchAreaInsets.h */,
+				032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */,
+				032335CA17D35637007EECCB /* UIColor+Utils.h */,
+				032335CB17D35637007EECCB /* UIColor+Utils.m */,
+				032335CC17D35637007EECCB /* UIResponder+Dim.h */,
+				032335CD17D35637007EECCB /* UIResponder+Dim.m */,
+				032335CE17D35637007EECCB /* UITableViewCell+Utils.h */,
+				032335CF17D35637007EECCB /* UITableViewCell+Utils.m */,
+				032335D017D35637007EECCB /* UIView+JLAnimations.h */,
+				032335D117D35637007EECCB /* UIView+JLAnimations.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		03367CEF17D345D700CFF891 = {
 			isa = PBXGroup;
 			children = (
@@ -203,8 +279,11 @@
 				0383BE9C17D349AE00E89D7A /* APILoader.h */,
 				0383BE9D17D349AE00E89D7A /* APILoader.m */,
 				03367D0D17D345D700CFF891 /* Images.xcassets */,
-				03367D2C17D3460800CFF891 /* Hippo_iPhone.storyboard */,
+				032335BA17D350B8007EECCB /* Controls */,
+				032335BB17D352FF007EECCB /* Models */,
 				03367D7317D346D000CFF891 /* ViewControllers */,
+				032335BC17D352FF007EECCB /* Views */,
+				032335C317D35637007EECCB /* Categories */,
 				03367D0217D345D700CFF891 /* Supporting Files */,
 			);
 			path = Hippo;
@@ -394,7 +473,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03367D2D17D3460800CFF891 /* Hippo_iPhone.storyboard in Resources */,
 				03367D0617D345D700CFF891 /* InfoPlist.strings in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
 			);
@@ -420,10 +498,19 @@
 				03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */,
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
+				032335C217D3532B007EECCB /* Webtoon.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
+				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
+				032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */,
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,
+				032335D717D35637007EECCB /* UITableViewCell+Utils.m in Sources */,
+				032335D217D35637007EECCB /* NSDictionary+Utils.m in Sources */,
+				032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */,
+				032335BF17D35310007EECCB /* WebtoonCell.m in Sources */,
+				032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */,
+				032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */,
 				03367D6F17D3466D00CFF891 /* Utils.m in Sources */,
 				0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */,
 				03367D5E17D3464900CFF891 /* AFJSONRequestOperation.m in Sources */,
@@ -434,6 +521,7 @@
 				03367D6B17D3464900CFF891 /* UIImagePickerController+HTBlock.m in Sources */,
 				03367D7217D346CA00CFF891 /* WebtoonListViewController.m in Sources */,
 				03367D5C17D3464900CFF891 /* AFImageCache.m in Sources */,
+				032335D517D35637007EECCB /* UIColor+Utils.m in Sources */,
 				03367D6A17D3464900CFF891 /* UIControl+HTBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
