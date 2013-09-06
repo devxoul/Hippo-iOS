@@ -21,4 +21,6 @@ typedef enum {
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *webtoons;
 
+- (void)prepareWebtoons;
+
 @end

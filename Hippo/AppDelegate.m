@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WebtoonListViewController.h"
+#import "Webtoon.h"
 
 @implementation AppDelegate
 
@@ -42,6 +43,8 @@
 	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
 	self.window.rootViewController = tabBarController;
 	
+	[self compareRevision];
+	
     return YES;
 }
 
@@ -71,6 +74,60 @@
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark -
+#pragma mark APILoader
+
+- (void)compareRevision
+{
+	[[APILoader sharedLoader] api:@"/revision" method:@"GET" parameters:nil success:^(id response) {
+		NSNumber *localRevision = [[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
+		NSNumber *remoteRevision = [response objectForKey:@"revision"];
+		NSLog( @"Webtoon Revision (local/remote) : %@ / %@", localRevision, remoteRevision );
+		if( !localRevision || [localRevision integerValue] < [remoteRevision integerValue] )
+		{
+			[self loadWebtoons];
+			[[NSUserDefaults standardUserDefaults] setObject:remoteRevision forKey:HippoSettingKeyRevision];
+			[[NSUserDefaults standardUserDefaults] synchronize];
+		}
+		else
+		{
+			[self.myWebtoonListViewController prepareWebtoons];
+			[self.allWebtoonListViewController prepareWebtoons];
+		}
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		showErrorAlert();
+	}];
+}
+
+- (void)loadWebtoons
+{
+	[[APILoader sharedLoader] api:@"webtoons" method:@"GET" parameters:@{@"limit": @"100000"} success:^(id response) {
+		NSArray *data = [response objectForKey:@"data"];
+		for(NSDictionary *webtoonData in data)
+		{
+			Webtoon *webtoon = [[Webtoon filter:@"id==%@", [webtoonData objectForKey:@"id"]] lastObject];
+			if( !webtoon ) {
+				webtoon = [Webtoon insert];
+			}
+			[webtoon safeSetValuesForKeysWithDictionary:webtoonData];
+		}
+		
+		[[AppDelegate appDelegate] saveContext];
+		
+		[self.myWebtoonListViewController prepareWebtoons];
+		[self.allWebtoonListViewController prepareWebtoons];
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		showErrorAlert();
+	}];
+}
+
+
+#pragma mark -
+#pragma mark Core Data
 
 - (void)saveContext
 {
