@@ -54,6 +54,7 @@
 		03665BB217DA3FCF0038D895 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB117DA3FCF0038D895 /* Episode.m */; };
 		03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB717DA4B550038D895 /* EpisodeCell.m */; };
 		03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBA17DA894B0038D895 /* SettingsViewController.m */; };
+		03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBE17DA8D5A0038D895 /* DejalActivityView.m */; };
 		0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383BE9D17D349AE00E89D7A /* APILoader.m */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */; };
@@ -161,6 +162,8 @@
 		03665BB717DA4B550038D895 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
 		03665BB917DA894B0038D895 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ViewControllers/SettingsViewController.h; sourceTree = "<group>"; };
 		03665BBA17DA894B0038D895 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
+		03665BBD17DA8D5A0038D895 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		03665BBE17DA8D5A0038D895 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -356,6 +359,7 @@
 		03367D2E17D3464800CFF891 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				03665BBC17DA8D5A0038D895 /* DejalActivityView */,
 				03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */,
 				03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */,
 				03367D2F17D3464800CFF891 /* AFNetworking */,
@@ -421,6 +425,15 @@
 				03665BBA17DA894B0038D895 /* SettingsViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03665BBC17DA8D5A0038D895 /* DejalActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				03665BBD17DA8D5A0038D895 /* DejalActivityView.h */,
+				03665BBE17DA8D5A0038D895 /* DejalActivityView.m */,
+			);
+			path = DejalActivityView;
 			sourceTree = "<group>";
 		};
 		03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */ = {
@@ -554,6 +567,7 @@
 				032335BF17D35310007EECCB /* WebtoonCell.m in Sources */,
 				032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */,
 				032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */,
+				03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */,
 				03367D6F17D3466D00CFF891 /* Utils.m in Sources */,
 				03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */,
 				03665BB217DA3FCF0038D895 /* Episode.m in Sources */,

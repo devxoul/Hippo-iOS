@@ -13,5 +13,6 @@
 + (id)insert;
 + (NSArray *)all;
 + (NSArray *)filter:(NSString *)format, ...;
++ (void)truncate;
 
 @end

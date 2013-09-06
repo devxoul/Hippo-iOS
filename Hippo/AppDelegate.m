@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WebtoonListViewController.h"
 #import "Webtoon.h"
+#import "DejalActivityView.h"
 
 @implementation AppDelegate
 
@@ -43,7 +44,16 @@
 	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
 	self.window.rootViewController = tabBarController;
 	
-	[self compareRevision];
+#warning 임시 코드
+	[DejalBezelActivityView activityViewForView:self.window withLabel:@"로딩중..."];
+	NSDictionary *params = @{@"facebook_id": @"100000888155228",
+							 @"facebook_token": @"CAAF9VNQJ5pgBAO70qj0TyOugeShJla4ELcfWYFH7durOO0vfQ0jooRUSfbonlF3pfmeP3wTsQX5UZAWbfpnd8zN2HzYR861VdkbwEL3qOXvYvdT86uIwOkwNr3Q60hzhZCCvL3eFzl7IbZCL8VhrXv9nuRZBQUmUCDvp9U1mGFcbKrPHyDqDWYXAcB5nhwKV0z4bccxebgZDZD"};
+	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
+		NSLog( @"Login succeed." );
+		[self compareRevision];
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		showErrorAlert();
+	}];
 	
     return YES;
 }
@@ -82,7 +92,8 @@
 - (void)compareRevision
 {
 	[[APILoader sharedLoader] api:@"/revision" method:@"GET" parameters:nil success:^(id response) {
-		NSNumber *localRevision = [[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
+#warning 임시 코드
+		NSNumber *localRevision = 0; //[[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
 		NSNumber *remoteRevision = [response objectForKey:@"revision"];
 		NSLog( @"Webtoon Revision (local/remote) : %@ / %@", localRevision, remoteRevision );
 		if( !localRevision || [localRevision integerValue] < [remoteRevision integerValue] )
@@ -105,6 +116,7 @@
 - (void)loadWebtoons
 {
 	[[APILoader sharedLoader] api:@"webtoons" method:@"GET" parameters:@{@"limit": @"100000"} success:^(id response) {
+		[Webtoon truncate];
 		NSArray *data = [response objectForKey:@"data"];
 		for(NSDictionary *webtoonData in data)
 		{

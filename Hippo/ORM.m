@@ -42,4 +42,14 @@
 	return [context executeFetchRequest:request error:nil];
 }
 
++ (void)truncate
+{
+	NSManagedObjectContext *context = [AppDelegate appDelegate].managedObjectContext;
+	NSArray *items = [[self class] all];
+	for(id obj in items) {
+		[context deleteObject:obj];
+	}
+	[context save:nil];
+}
+
 @end

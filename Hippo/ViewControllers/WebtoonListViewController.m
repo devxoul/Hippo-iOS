@@ -11,6 +11,7 @@
 #import "WebtoonCell.h"
 #import "WebtoonDetailViewController.h"
 #import "ORM.h"
+#import "DejalActivityView.h"
 
 @implementation WebtoonListViewController
 
@@ -56,6 +57,7 @@
 	}
 	
 	[self.tableView reloadData];
+	[DejalBezelActivityView removeView];
 }
 
 
