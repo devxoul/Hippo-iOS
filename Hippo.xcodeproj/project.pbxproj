@@ -53,6 +53,7 @@
 		03665BAF17DA08DC0038D895 /* WebtoonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BAE17DA08DC0038D895 /* WebtoonDetailView.m */; };
 		03665BB217DA3FCF0038D895 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB117DA3FCF0038D895 /* Episode.m */; };
 		03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB717DA4B550038D895 /* EpisodeCell.m */; };
+		03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBA17DA894B0038D895 /* SettingsViewController.m */; };
 		0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383BE9D17D349AE00E89D7A /* APILoader.m */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */; };
@@ -158,6 +159,8 @@
 		03665BB117DA3FCF0038D895 /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03665BB617DA4B550038D895 /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
 		03665BB717DA4B550038D895 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
+		03665BB917DA894B0038D895 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ViewControllers/SettingsViewController.h; sourceTree = "<group>"; };
+		03665BBA17DA894B0038D895 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -414,6 +417,8 @@
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
 				03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */,
+				03665BB917DA894B0038D895 /* SettingsViewController.h */,
+				03665BBA17DA894B0038D895 /* SettingsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
 				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
+				03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */,
 				032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */,
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,

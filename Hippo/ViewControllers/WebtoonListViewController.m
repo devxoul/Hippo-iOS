@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad
 {
+	[super viewDidLoad];
+	
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
 		self.navigationItem.title = @"내 웹툰";
 	} else {
