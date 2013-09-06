@@ -1,21 +1,19 @@
 //
-//  WebtoonCell.h
+//  EpisodeCell.h
 //  Hippo
 //
-//  Created by 전수열 on 13. 9. 1..
+//  Created by 전수열 on 13. 9. 7..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Webtoon.h"
+#import "Episode.h"
 
-@interface WebtoonCell : UITableViewCell
+@interface EpisodeCell : UITableViewCell
 
-@property (nonatomic, strong) Webtoon *webtoon;
+@property (nonatomic, strong) Episode *episode;
 @property (nonatomic, strong) UIImageView *thumbnailView;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *artistLabel;
-@property (nonatomic, strong) UIButton *subscribeButton;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 

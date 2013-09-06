@@ -10,7 +10,7 @@
 
 @implementation WebtoonCell
 
-- (id)init
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
 	self = [super init];
 	
@@ -19,6 +19,9 @@
 	
 	self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake( 50, 0, 0, 0 )];
 	[self.contentView addSubview:self.titleLabel];
+	
+	self.subscribeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	self.accessoryView = self.subscribeButton;
 	
 	return self;
 }
@@ -31,9 +34,13 @@
 
 - (void)layoutContentView
 {
-	[self.thumbnailView setImageWithURL:[NSURL URLWithString:self.webtoon.thumbnailURL] placeholderImage:nil];
+	[self.thumbnailView setImageWithURL:[NSURL URLWithString:self.webtoon.thumbnail_url] placeholderImage:nil];
+	
 	self.titleLabel.text = self.webtoon.title;
 	[self.titleLabel sizeToFit];
+	
+	[self.subscribeButton setTitle:self.webtoon.subscribed.boolValue ? @"구독중" : @"구독하기" forState:UIControlStateNormal];
+	[self.subscribeButton sizeToFit];
 }
 
 @end

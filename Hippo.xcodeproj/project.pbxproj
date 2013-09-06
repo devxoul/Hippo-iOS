@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335B817D350B3007EECCB /* WeekdaySelector.m */; };
 		032335BF17D35310007EECCB /* WebtoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335BE17D35310007EECCB /* WebtoonCell.m */; };
-		032335C217D3532B007EECCB /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C117D3532B007EECCB /* Webtoon.m */; };
 		032335D217D35637007EECCB /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C517D35637007EECCB /* NSDictionary+Utils.m */; };
 		032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */; };
 		032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */; };
@@ -40,8 +39,6 @@
 		03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D4217D3464800CFF891 /* AFXMLRequestOperation.m */; };
 		03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D4417D3464800CFF891 /* UIButton+AFNetworking.m */; };
 		03367D6417D3464900CFF891 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D4617D3464900CFF891 /* UIImageView+AFNetworking.m */; };
-		03367D6517D3464900CFF891 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D4717D3464900CFF891 /* FacebookSDK.framework */; };
-		03367D6617D3464900CFF891 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D4E17D3464900CFF891 /* libGoogleAnalytics.a */; };
 		03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D5317D3464900CFF891 /* UIActionSheet+HTBlock.m */; };
 		03367D6917D3464900CFF891 /* UIAlertView+HTBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D5517D3464900CFF891 /* UIAlertView+HTBlock.m */; };
 		03367D6A17D3464900CFF891 /* UIControl+HTBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D5717D3464900CFF891 /* UIControl+HTBlock.m */; };
@@ -51,8 +48,19 @@
 		03367D7517D346FA00CFF891 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D7417D346FA00CFF891 /* MobileCoreServices.framework */; };
 		03367D7717D3470100CFF891 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D7617D3470100CFF891 /* libsqlite3.0.dylib */; };
 		03367D7917D3471100CFF891 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D7817D3471100CFF891 /* CoreData.framework */; };
+		03665BA817DA05670038D895 /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BA717DA05670038D895 /* Webtoon.m */; };
+		03665BAB17DA059C0038D895 /* WebtoonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */; };
+		03665BAF17DA08DC0038D895 /* WebtoonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BAE17DA08DC0038D895 /* WebtoonDetailView.m */; };
+		03665BB217DA3FCF0038D895 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB117DA3FCF0038D895 /* Episode.m */; };
+		03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB717DA4B550038D895 /* EpisodeCell.m */; };
 		0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383BE9D17D349AE00E89D7A /* APILoader.m */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
+		03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */; };
+		03A746B817D9E9A90099A2A5 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */; };
+		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
+		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
+		03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
+		03A746C617D9FA940099A2A5 /* ORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C517D9FA940099A2A5 /* ORM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +78,6 @@
 		032335B817D350B3007EECCB /* WeekdaySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekdaySelector.m; path = Controls/WeekdaySelector.m; sourceTree = "<group>"; };
 		032335BD17D35310007EECCB /* WebtoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonCell.h; sourceTree = "<group>"; };
 		032335BE17D35310007EECCB /* WebtoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebtoonCell.m; sourceTree = "<group>"; };
-		032335C017D3532B007EECCB /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
-		032335C117D3532B007EECCB /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
 		032335C417D35637007EECCB /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utils.h"; sourceTree = "<group>"; };
 		032335C517D35637007EECCB /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utils.m"; sourceTree = "<group>"; };
 		032335C617D35637007EECCB /* UIButton+ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActivityIndicatorView.h"; sourceTree = "<group>"; };
@@ -125,14 +131,6 @@
 		03367D4417D3464800CFF891 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		03367D4517D3464900CFF891 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		03367D4617D3464900CFF891 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		03367D4717D3464900CFF891 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		03367D4917D3464900CFF891 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		03367D4A17D3464900CFF891 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		03367D4B17D3464900CFF891 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		03367D4C17D3464900CFF891 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
-		03367D4D17D3464900CFF891 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		03367D4E17D3464900CFF891 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
-		03367D4F17D3464900CFF891 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		03367D5117D3464900CFF891 /* HTBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBlock.h; sourceTree = "<group>"; };
 		03367D5217D3464900CFF891 /* UIActionSheet+HTBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+HTBlock.h"; sourceTree = "<group>"; };
 		03367D5317D3464900CFF891 /* UIActionSheet+HTBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+HTBlock.m"; sourceTree = "<group>"; };
@@ -150,9 +148,32 @@
 		03367D7417D346FA00CFF891 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		03367D7617D3470100CFF891 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		03367D7817D3471100CFF891 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		03665BA617DA05670038D895 /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
+		03665BA717DA05670038D895 /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
+		03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonDetailViewController.h; path = ViewControllers/WebtoonDetailViewController.h; sourceTree = "<group>"; };
+		03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonDetailViewController.m; path = ViewControllers/WebtoonDetailViewController.m; sourceTree = "<group>"; };
+		03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonDetailView.h; sourceTree = "<group>"; };
+		03665BAE17DA08DC0038D895 /* WebtoonDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebtoonDetailView.m; sourceTree = "<group>"; };
+		03665BB017DA3FCF0038D895 /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
+		03665BB117DA3FCF0038D895 /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
+		03665BB617DA4B550038D895 /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
+		03665BB717DA4B550038D895 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		03A746AB17D9E7880099A2A5 /* Hippo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hippo.xcdatamodel; sourceTree = "<group>"; };
+		03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		03A746AF17D9E9A90099A2A5 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		03A746B017D9E9A90099A2A5 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		03A746B117D9E9A90099A2A5 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		03A746B217D9E9A90099A2A5 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		03A746B317D9E9A90099A2A5 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		03A746B417D9E9A90099A2A5 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
+		03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
+		03A746C417D9FA940099A2A5 /* ORM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORM.h; path = ../ORM.h; sourceTree = "<group>"; };
+		03A746C517D9FA940099A2A5 /* ORM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORM.m; path = ../ORM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +186,10 @@
 				03367D7717D3470100CFF891 /* libsqlite3.0.dylib in Frameworks */,
 				03367D7517D346FA00CFF891 /* MobileCoreServices.framework in Frameworks */,
 				03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */,
-				03367D6517D3464900CFF891 /* FacebookSDK.framework in Frameworks */,
+				03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */,
 				03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */,
+				03A746B817D9E9A90099A2A5 /* libGoogleAnalytics_debug.a in Frameworks */,
 				03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */,
-				03367D6617D3464900CFF891 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +218,13 @@
 		032335BB17D352FF007EECCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				032335C017D3532B007EECCB /* Webtoon.h */,
-				032335C117D3532B007EECCB /* Webtoon.m */,
+				03A746C417D9FA940099A2A5 /* ORM.h */,
+				03A746C517D9FA940099A2A5 /* ORM.m */,
+				03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */,
+				03665BA617DA05670038D895 /* Webtoon.h */,
+				03665BA717DA05670038D895 /* Webtoon.m */,
+				03665BB017DA3FCF0038D895 /* Episode.h */,
+				03665BB117DA3FCF0038D895 /* Episode.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +234,10 @@
 			children = (
 				032335BD17D35310007EECCB /* WebtoonCell.h */,
 				032335BE17D35310007EECCB /* WebtoonCell.m */,
+				03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */,
+				03665BAE17DA08DC0038D895 /* WebtoonDetailView.m */,
+				03665BB617DA4B550038D895 /* EpisodeCell.h */,
+				03665BB717DA4B550038D895 /* EpisodeCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +259,8 @@
 				032335CF17D35637007EECCB /* UITableViewCell+Utils.m */,
 				032335D017D35637007EECCB /* UIView+JLAnimations.h */,
 				032335D117D35637007EECCB /* UIView+JLAnimations.m */,
+				03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */,
+				03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -321,9 +353,9 @@
 		03367D2E17D3464800CFF891 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */,
+				03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */,
 				03367D2F17D3464800CFF891 /* AFNetworking */,
-				03367D4717D3464900CFF891 /* FacebookSDK.framework */,
-				03367D4817D3464900CFF891 /* GoogleAnalytics */,
 				03367D5017D3464900CFF891 /* HTBlock */,
 			);
 			path = "Third Party";
@@ -359,20 +391,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		03367D4817D3464900CFF891 /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				03367D4917D3464900CFF891 /* GAI.h */,
-				03367D4A17D3464900CFF891 /* GAITrackedViewController.h */,
-				03367D4B17D3464900CFF891 /* GAITracker.h */,
-				03367D4C17D3464900CFF891 /* GAITransaction.h */,
-				03367D4D17D3464900CFF891 /* GAITransactionItem.h */,
-				03367D4E17D3464900CFF891 /* libGoogleAnalytics.a */,
-				03367D4F17D3464900CFF891 /* libGoogleAnalytics_debug.a */,
-			);
-			path = GoogleAnalytics;
-			sourceTree = "<group>";
-		};
 		03367D5017D3464900CFF891 /* HTBlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,8 +412,24 @@
 			children = (
 				03367D7017D346CA00CFF891 /* WebtoonListViewController.h */,
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
+				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
+				03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				03A746AF17D9E9A90099A2A5 /* GAI.h */,
+				03A746B017D9E9A90099A2A5 /* GAITrackedViewController.h */,
+				03A746B117D9E9A90099A2A5 /* GAITracker.h */,
+				03A746B217D9E9A90099A2A5 /* GAITransaction.h */,
+				03A746B317D9E9A90099A2A5 /* GAITransactionItem.h */,
+				03A746B417D9E9A90099A2A5 /* libGoogleAnalytics.a */,
+				03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */,
+			);
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +507,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */,
 				03367D0617D345D700CFF891 /* InfoPlist.strings in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
 			);
@@ -493,12 +528,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A746C617D9FA940099A2A5 /* ORM.m in Sources */,
+				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				03367D5D17D3464900CFF891 /* AFImageRequestOperation.m in Sources */,
 				03367D6417D3464900CFF891 /* UIImageView+AFNetworking.m in Sources */,
 				03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */,
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
+				03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
-				032335C217D3532B007EECCB /* Webtoon.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
 				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
@@ -512,9 +549,13 @@
 				032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */,
 				032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */,
 				03367D6F17D3466D00CFF891 /* Utils.m in Sources */,
+				03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */,
+				03665BB217DA3FCF0038D895 /* Episode.m in Sources */,
 				0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */,
+				03665BAB17DA059C0038D895 /* WebtoonDetailViewController.m in Sources */,
 				03367D5E17D3464900CFF891 /* AFJSONRequestOperation.m in Sources */,
 				03367D5F17D3464900CFF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				03665BA817DA05670038D895 /* Webtoon.m in Sources */,
 				03367D6917D3464900CFF891 /* UIAlertView+HTBlock.m in Sources */,
 				03367D0817D345D700CFF891 /* main.m in Sources */,
 				03367D5A17D3464900CFF891 /* AFHTTPClient.m in Sources */,
@@ -523,6 +564,7 @@
 				03367D5C17D3464900CFF891 /* AFImageCache.m in Sources */,
 				032335D517D35637007EECCB /* UIColor+Utils.m in Sources */,
 				03367D6A17D3464900CFF891 /* UIControl+HTBlock.m in Sources */,
+				03665BAF17DA08DC0038D895 /* WebtoonDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +684,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/XOUL/workspace/Hippo/Hippo/Third\\ Party",
+					"/Volumes/XOUL/workspace/Hippo-iOS/Third\\ Party",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hippo/Hippo-Prefix.pch";
@@ -649,6 +692,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/XOUL/workspace/Hippo/Hippo/Third\\ Party/GoogleAnalytics",
+					"/Volumes/XOUL/workspace/Hippo-iOS/Third\\ Party/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -663,6 +707,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/XOUL/workspace/Hippo/Hippo/Third\\ Party",
+					"/Volumes/XOUL/workspace/Hippo-iOS/Third\\ Party",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hippo/Hippo-Prefix.pch";
@@ -670,6 +715,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/XOUL/workspace/Hippo/Hippo/Third\\ Party/GoogleAnalytics",
+					"/Volumes/XOUL/workspace/Hippo-iOS/Third\\ Party/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -747,6 +793,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03A746AB17D9E7880099A2A5 /* Hippo.xcdatamodel */,
+			);
+			currentVersion = 03A746AB17D9E7880099A2A5 /* Hippo.xcdatamodel */;
+			path = Hippo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 03367CF017D345D700CFF891 /* Project object */;
 }

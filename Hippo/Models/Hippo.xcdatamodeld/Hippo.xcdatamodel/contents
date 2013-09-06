@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3389" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Episode" representedClassName="Episode" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="no" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="thumbnail_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webtoon_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail_url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Webtoon" representedClassName="Webtoon" syncable="YES">
+        <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="fri" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="mon" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="new_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="portal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portal_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sat" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="subscribed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sun" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="thu" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="thumbnail_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tue" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wed" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Artist" positionX="-459" positionY="469" width="128" height="98"/>
+        <element name="Episode" positionX="178" positionY="342" width="128" height="163"/>
+        <element name="User" positionX="457" positionY="252" width="128" height="103"/>
+        <element name="Webtoon" positionX="-27" positionY="325" width="128" height="313"/>
+    </elements>
+</model>

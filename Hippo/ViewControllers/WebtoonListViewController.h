@@ -12,8 +12,8 @@
 @interface WebtoonListViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
 
 typedef enum {
-	HippoWebListViewControllerTypeMyWebtoon,
-	HippoWebListViewControllerTypeAllWebtoon,
+	HippoWebtoonListViewControllerTypeMyWebtoon,
+	HippoWebtoonListViewControllerTypeAllWebtoon,
 } HippoWebListViewControllerType;
 
 @property (nonatomic, assign) HippoWebListViewControllerType type;
