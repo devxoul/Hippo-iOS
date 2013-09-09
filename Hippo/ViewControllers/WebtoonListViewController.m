@@ -29,17 +29,12 @@
 	self.weekdaySelector = [[WeekdaySelector alloc] init];
 	self.weekdaySelector.frame = CGRectMake( 0, 64, UIScreenWidth, self.weekdaySelector.frame.size.height );
 	[self.view addSubview:self.weekdaySelector];
-	[self.weekdaySelector addTarget:self action:@selector(weekdayDidSelect) forControlEvents:UIControlEventValueChanged];
+	[self.weekdaySelector addTarget:self action:@selector(filterWebtoons) forControlEvents:UIControlEventValueChanged];
 	
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + self.weekdaySelector.frame.size.height, UIScreenWidth, UIScreenHeight - 112 - self.weekdaySelector.frame.size.height)];
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	[self.view addSubview:self.tableView];
-}
-
-- (void)weekdayDidSelect
-{
-	
 }
 
 
@@ -58,6 +53,24 @@
 	
 	[self.tableView reloadData];
 	[DejalBezelActivityView removeView];
+}
+
+- (void)filterWebtoons
+{
+	NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
+	if( [weekday isEqualToString:@"all"] )
+	{
+		[self prepareWebtoons];
+	}
+	else
+	{
+		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+			self.webtoons = [[Webtoon filter:@"subscribed=1&&%@=1", weekday] mutableCopy];
+		} else {
+			self.webtoons = [[Webtoon filter:@"%@=1", weekday] mutableCopy];
+		}
+	}
+	[self.tableView reloadData];
 }
 
 

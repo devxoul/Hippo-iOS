@@ -46,8 +46,8 @@
 	
 #warning 임시 코드
 	[DejalBezelActivityView activityViewForView:self.window withLabel:@"로딩중..."];
-	NSDictionary *params = @{@"facebook_id": @"100000888155228",
-							 @"facebook_token": @"CAAF9VNQJ5pgBAO70qj0TyOugeShJla4ELcfWYFH7durOO0vfQ0jooRUSfbonlF3pfmeP3wTsQX5UZAWbfpnd8zN2HzYR861VdkbwEL3qOXvYvdT86uIwOkwNr3Q60hzhZCCvL3eFzl7IbZCL8VhrXv9nuRZBQUmUCDvp9U1mGFcbKrPHyDqDWYXAcB5nhwKV0z4bccxebgZDZD"};
+	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
+							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
 	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
 		NSLog( @"Login succeed." );
 		[self compareRevision];
@@ -93,7 +93,7 @@
 {
 	[[APILoader sharedLoader] api:@"/revision" method:@"GET" parameters:nil success:^(id response) {
 #warning 임시 코드
-		NSNumber *localRevision = 0; //[[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
+		NSNumber *localRevision = [[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
 		NSNumber *remoteRevision = [response objectForKey:@"revision"];
 		NSLog( @"Webtoon Revision (local/remote) : %@ / %@", localRevision, remoteRevision );
 		if( !localRevision || [localRevision integerValue] < [remoteRevision integerValue] )

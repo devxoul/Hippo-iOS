@@ -17,3 +17,5 @@
 #define alert( title, msg ) [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 
 #define HippoSettingKeyRevision @"HippoSettingKeyRevision"
+
+static NSString *HippoWeekdays[] = {@"all", @"mon", @"tue", @"wed", @"tue", @"fri", @"sat", @"sun", @"finished"};
