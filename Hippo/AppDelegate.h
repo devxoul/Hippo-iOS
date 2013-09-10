@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WebtoonListViewController.h"
 #import <CoreData/CoreData.h>
+#import "DejalActivityView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,6 +21,8 @@
 
 @property (nonatomic, strong) WebtoonListViewController *myWebtoonListViewController;
 @property (nonatomic, strong) WebtoonListViewController *allWebtoonListViewController;
+
+@property (nonatomic, strong) DejalActivityView *activityView;
 
 + (AppDelegate *)appDelegate;
 

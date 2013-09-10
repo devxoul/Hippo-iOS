@@ -40,27 +40,17 @@
 
 #pragma mark -
 
-- (void)prepareWebtoons
-{
-	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon )
-	{
-		self.webtoons = [[Webtoon filter:@"subscribed=1"] mutableCopy];
-	}
-	else
-	{
-		self.webtoons = [[Webtoon all] mutableCopy];
-	}
-	
-	[self.tableView reloadData];
-	[DejalBezelActivityView removeView];
-}
 
 - (void)filterWebtoons
 {
 	NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
 	if( [weekday isEqualToString:@"all"] )
 	{
-		[self prepareWebtoons];
+		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+			self.webtoons = [[Webtoon filter:@"subscribed=1"] mutableCopy];
+		} else {
+			self.webtoons = [[Webtoon all] mutableCopy];
+		}
 	}
 	else
 	{
@@ -71,6 +61,7 @@
 		}
 	}
 	[self.tableView reloadData];
+	[DejalBezelActivityView removeView];
 }
 
 

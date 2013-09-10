@@ -2,7 +2,7 @@
 //  Episode.m
 //  Hippo
 //
-//  Created by 전수열 on 13. 9. 7..
+//  Created by 전수열 on 13. 9. 10..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 

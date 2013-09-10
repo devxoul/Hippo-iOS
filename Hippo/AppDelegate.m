@@ -45,7 +45,7 @@
 	self.window.rootViewController = tabBarController;
 	
 #warning 임시 코드
-	[DejalBezelActivityView activityViewForView:self.window withLabel:@"로딩중..."];
+	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:@"동기화중...0%"];
 	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
 							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
 	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
@@ -93,7 +93,7 @@
 {
 	[[APILoader sharedLoader] api:@"/revision" method:@"GET" parameters:nil success:^(id response) {
 #warning 임시 코드
-		NSNumber *localRevision = [[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
+		NSNumber *localRevision = 0;//[[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
 		NSNumber *remoteRevision = [response objectForKey:@"revision"];
 		NSLog( @"Webtoon Revision (local/remote) : %@ / %@", localRevision, remoteRevision );
 		if( !localRevision || [localRevision integerValue] < [remoteRevision integerValue] )
@@ -104,8 +104,8 @@
 		}
 		else
 		{
-			[self.myWebtoonListViewController prepareWebtoons];
-			[self.allWebtoonListViewController prepareWebtoons];
+			[self.myWebtoonListViewController filterWebtoons];
+			[self.allWebtoonListViewController filterWebtoons];
 		}
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -115,7 +115,11 @@
 
 - (void)loadWebtoons
 {
-	[[APILoader sharedLoader] api:@"webtoons" method:@"GET" parameters:@{@"limit": @"100000"} success:^(id response) {
+	[[APILoader sharedLoader] api:@"webtoons" method:@"GET" parameters:@{@"limit": @"100000"} upload:nil download:^(long long bytesLoaded, long long bytesTotal) {
+		NSLog( @"%lld / %lld (%d%%)", bytesLoaded, bytesTotal, (NSInteger)(100.0 * bytesLoaded / bytesTotal) );
+		self.activityView.activityLabel.text = [NSString stringWithFormat:@"동기화중...%d%%", (NSInteger)(100.0 * bytesLoaded / bytesTotal)];
+		[self.activityView layoutSubviews];
+	} success:^(id response) {
 		[Webtoon truncate];
 		NSArray *data = [response objectForKey:@"data"];
 		for(NSDictionary *webtoonData in data)
@@ -129,8 +133,8 @@
 		
 		[[AppDelegate appDelegate] saveContext];
 		
-		[self.myWebtoonListViewController prepareWebtoons];
-		[self.allWebtoonListViewController prepareWebtoons];
+		[self.myWebtoonListViewController filterWebtoons];
+		[self.allWebtoonListViewController filterWebtoons];
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		showErrorAlert();

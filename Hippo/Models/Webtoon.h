@@ -2,13 +2,14 @@
 //  Webtoon.h
 //  Hippo
 //
-//  Created by 전수열 on 13. 9. 6..
+//  Created by 전수열 on 13. 9. 10..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "ORM.h"
+
 
 @interface Webtoon : ORM
 
