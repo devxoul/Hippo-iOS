@@ -60,9 +60,10 @@
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
-		03A746C617D9FA940099A2A5 /* ORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C517D9FA940099A2A5 /* ORM.m */; };
 		03D2208417DEFB0B00E804AA /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208317DEFB0B00E804AA /* Episode.m */; };
 		03D2208717DEFB0C00E804AA /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208617DEFB0C00E804AA /* Webtoon.m */; };
+		03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */; };
+		03D2209017DF083900E804AA /* NSManagedObject+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,12 +175,15 @@
 		03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
 		03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
-		03A746C417D9FA940099A2A5 /* ORM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORM.h; path = ../ORM.h; sourceTree = "<group>"; };
-		03A746C517D9FA940099A2A5 /* ORM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORM.m; path = ../ORM.m; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2208517DEFB0C00E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
 		03D2208617DEFB0C00E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
+		03D2208A17DF080500E804AA /* NSFetchRequest+JLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+JLCoreData.h"; sourceTree = "<group>"; };
+		03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+JLCoreData.m"; sourceTree = "<group>"; };
+		03D2208D17DF081A00E804AA /* JLCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLCoreData.h; sourceTree = "<group>"; };
+		03D2208E17DF083900E804AA /* NSManagedObject+JLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JLCoreData.h"; sourceTree = "<group>"; };
+		03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JLCoreData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +228,6 @@
 		032335BB17D352FF007EECCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				03A746C417D9FA940099A2A5 /* ORM.h */,
-				03A746C517D9FA940099A2A5 /* ORM.m */,
 				03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */,
 				03D2208517DEFB0C00E804AA /* Webtoon.h */,
 				03D2208617DEFB0C00E804AA /* Webtoon.m */,
@@ -359,6 +361,7 @@
 		03367D2E17D3464800CFF891 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				03D2208917DF07ED00E804AA /* JLCoreData */,
 				03665BBC17DA8D5A0038D895 /* DejalActivityView */,
 				03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */,
 				03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */,
@@ -448,6 +451,18 @@
 				03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */,
 			);
 			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		03D2208917DF07ED00E804AA /* JLCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				03D2208D17DF081A00E804AA /* JLCoreData.h */,
+				03D2208E17DF083900E804AA /* NSManagedObject+JLCoreData.h */,
+				03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */,
+				03D2208A17DF080500E804AA /* NSFetchRequest+JLCoreData.h */,
+				03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */,
+			);
+			path = JLCoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,12 +561,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A746C617D9FA940099A2A5 /* ORM.m in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				03367D5D17D3464900CFF891 /* AFImageRequestOperation.m in Sources */,
 				03367D6417D3464900CFF891 /* UIImageView+AFNetworking.m in Sources */,
 				03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */,
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
+				03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */,
 				03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
@@ -573,6 +588,7 @@
 				03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */,
 				0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */,
 				03665BAB17DA059C0038D895 /* WebtoonDetailViewController.m in Sources */,
+				03D2209017DF083900E804AA /* NSManagedObject+JLCoreData.m in Sources */,
 				03367D5E17D3464900CFF891 /* AFJSONRequestOperation.m in Sources */,
 				03367D5F17D3464900CFF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03367D6917D3464900CFF891 /* UIAlertView+HTBlock.m in Sources */,

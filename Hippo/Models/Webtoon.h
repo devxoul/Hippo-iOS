@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ORM.h"
 
 
-@interface Webtoon : ORM
+@interface Webtoon : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * finished;
 @property (nonatomic, retain) NSNumber * fri;

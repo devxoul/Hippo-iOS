@@ -23,3 +23,4 @@
 #import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
 #import "GAI.h"
 #import "AppDelegate.h"
+#import "JLCoreData.h"

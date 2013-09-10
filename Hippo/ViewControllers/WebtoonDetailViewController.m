@@ -61,7 +61,7 @@
 		}
 		else
 		{
-			self.episodes = [[Episode filter:@"webtoon_id==%@", self.webtoon.id] mutableCopy];
+			self.episodes = [[[[Episode request] filter:@"webtoon_id==%@", self.webtoon.id] all] mutableCopy];
 			[self.tableView reloadData];
 		}
 		
@@ -78,7 +78,7 @@
 		NSArray *data = [response objectForKey:@"data"];
 		for( NSDictionary *episodeData in data )
 		{
-			Episode *episode = [[Episode filter:@"id==%@", [episodeData objectForKey:@"id"]] lastObject];
+			Episode *episode = [[[Episode request] filter:@"id==%@", [episodeData objectForKey:@"id"]] last];
 			if( !episode ) {
 				episode = [Episode insert];
 			}

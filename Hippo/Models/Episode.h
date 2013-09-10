@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ORM.h"
 
 
-@interface Episode : ORM
+@interface Episode : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * id;

@@ -10,7 +10,6 @@
 #import "Webtoon.h"
 #import "WebtoonCell.h"
 #import "WebtoonDetailViewController.h"
-#import "ORM.h"
 #import "DejalActivityView.h"
 
 @implementation WebtoonListViewController
@@ -47,17 +46,17 @@
 	if( [weekday isEqualToString:@"all"] )
 	{
 		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			self.webtoons = [[Webtoon filter:@"subscribed=1"] mutableCopy];
+			self.webtoons = [[[[Webtoon request] filter:@"subscribed=1"] all] mutableCopy];
 		} else {
-			self.webtoons = [[Webtoon all] mutableCopy];
+			self.webtoons = [[[Webtoon request] all] mutableCopy];
 		}
 	}
 	else
 	{
 		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			self.webtoons = [[Webtoon filter:@"subscribed=1&&%@=1", weekday] mutableCopy];
+			self.webtoons = [[[[Webtoon request] filter:@"subscribed=1&&%@=1", weekday] all] mutableCopy];
 		} else {
-			self.webtoons = [[Webtoon filter:@"%@=1", weekday] mutableCopy];
+			self.webtoons = [[[[Webtoon request] filter:@"%@=1", weekday] all] mutableCopy];
 		}
 	}
 	[self.tableView reloadData];
