@@ -21,26 +21,21 @@
 	return self;
 }
 
-- (NSFetchRequest *)orderBy:(NSString *)key, ...;
+- (NSFetchRequest *)orderBy:(NSString *)key
 {
-	NSMutableArray *sortDescriptors = [NSMutableArray array];
-	
-	va_list ap;
-	va_start( ap, key );
-	for( ; key != nil; key = va_arg( ap, NSString * ) )
-	{
-		NSSortDescriptor *descriptor = nil;
-		if( [key hasSuffix:@"desc"] ) {
-			descriptor = [NSSortDescriptor sortDescriptorWithKey:[[key componentsSeparatedByString:@" "] firstObject] ascending:NO];
-		} else {
-			descriptor = [NSSortDescriptor sortDescriptorWithKey:key ascending:YES];
-		}
-		
-		[sortDescriptors addObject:descriptor];
+	if( ![self.entity.propertiesByName.allKeys containsObject:key] ) {
+		return self;
 	}
-	va_end( ap );
 	
-	self.sortDescriptors = sortDescriptors;
+	NSSortDescriptor *sortDescriptor = nil;
+	
+	if( [key hasSuffix:@"desc"] ) {
+		sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:[[key componentsSeparatedByString:@" "] firstObject] ascending:NO];
+	} else {
+		sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:key ascending:YES];
+	}
+	
+	self.sortDescriptors = @[sortDescriptor];
 	return self;
 }
 

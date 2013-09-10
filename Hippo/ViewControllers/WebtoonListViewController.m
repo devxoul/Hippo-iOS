@@ -43,22 +43,26 @@
 - (void)filterWebtoons
 {
 	NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
+	NSFetchRequest *request = nil;
 	if( [weekday isEqualToString:@"all"] )
 	{
 		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			self.webtoons = [[[[Webtoon request] filter:@"subscribed=1"] all] mutableCopy];
+			request = [[Webtoon request] filter:@"subscribed=1"];
 		} else {
-			self.webtoons = [[[Webtoon request] all] mutableCopy];
+			request = [Webtoon request];
 		}
 	}
 	else
 	{
 		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			self.webtoons = [[[[Webtoon request] filter:@"subscribed=1&&%@=1", weekday] all] mutableCopy];
+			request = [[Webtoon request] filter:@"subscribed=1&&%@=1", weekday];
 		} else {
-			self.webtoons = [[[[Webtoon request] filter:@"%@=1", weekday] all] mutableCopy];
+			request = [[Webtoon request] filter:@"%@=1", weekday];
 		}
 	}
+	
+	self.webtoons = [request orderBy:@"title"].all.mutableCopy;
+	
 	[self.tableView reloadData];
 	[DejalBezelActivityView removeView];
 }

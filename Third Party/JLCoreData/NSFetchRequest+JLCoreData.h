@@ -11,7 +11,7 @@
 @interface NSFetchRequest (JLCoreData)
 
 - (NSFetchRequest *)filter:(NSString *)format, ...;
-- (NSFetchRequest *)orderBy:(NSString *)key, ...;
+- (NSFetchRequest *)orderBy:(NSString *)key;
 - (id)first;
 - (id)last;
 - (NSArray *)all;
