@@ -17,7 +17,8 @@
 	self.thumbnailView = [[UIImageView alloc] initWithFrame:CGRectMake( 0, 0, 71, 42 )];
 	[self.contentView addSubview:self.thumbnailView];
 	
-	self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake( 80, 0, 0, 0 )];
+	self.titleLabel = [[UILabel alloc] initWithPosition:CGPointMake( 80, 13 ) maxWidth:230];
+	self.titleLabel.font = [UIFont systemFontOfSize:13];
 	[self.contentView addSubview:self.titleLabel];
 	
 	return self;

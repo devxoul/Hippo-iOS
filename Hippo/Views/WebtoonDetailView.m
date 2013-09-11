@@ -18,15 +18,18 @@
 	self.thumbnailView = [[UIImageView alloc] initWithFrame:CGRectMake( 0, 0, 55, 60 )];
 	[self addSubview:self.thumbnailView];
 	
-	self.artistLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 4 ) maxWidth:190];
+	self.titleLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 4 ) maxWidth:190];
+	[self addSubview:self.titleLabel];
+	
+	self.artistLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 24 ) maxWidth:190];
 	self.artistLabel.font = [UIFont systemFontOfSize:12];
 	self.artistLabel.textColor = [UIColor darkGrayColor];
 	[self addSubview:self.artistLabel];
 	
-	self.portalIconView = [[UIImageView alloc] initWithFrame:CGRectMake( 65, 21, 12, 12 )];
+	self.portalIconView = [[UIImageView alloc] initWithFrame:CGRectMake( 65, 41, 12, 12 )];
 	[self addSubview:self.portalIconView];
 	
-	self.weekdayLabel = [[UILabel alloc] initWithPosition:CGPointMake( 81, 21 ) maxWidth:170];
+	self.weekdayLabel = [[UILabel alloc] initWithPosition:CGPointMake( 81, 41 ) maxWidth:170];
 	self.weekdayLabel.font = [UIFont systemFontOfSize:11];
 	self.weekdayLabel.textColor = [UIColor darkGrayColor];
 	[self addSubview:self.weekdayLabel];
@@ -41,6 +44,9 @@
 - (void)setWebtoon:(Webtoon *)webtoon
 {
 	_webtoon = webtoon;
+	
+	self.titleLabel.text = self.webtoon.title;
+	[self.titleLabel sizeToFit];
 	
 	[self.thumbnailView setImageWithURL:[NSURL URLWithString:self.webtoon.thumbnail_url] placeholderImage:nil];
 	
