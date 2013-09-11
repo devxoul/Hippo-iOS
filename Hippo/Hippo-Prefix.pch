@@ -24,3 +24,4 @@
 #import "GAI.h"
 #import "AppDelegate.h"
 #import "JLCoreData.h"
+#import "UILabel+JLUtils.h"

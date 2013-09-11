@@ -19,14 +19,12 @@
 		03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFD17D345D700CFF891 /* CoreGraphics.framework */; };
 		03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFF17D345D700CFF891 /* UIKit.framework */; };
-		03367D0617D345D700CFF891 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03367D0417D345D700CFF891 /* InfoPlist.strings */; };
 		03367D0817D345D700CFF891 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D0717D345D700CFF891 /* main.m */; };
 		03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D0B17D345D700CFF891 /* AppDelegate.m */; };
 		03367D0E17D345D700CFF891 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03367D0D17D345D700CFF891 /* Images.xcassets */; };
 		03367D1517D345D700CFF891 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367D1417D345D700CFF891 /* XCTest.framework */; };
 		03367D1617D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367D1717D345D700CFF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFF17D345D700CFF891 /* UIKit.framework */; };
-		03367D1F17D345D700CFF891 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03367D1D17D345D700CFF891 /* InfoPlist.strings */; };
 		03367D2117D345D700CFF891 /* HippoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D2017D345D700CFF891 /* HippoTests.m */; };
 		03367D5A17D3464900CFF891 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D3117D3464800CFF891 /* AFHTTPClient.m */; };
 		03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03367D3317D3464800CFF891 /* AFHTTPRequestOperation.m */; };
@@ -61,9 +59,13 @@
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
 		03D2208417DEFB0B00E804AA /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208317DEFB0B00E804AA /* Episode.m */; };
-		03D2208717DEFB0C00E804AA /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208617DEFB0C00E804AA /* Webtoon.m */; };
 		03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */; };
 		03D2209017DF083900E804AA /* NSManagedObject+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */; };
+		03D2209317E01B9200E804AA /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2209217E01B9200E804AA /* Webtoon.m */; };
+		03D2209617E01EFC00E804AA /* UILabel+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */; };
+		03D2209A17E021FB00E804AA /* icon_daum.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209817E021FB00E804AA /* icon_daum.png */; };
+		03D2209B17E021FB00E804AA /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209917E021FB00E804AA /* icon_naver.png */; };
+		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +102,6 @@
 		03367CFD17D345D700CFF891 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		03367CFF17D345D700CFF891 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		03367D0317D345D700CFF891 /* Hippo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hippo-Info.plist"; sourceTree = "<group>"; };
-		03367D0517D345D700CFF891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03367D0717D345D700CFF891 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03367D0917D345D700CFF891 /* Hippo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hippo-Prefix.pch"; sourceTree = "<group>"; };
 		03367D0A17D345D700CFF891 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		03367D1317D345D700CFF891 /* HippoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HippoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03367D1417D345D700CFF891 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		03367D1C17D345D700CFF891 /* HippoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HippoTests-Info.plist"; sourceTree = "<group>"; };
-		03367D1E17D345D700CFF891 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03367D2017D345D700CFF891 /* HippoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HippoTests.m; sourceTree = "<group>"; };
 		03367D3017D3464800CFF891 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		03367D3117D3464800CFF891 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -177,13 +177,18 @@
 		03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
-		03D2208517DEFB0C00E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
-		03D2208617DEFB0C00E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
 		03D2208A17DF080500E804AA /* NSFetchRequest+JLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+JLCoreData.h"; sourceTree = "<group>"; };
 		03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+JLCoreData.m"; sourceTree = "<group>"; };
 		03D2208D17DF081A00E804AA /* JLCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLCoreData.h; sourceTree = "<group>"; };
 		03D2208E17DF083900E804AA /* NSManagedObject+JLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JLCoreData.h"; sourceTree = "<group>"; };
 		03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JLCoreData.m"; sourceTree = "<group>"; };
+		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
+		03D2209217E01B9200E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
+		03D2209417E01EFC00E804AA /* UILabel+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JLUtils.h"; sourceTree = "<group>"; };
+		03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JLUtils.m"; sourceTree = "<group>"; };
+		03D2209817E021FB00E804AA /* icon_daum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_daum.png; sourceTree = "<group>"; };
+		03D2209917E021FB00E804AA /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
+		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */,
-				03D2208517DEFB0C00E804AA /* Webtoon.h */,
-				03D2208617DEFB0C00E804AA /* Webtoon.m */,
+				03D2209117E01B9200E804AA /* Webtoon.h */,
+				03D2209217E01B9200E804AA /* Webtoon.m */,
 				03D2208217DEFB0B00E804AA /* Episode.h */,
 				03D2208317DEFB0B00E804AA /* Episode.m */,
 			);
@@ -269,6 +274,8 @@
 				032335D117D35637007EECCB /* UIView+JLAnimations.m */,
 				03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */,
 				03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
+				03D2209417E01EFC00E804AA /* UILabel+JLUtils.h */,
+				03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				03367D0117D345D700CFF891 /* Hippo */,
+				03D2209717E021FB00E804AA /* Resources */,
 				03367D2E17D3464800CFF891 /* Third Party */,
 				03367D1A17D345D700CFF891 /* HippoTests */,
 				03367CFA17D345D700CFF891 /* Frameworks */,
@@ -333,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				03367D0317D345D700CFF891 /* Hippo-Info.plist */,
-				03367D0417D345D700CFF891 /* InfoPlist.strings */,
 				03367D0717D345D700CFF891 /* main.m */,
 				03367D0917D345D700CFF891 /* Hippo-Prefix.pch */,
 			);
@@ -353,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				03367D1C17D345D700CFF891 /* HippoTests-Info.plist */,
-				03367D1D17D345D700CFF891 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -465,6 +471,16 @@
 			path = JLCoreData;
 			sourceTree = "<group>";
 		};
+		03D2209717E021FB00E804AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03D220A017E0248E00E804AA /* Localizable.strings */,
+				03D2209817E021FB00E804AA /* icon_daum.png */,
+				03D2209917E021FB00E804AA /* icon_naver.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -540,9 +556,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D220A117E0248E00E804AA /* Localizable.strings in Resources */,
 				03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */,
-				03367D0617D345D700CFF891 /* InfoPlist.strings in Resources */,
+				03D2209B17E021FB00E804AA /* icon_naver.png in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
+				03D2209A17E021FB00E804AA /* icon_daum.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +568,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03367D1F17D345D700CFF891 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,17 +580,18 @@
 			files = (
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				03367D5D17D3464900CFF891 /* AFImageRequestOperation.m in Sources */,
+				03D2209317E01B9200E804AA /* Webtoon.m in Sources */,
 				03367D6417D3464900CFF891 /* UIImageView+AFNetworking.m in Sources */,
 				03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */,
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
 				03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */,
 				03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
+				03D2209617E01EFC00E804AA /* UILabel+JLUtils.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
 				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
 				03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */,
-				03D2208717DEFB0C00E804AA /* Webtoon.m in Sources */,
 				032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */,
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,
@@ -621,25 +639,6 @@
 			targetProxy = 03367D1817D345D700CFF891 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		03367D0417D345D700CFF891 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03367D0517D345D700CFF891 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		03367D1D17D345D700CFF891 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03367D1E17D345D700CFF891 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		03367D2217D345D700CFF891 /* Debug */ = {

@@ -2,7 +2,7 @@
 //  Webtoon.h
 //  Hippo
 //
-//  Created by 전수열 on 13. 9. 10..
+//  Created by 전수열 on 13. 9. 11..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
@@ -28,5 +28,6 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * tue;
 @property (nonatomic, retain) NSNumber * wed;
+@property (nonatomic, retain) id artists;
 
 @end

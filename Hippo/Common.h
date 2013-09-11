@@ -18,4 +18,4 @@
 
 #define HippoSettingKeyRevision @"HippoSettingKeyRevision"
 
-static NSString *HippoWeekdays[] = {@"all", @"mon", @"tue", @"wed", @"tue", @"fri", @"sat", @"sun", @"finished"};
+static NSString *HippoWeekdays[] = {@"all", @"mon", @"tue", @"wed", @"thu", @"fri", @"sat", @"sun", @"finished"};
