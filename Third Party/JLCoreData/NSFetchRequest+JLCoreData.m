@@ -23,19 +23,22 @@
 
 - (NSFetchRequest *)orderBy:(NSString *)key
 {
-	if( ![self.entity.propertiesByName.allKeys containsObject:key] ) {
+	NSString *orderKey = nil;
+	BOOL ascending;
+	
+	if( [key hasSuffix:@"desc"] ) {
+		orderKey = [[key componentsSeparatedByString:@" "] firstObject];
+		ascending = NO;
+	} else {
+		orderKey = key;
+		ascending = YES;
+	}
+	
+	if( ![self.entity.propertiesByName.allKeys containsObject:orderKey] ) {
 		return self;
 	}
 	
-	NSSortDescriptor *sortDescriptor = nil;
-	
-	if( [key hasSuffix:@"desc"] ) {
-		sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:[[key componentsSeparatedByString:@" "] firstObject] ascending:NO];
-	} else {
-		sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:key ascending:YES];
-	}
-	
-	self.sortDescriptors = @[sortDescriptor];
+	self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:orderKey ascending:ascending]];
 	return self;
 }
 

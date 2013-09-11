@@ -15,5 +15,8 @@
 @property (nonatomic, strong) UIImageView *thumbnailView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *artistLabel;
+@property (nonatomic, strong) UIButton *subscribeButton;
+@property (nonatomic, strong) UIImageView *portalIconView;
+@property (nonatomic, strong) UILabel *weekdayLabel;
 
 @end

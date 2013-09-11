@@ -61,7 +61,7 @@
 		}
 		else
 		{
-			self.episodes = [[[[Episode request] filter:@"webtoon_id==%@", self.webtoon.id] all] mutableCopy];
+			self.episodes = [[[[[Episode request] filter:@"webtoon_id==%@", self.webtoon.id] orderBy:@"no desc"] all] mutableCopy];
 			[self.tableView reloadData];
 		}
 		
@@ -72,8 +72,12 @@
 
 - (void)loadEpisodes
 {
-	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/episodes", self.webtoon.id];
-	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil success:^(id response) {
+	self.activityView = [DejalBezelActivityView activityViewForView:self.view withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
+	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/episodes?limit=9999", self.webtoon.id];
+	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil upload:nil download:^(long long bytesLoaded, long long bytesTotal) {
+		self.activityView.activityLabel.text = [NSString stringWithFormat:@"%@...%d%%", NSLocalizedString( @"LOADING", nil ), (NSInteger)(100.0 * bytesLoaded / bytesTotal)];
+		
+	} success:^(id response) {
 		self.bookmark = [[response objectForKeyNotNull:@"bookmark"] integerValue];
 		NSArray *data = [response objectForKey:@"data"];
 		for( NSDictionary *episodeData in data )
@@ -88,7 +92,10 @@
 		[[AppDelegate appDelegate] saveContext];
 		[self.tableView reloadData];
 		
+		[DejalBezelActivityView removeView];
+		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		[DejalBezelActivityView removeView];
 		showErrorAlert();
 	}];
 }

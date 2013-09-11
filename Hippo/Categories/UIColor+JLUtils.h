@@ -1,5 +1,5 @@
 /*
- * UIColor+Utils.m
+ * UIColor+Utils.h
  *
  *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
  *                    Version 2, December 2004
@@ -17,16 +17,10 @@
  *
  */
 
-#import "UIColor+Utils.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIColor (Utils)
+@interface UIColor (JLUtils)
 
-+ (UIColor *)colorWithHex:(NSInteger)color alpha:(CGFloat)alpha
-{
-	NSInteger red = ( color >> 16 ) & 0xFF;
-	NSInteger green = ( color >> 8 ) & 0xFF;
-	NSInteger blue = color & 0xFF;
-	return [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha];
-}
++ (UIColor *)colorWithHex:(NSInteger)color alpha:(CGFloat)alpha;
 
 @end

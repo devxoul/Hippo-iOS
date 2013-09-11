@@ -6,6 +6,7 @@
   Copyright (c) 2013년 Joyfl. All rights reserved.
 */
 
+"LOADING" = "로딩중";
 "ALL" = "전체";
 "MON" = "월";
 "TUE" = "화";

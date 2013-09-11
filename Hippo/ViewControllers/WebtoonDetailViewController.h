@@ -17,5 +17,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger bookmark;
 @property (nonatomic, strong) NSMutableArray *episodes;
+@property (nonatomic, strong) DejalActivityView *activityView;
 
 @end

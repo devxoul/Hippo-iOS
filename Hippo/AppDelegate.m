@@ -45,7 +45,7 @@
 	self.window.rootViewController = tabBarController;
 	
 #warning 임시 코드
-	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:@"동기화중...0%"];
+	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
 	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
 							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
 	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
@@ -117,7 +117,7 @@
 {
 	[[APILoader sharedLoader] api:@"webtoons" method:@"GET" parameters:@{@"limit": @"100000"} upload:nil download:^(long long bytesLoaded, long long bytesTotal) {
 		NSLog( @"%lld / %lld (%d%%)", bytesLoaded, bytesTotal, (NSInteger)(100.0 * bytesLoaded / bytesTotal) );
-		self.activityView.activityLabel.text = [NSString stringWithFormat:@"동기화중...%d%%", (NSInteger)(100.0 * bytesLoaded / bytesTotal)];
+		self.activityView.activityLabel.text = [NSString stringWithFormat:@"%@...%d%%", NSLocalizedString( @"LOADING", nil ), (NSInteger)(100.0 * bytesLoaded / bytesTotal)];
 		[self.activityView layoutSubviews];
 	} success:^(id response) {
 		[Webtoon truncate];

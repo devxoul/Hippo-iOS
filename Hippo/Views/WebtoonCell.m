@@ -17,10 +17,10 @@
 	self.thumbnailView = [[UIImageView alloc] initWithFrame:CGRectMake( 0, 0, 55, 60 )];
 	[self.contentView addSubview:self.thumbnailView];
 	
-	self.titleLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 4 ) maxWidth:200];
+	self.titleLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 4 ) maxWidth:190];
 	[self.contentView addSubview:self.titleLabel];
 	
-	self.artistLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 24 ) maxWidth:200];
+	self.artistLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 24 ) maxWidth:190];
 	self.artistLabel.font = [UIFont systemFontOfSize:12];
 	self.artistLabel.textColor = [UIColor grayColor];
 	[self.contentView addSubview:self.artistLabel];
@@ -28,7 +28,7 @@
 	self.portalIconView = [[UIImageView alloc] initWithFrame:CGRectMake( 65, 41, 12, 12 )];
 	[self.contentView addSubview:self.portalIconView];
 	
-	self.weekdayLabel = [[UILabel alloc] initWithPosition:CGPointMake( 81, 41 ) maxWidth:180];
+	self.weekdayLabel = [[UILabel alloc] initWithPosition:CGPointMake( 81, 41 ) maxWidth:170];
 	self.weekdayLabel.font = [UIFont systemFontOfSize:11];
 	self.weekdayLabel.textColor = [UIColor grayColor];
 	[self.contentView addSubview:self.weekdayLabel];
