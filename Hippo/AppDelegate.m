@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WebtoonListViewController.h"
 #import "Webtoon.h"
+#import "User.h"
 #import "DejalActivityView.h"
 
 @implementation AppDelegate
@@ -50,7 +51,13 @@
 							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
 	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
 		NSLog( @"Login succeed." );
+		
+		User *user = [User insert];
+		[user safeSetValuesForKeysWithDictionary:response];
+		[self saveContext];
+		
 		[self compareRevision];
+		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		showErrorAlert();
 	}];
@@ -104,8 +111,7 @@
 		}
 		else
 		{
-			[self.myWebtoonListViewController filterWebtoons];
-			[self.allWebtoonListViewController filterWebtoons];
+			[self loadMyWebtoons];
 		}
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -126,6 +132,36 @@
 		{
 			Webtoon *webtoon = [[[Webtoon request] filter:@"id==%@", [webtoonData objectForKey:@"id"]] last];
 			if( !webtoon ) {
+				webtoon = [Webtoon insert];
+			}
+			[webtoon safeSetValuesForKeysWithDictionary:webtoonData];
+		}
+		
+		[[AppDelegate appDelegate] saveContext];
+		
+		[self loadMyWebtoons];
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		showErrorAlert();
+	}];
+}
+
+- (void)loadMyWebtoons
+{
+	for( Webtoon *webtoon in [[Webtoon request] all] )
+	{
+		webtoon.subscribed = [NSNumber numberWithBool:NO];
+	}
+	
+	User *user = [[User request] first];
+	NSString *api = [NSString stringWithFormat:@"/user/%@/webtoons", user.id];
+	[[APILoader sharedLoader] api:api method:@"GET" parameters:@{@"limit": @"100000"} success:^(id response) {
+		NSArray *data = [response objectForKey:@"data"];
+		for(NSDictionary *webtoonData in data)
+		{
+			Webtoon *webtoon = [[[Webtoon request] filter:@"id==%@", [webtoonData objectForKey:@"id"]] last];
+			if( !webtoon ) {
+				NSLog( @"WTF?? No webtoon!! : %@", webtoonData );
 				webtoon = [Webtoon insert];
 			}
 			[webtoon safeSetValuesForKeysWithDictionary:webtoonData];

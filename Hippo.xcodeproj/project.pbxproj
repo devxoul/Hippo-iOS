@@ -16,6 +16,7 @@
 		032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CD17D35637007EECCB /* UIResponder+Dim.m */; };
 		032335D717D35637007EECCB /* UITableViewCell+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CF17D35637007EECCB /* UITableViewCell+Utils.m */; };
 		032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335D117D35637007EECCB /* UIView+JLAnimations.m */; };
+		0324200517E2466A003025E3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200417E2466A003025E3 /* User.m */; };
 		03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFD17D345D700CFF891 /* CoreGraphics.framework */; };
 		03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFF17D345D700CFF891 /* UIKit.framework */; };
@@ -97,6 +98,8 @@
 		032335CF17D35637007EECCB /* UITableViewCell+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Utils.m"; sourceTree = "<group>"; };
 		032335D017D35637007EECCB /* UIView+JLAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JLAnimations.h"; sourceTree = "<group>"; };
 		032335D117D35637007EECCB /* UIView+JLAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JLAnimations.m"; sourceTree = "<group>"; };
+		0324200317E2466A003025E3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0324200417E2466A003025E3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		03367CF817D345D700CFF891 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03367CFB17D345D700CFF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03367CFD17D345D700CFF891 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -234,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */,
+				0324200317E2466A003025E3 /* User.h */,
+				0324200417E2466A003025E3 /* User.m */,
 				03D2209117E01B9200E804AA /* Webtoon.h */,
 				03D2209217E01B9200E804AA /* Webtoon.m */,
 				03D2208217DEFB0B00E804AA /* Episode.h */,
@@ -586,6 +591,7 @@
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
 				03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */,
 				03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
+				0324200517E2466A003025E3 /* User.m in Sources */,
 				03D2209617E01EFC00E804AA /* UILabel+JLUtils.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,

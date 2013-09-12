@@ -20,6 +20,13 @@
 	self.titleLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 4 ) maxWidth:190];
 	[self.contentView addSubview:self.titleLabel];
 	
+	self.countLabel = [[UILabel alloc] init];
+	self.countLabel.backgroundColor = [UIColor orangeColor];
+	self.countLabel.textColor = [UIColor whiteColor];
+	self.countLabel.font = [UIFont boldSystemFontOfSize:11];
+	self.countLabel.layer.cornerRadius = 6;
+	[self.contentView addSubview:self.countLabel];
+	
 	self.artistLabel = [[UILabel alloc] initWithPosition:CGPointMake( 65, 24 ) maxWidth:190];
 	self.artistLabel.font = [UIFont systemFontOfSize:12];
 	self.artistLabel.textColor = [UIColor grayColor];
@@ -52,6 +59,15 @@
 	self.titleLabel.text = self.webtoon.title;
 	[self.titleLabel sizeToFit];
 	
+#warning self.webtoon.new_count로 접근하면 -[CFNumber retain]: message sent to deallocated instance 에러 발생.
+	NSInteger newCount = [[self.webtoon valueForKey:@"new_count"] integerValue];
+	if( newCount )
+	{
+		self.countLabel.text = [NSString stringWithFormat:@" %d ", newCount];
+		[self.countLabel sizeToFit];
+		self.countLabel.position = CGPointMake( self.titleLabel.frame.origin.x + self.titleLabel.frame.size.width + 5, self.titleLabel.frame.origin.y + 3 );
+	}
+	
 	if( [self.webtoon.artists count] )
 	{
 		NSMutableArray *artists = [NSMutableArray array];
@@ -78,7 +94,6 @@
 				[weekdays addObject:NSLocalizedString( weekday.uppercaseString, nil )];
 			}
 		}
-		NSLog( @"weekday : %@", [weekdays componentsJoinedByString:@", "] );
 		self.weekdayLabel.text = [weekdays componentsJoinedByString:@", "];
 	}
 	[self.weekdayLabel sizeToFit];
