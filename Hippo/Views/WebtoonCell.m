@@ -41,7 +41,8 @@
 	[self.contentView addSubview:self.weekdayLabel];
 	
 	self.subscribeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	self.accessoryView = self.subscribeButton;
+	self.subscribeButton.titleLabel.textAlignment = NSTextAlignmentRight;
+	[self.subscribeButton addTarget:self action:@selector(subscribeButtonDidTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
 	
 	return self;
 }
@@ -100,6 +101,14 @@
 	
 	[self.subscribeButton setTitle:self.webtoon.subscribed.boolValue ? @"구독중" : @"구독하기" forState:UIControlStateNormal];
 	[self.subscribeButton sizeToFit];
+	self.accessoryView = nil;
+	self.accessoryView = self.subscribeButton;
+}
+
+
+- (void)subscribeButtonDidTouchUpInside
+{
+	[self.delegate webtoonCell:self subscribeButtonDidTouchUpInside:self.subscribeButton];
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WeekdaySelector.h"
+#import "WebtoonCell.h"
 
-@interface WebtoonListViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
+@interface WebtoonListViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, WebtoonCellDelegate>
 
 typedef enum {
 	HippoWebtoonListViewControllerTypeMyWebtoon,

@@ -8,7 +8,6 @@
 
 #import "WebtoonListViewController.h"
 #import "Webtoon.h"
-#import "WebtoonCell.h"
 #import "WebtoonDetailViewController.h"
 #import "DejalActivityView.h"
 
@@ -34,6 +33,12 @@
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	[self.view addSubview:self.tableView];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self filterWebtoons];
 }
 
 
@@ -87,6 +92,7 @@
 	WebtoonCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
 	if( !cell ) {
 		cell = [[WebtoonCell alloc] initWithReuseIdentifier:cellId];
+		cell.delegate = self;
 	}
 	
 	Webtoon *webtoon = [self.webtoons objectAtIndex:indexPath.row];
@@ -102,6 +108,45 @@
 	WebtoonDetailViewController *detailViewController = [[WebtoonDetailViewController alloc] init];
 	detailViewController.webtoon = [self.webtoons objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+
+#pragma mark -
+#pragma mark WebtoonCellDelegate
+
+- (void)webtoonCell:(WebtoonCell *)webtoonCell subscribeButtonDidTouchUpInside:(UIButton *)subscribeButton
+{
+	subscribeButton.showsActivityIndicatorView = YES;
+	
+	Webtoon *webtoon = webtoonCell.webtoon;
+	if( !webtoon.subscribed.boolValue )
+	{
+		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
+		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
+			subscribeButton.showsActivityIndicatorView = NO;
+			webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[webtoonCell layoutContentView];
+			
+		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+			subscribeButton.showsActivityIndicatorView = NO;
+			webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[webtoonCell layoutContentView];
+		}];
+	}
+	else
+	{
+		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
+		[[APILoader sharedLoader] api:api method:@"DELETE" parameters:nil success:^(id response) {
+			subscribeButton.showsActivityIndicatorView = NO;
+			webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[webtoonCell layoutContentView];
+			
+		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+			subscribeButton.showsActivityIndicatorView = NO;
+			webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[webtoonCell layoutContentView];
+		}];
+	}
 }
 
 @end

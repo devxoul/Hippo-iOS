@@ -17,7 +17,7 @@
 	UIActivityIndicatorView *activityIndicatorView = objc_getAssociatedObject( self, "_activityIndicatorView" );
 	if( !activityIndicatorView )
 	{
-		activityIndicatorView = [[UIActivityIndicatorView alloc] init];
+		activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 		activityIndicatorView.center = CGPointMake( self.frame.size.width / 2, self.frame.size.height / 2 );
 		[self addSubview:activityIndicatorView];
 		objc_setAssociatedObject( self, "_activityIndicatorView", activityIndicatorView, OBJC_ASSOCIATION_RETAIN_NONATOMIC );
