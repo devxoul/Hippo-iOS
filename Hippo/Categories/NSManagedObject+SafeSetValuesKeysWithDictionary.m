@@ -20,7 +20,7 @@
     NSDictionary *attributes = [[self entity] attributesByName];
     for (NSString *attribute in attributes) {
         id value = [keyedValues objectForKey:attribute];
-        if (value == nil) {
+        if (value == nil || [value isEqual:[NSNull null]]) {
             continue;
         }
         NSAttributeType attributeType = [[attributes objectForKey:attribute] attributeType];

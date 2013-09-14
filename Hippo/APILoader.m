@@ -29,6 +29,7 @@
 	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:API_ROOT_URL]];
 	[_client setDefaultHeader:@"Accept" value:@"application/json; version=1.0;"];
 	[_client setDefaultHeader:@"Content-Type" value:@"application/json"];
+	[_client setDefaultHeader:@"User-Agent" value:[NSString stringWithFormat:@"Hippo iOS %@", VERSION]];
 	[_client registerHTTPOperationClass:[AFJSONRequestOperation class]];
 	
 	return self;
@@ -41,7 +42,7 @@
 	 method:(NSString *)method
  parameters:(NSDictionary *)parameters
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	return [self api:api method:method parameters:parameters upload:nil download:nil success:success failure:failure];
 }
@@ -52,7 +53,7 @@
 	 upload:(void (^)(long long bytesLoaded, long long bytesTotal))upload
    download:(void (^)(long long bytesLoaded, long long bytesTotal))download
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	NSURLRequest *request = [_client requestWithMethod:method path:[NSString stringWithFormat:@"/api/%@", api] parameters:parameters];
 	
@@ -63,11 +64,11 @@
 		NSLog( @"URL(%@) : %@", method, operation.request.URL );
 		NSLog( @"statusCode : %d", operation.response.statusCode );
 		NSLog( @"errorCode : %d", errorCode );
-		NSLog( @"message : %@", [errorInfo objectForKey:@"message"] );
+		NSLog( @"description : %@", [errorInfo objectForKey:@"description"] );
 		if( operation.response.statusCode == 500 )
 			NSLog( @"response : %@", operation.responseString );
 		if( failure )
-			failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"message"] );
+			failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"description"] );
 	}];
 }
 
@@ -81,7 +82,7 @@
    fileName:(NSString *)fileName
  parameters:(NSDictionary *)parameters
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	return [self api:api method:method image:image forName:name fileName:fileName parameters:parameters upload:nil download:nil success:success failure:failure];
 }
@@ -95,7 +96,7 @@
 	 upload:(void (^)(long long bytesLoaded, long long bytesTotal))upload
    download:(void (^)(long long bytesLoaded, long long bytesTotal))download
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	if( !image )
 	{
@@ -111,7 +112,7 @@
 		NSInteger errorCode = [[errorInfo objectForKey:@"code"] integerValue];
 		
 		NSLog( @"URL(%@) : %@", method, operation.request.URL );
-		failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"message"] );
+		failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"description"] );
 	}];
 }
 
@@ -125,7 +126,7 @@
   fileNames:(NSArray *)fileNames
  parameters:(NSDictionary *)parameters
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	return [self api:api method:method images:images forNames:names fileNames:fileNames parameters:parameters upload:nil download:nil success:success failure:failure];
 }
@@ -139,7 +140,7 @@
 	 upload:(void (^)(long long bytesLoaded, long long bytesTotal))upload
    download:(void (^)(long long bytesLoaded, long long bytesTotal))download
 	success:(void (^)(id response))success
-	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *message))failure
+	failure:(void (^)(NSInteger statusCode, NSInteger errorCode, NSString *description))failure
 {
 	if( !images || images.count == 0 )
 	{
@@ -168,7 +169,7 @@
 		NSInteger errorCode = [[errorInfo objectForKey:@"code"] integerValue];
 		
 		NSLog( @"URL(%@) : %@", method, operation.request.URL );
-		failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"message"] );
+		failure( operation.response.statusCode, errorCode, [errorInfo objectForKey:@"description"] );
 		if( operation.response.statusCode >= 500 )
 		{
 			NSLog( @"response : %@", operation.responseString );
@@ -197,7 +198,7 @@
 			// 요청 시간 초과
 			if( error.code == -1001 )
 			{
-				[[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"OOPS", nil ) message:NSLocalizedString( @"MESSAGE_REQUEST_TIMEOUT", nil ) cancelButtonTitle:NSLocalizedString( @"RETRY", nil ) otherButtonTitles:nil dismissBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
+				[[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"OOPS", nil ) message:NSLocalizedString( @"description_REQUEST_TIMEOUT", nil ) cancelButtonTitle:NSLocalizedString( @"RETRY", nil ) otherButtonTitles:nil dismissBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
 					
 					[self sendRequest:request upload:upload download:download success:success failure:failure];
 					
@@ -208,7 +209,7 @@
 			// 인터넷 연결 오프라인
 			else if( error.code == -1009 )
 			{
-				[[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"OOPS", nil ) message:NSLocalizedString( @"MESSAGE_INTERNET_OFFLINE", nil ) cancelButtonTitle:NSLocalizedString( @"RETRY", nil ) otherButtonTitles:nil dismissBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
+				[[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"OOPS", nil ) message:NSLocalizedString( @"description_INTERNET_OFFLINE", nil ) cancelButtonTitle:NSLocalizedString( @"RETRY", nil ) otherButtonTitles:nil dismissBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
 					
 					dispatch_async(dispatch_get_main_queue(), ^{
 						[self sendRequest:request upload:upload download:download success:success failure:failure];

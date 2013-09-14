@@ -324,9 +324,9 @@
 		03367D0117D345D700CFF891 /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
+				03367D6C17D3466D00CFF891 /* Common.h */,
 				03367D0A17D345D700CFF891 /* AppDelegate.h */,
 				03367D0B17D345D700CFF891 /* AppDelegate.m */,
-				03367D6C17D3466D00CFF891 /* Common.h */,
 				03367D6D17D3466D00CFF891 /* Utils.h */,
 				03367D6E17D3466D00CFF891 /* Utils.m */,
 				0383BE9C17D349AE00E89D7A /* APILoader.h */,

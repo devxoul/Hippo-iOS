@@ -45,22 +45,7 @@
 	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
 	self.window.rootViewController = tabBarController;
 	
-#warning 임시 코드
-	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
-	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
-							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
-	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
-		NSLog( @"Login succeed." );
-		
-		User *user = [User insert];
-		[user safeSetValuesForKeysWithDictionary:response];
-		[self saveContext];
-		
-		[self compareRevision];
-		
-	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-		showErrorAlert();
-	}];
+	[self login];
 	
     return YES;
 }
@@ -95,6 +80,29 @@
 
 #pragma mark -
 #pragma mark APILoader
+
+- (void)login
+{
+	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
+//	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
+//							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
+	
+	NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+	NSLog( @"UUID : %@", uuid );
+	NSDictionary *params = @{@"device_uuid": uuid, @"device_os": @"iOS"};
+	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
+		NSLog( @"Login succeed : %@", response );
+		
+		User *user = [User insert];
+		[user safeSetValuesForKeysWithDictionary:response];
+		[self saveContext];
+		
+		[self compareRevision];
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		showErrorAlert();
+	}];
+}
 
 - (void)compareRevision
 {
