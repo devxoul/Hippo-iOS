@@ -116,19 +116,22 @@
 
 - (void)webtoonCell:(WebtoonCell *)webtoonCell subscribeButtonDidTouchUpInside:(UIButton *)subscribeButton
 {
-	subscribeButton.showsActivityIndicatorView = YES;
+//	subscribeButton.showsActivityIndicatorView = YES;
+	subscribeButton.enabled = NO;
 	
 	Webtoon *webtoon = webtoonCell.webtoon;
 	if( !webtoon.subscribed.boolValue )
 	{
 		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
 		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
-			subscribeButton.showsActivityIndicatorView = NO;
+//			subscribeButton.showsActivityIndicatorView = NO;
+			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:YES];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-			subscribeButton.showsActivityIndicatorView = NO;
+//			subscribeButton.showsActivityIndicatorView = NO;
+			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:NO];
 			[webtoonCell layoutContentView];
 		}];
@@ -137,12 +140,14 @@
 	{
 		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
 		[[APILoader sharedLoader] api:api method:@"DELETE" parameters:nil success:^(id response) {
-			subscribeButton.showsActivityIndicatorView = NO;
+//			subscribeButton.showsActivityIndicatorView = NO;
+			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:NO];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-			subscribeButton.showsActivityIndicatorView = NO;
+//			subscribeButton.showsActivityIndicatorView = NO;
+			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:YES];
 			[webtoonCell layoutContentView];
 		}];

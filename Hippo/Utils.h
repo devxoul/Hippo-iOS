@@ -13,6 +13,8 @@
 
 #define IPHONE5	(BOOL)( UIScreenHeight == 568.0 )
 
+#define L(key) NSLocalizedString(key, nil)
+
 @interface Utils : NSObject
 
 + (id)parseJSONString:(NSString *)jsonString;

@@ -99,9 +99,9 @@
 	}
 	[self.weekdayLabel sizeToFit];
 	
-	[self.subscribeButton setTitle:self.webtoon.subscribed.boolValue ? @"구독중" : @"구독하기" forState:UIControlStateNormal];
-	[self.subscribeButton sizeToFit];
 	self.accessoryView = nil;
+	[self.subscribeButton setTitle:self.webtoon.subscribed.boolValue ? L( @"UNSUBSCRIBE" ) : L( @"SUBSCRIBE" ) forState:UIControlStateNormal];
+	[self.subscribeButton sizeToFit];
 	self.accessoryView = self.subscribeButton;
 }
 

@@ -16,3 +16,6 @@
 "SAT" = "토";
 "SUN" = "일";
 "FINISHED" = "완결";
+
+"SUBSCRIBE" = "구독하기";
+"UNSUBSCRIBE" = "구독취소";

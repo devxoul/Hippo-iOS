@@ -20,8 +20,9 @@
 	
 	self.navigationItem.title = self.webtoon.title;
 	
-	UIBarButtonItem *subscribeButton = [[UIBarButtonItem alloc] initWithTitle:self.webtoon.subscribed.boolValue ? @"구독중" : @"구독하기" style:UIBarButtonItemStylePlain target:self action:@selector(subscribeButtonDidTouchUpInside)];
+	UIBarButtonItem *subscribeButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(subscribeButtonDidTouchUpInside)];
 	self.navigationItem.rightBarButtonItem = subscribeButton;
+	[self updateNaviagtionItem];
 	
 	self.detailView = [[WebtoonDetailView alloc] init];
 	self.detailView.webtoon = self.webtoon;
@@ -38,9 +39,45 @@
 	[self compareRevision];
 }
 
+- (void)updateNaviagtionItem
+{
+	UIBarButtonItem *subscribeButton = self.navigationItem.rightBarButtonItem;
+	subscribeButton.title = self.webtoon.subscribed.boolValue ? L( @"UNSUBSCRIBE" ) : L( @"SUBSCRIBE" );
+}
+
 - (void)subscribeButtonDidTouchUpInside
 {
+	UIBarButtonItem *subscribeButton = self.navigationItem.rightBarButtonItem;
+	subscribeButton.enabled = NO;
 	
+	if( !self.webtoon.subscribed.boolValue )
+	{
+		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", self.webtoon.id];
+		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
+			subscribeButton.enabled = YES;
+			self.webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[self updateNaviagtionItem];
+			
+		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+			subscribeButton.enabled = YES;
+			self.webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[self updateNaviagtionItem];
+		}];
+	}
+	else
+	{
+		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", self.webtoon.id];
+		[[APILoader sharedLoader] api:api method:@"DELETE" parameters:nil success:^(id response) {
+			subscribeButton.enabled = YES;
+			self.webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[self updateNaviagtionItem];
+			
+		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+			subscribeButton.enabled = YES;
+			self.webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[self updateNaviagtionItem];
+		}];
+	}
 }
 
 
