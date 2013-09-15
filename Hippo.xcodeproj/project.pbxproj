@@ -52,6 +52,8 @@
 		03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB717DA4B550038D895 /* EpisodeCell.m */; };
 		03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBA17DA894B0038D895 /* SettingsViewController.m */; };
 		03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBE17DA8D5A0038D895 /* DejalActivityView.m */; };
+		03702CD417E51EDE00E5E345 /* WebtoonViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */; };
+		03702CD917E5363B00E5E345 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CD817E5363B00E5E345 /* SSKeychain.m */; };
 		0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383BE9D17D349AE00E89D7A /* APILoader.m */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */; };
@@ -164,6 +166,10 @@
 		03665BBA17DA894B0038D895 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
 		03665BBD17DA8D5A0038D895 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		03665BBE17DA8D5A0038D895 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		03702CD217E51EDE00E5E345 /* WebtoonViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonViewerViewController.h; path = ViewControllers/WebtoonViewerViewController.h; sourceTree = "<group>"; };
+		03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonViewerViewController.m; path = ViewControllers/WebtoonViewerViewController.m; sourceTree = "<group>"; };
+		03702CD717E5363B00E5E345 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		03702CD817E5363B00E5E345 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -372,6 +378,7 @@
 		03367D2E17D3464800CFF891 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				03702CD617E5363B00E5E345 /* SSKeychain */,
 				03D2208917DF07ED00E804AA /* JLCoreData */,
 				03665BBC17DA8D5A0038D895 /* DejalActivityView */,
 				03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */,
@@ -435,6 +442,8 @@
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
 				03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */,
+				03702CD217E51EDE00E5E345 /* WebtoonViewerViewController.h */,
+				03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */,
 				03665BB917DA894B0038D895 /* SettingsViewController.h */,
 				03665BBA17DA894B0038D895 /* SettingsViewController.m */,
 			);
@@ -448,6 +457,15 @@
 				03665BBE17DA8D5A0038D895 /* DejalActivityView.m */,
 			);
 			path = DejalActivityView;
+			sourceTree = "<group>";
+		};
+		03702CD617E5363B00E5E345 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				03702CD717E5363B00E5E345 /* SSKeychain.h */,
+				03702CD817E5363B00E5E345 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */ = {
@@ -598,6 +616,7 @@
 				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
 				03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */,
+				03702CD417E51EDE00E5E345 /* WebtoonViewerViewController.m in Sources */,
 				032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */,
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,
@@ -623,6 +642,7 @@
 				03367D5C17D3464900CFF891 /* AFImageCache.m in Sources */,
 				032335D517D35637007EECCB /* UIColor+JLUtils.m in Sources */,
 				03D2208417DEFB0B00E804AA /* Episode.m in Sources */,
+				03702CD917E5363B00E5E345 /* SSKeychain.m in Sources */,
 				03367D6A17D3464900CFF891 /* UIControl+HTBlock.m in Sources */,
 				03665BAF17DA08DC0038D895 /* WebtoonDetailView.m in Sources */,
 			);

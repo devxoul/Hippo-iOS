@@ -6,6 +6,9 @@
   Copyright (c) 2013년 Joyfl. All rights reserved.
 */
 
+"MY_WEBTOONS" = "내 웹툰";
+"SEARCH" = "검색";
+
 "LOADING" = "로딩중";
 "ALL" = "전체";
 "MON" = "월";
@@ -19,3 +22,7 @@
 
 "SUBSCRIBE" = "구독하기";
 "UNSUBSCRIBE" = "구독취소";
+
+"RELOAD" = "새로고침";
+"PREV_EPISODE" = "이전화";
+"NEXT_EPISODE" = "다음화";

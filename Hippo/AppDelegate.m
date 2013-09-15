@@ -11,6 +11,7 @@
 #import "Webtoon.h"
 #import "User.h"
 #import "DejalActivityView.h"
+#import "SSKeychain.h"
 
 @implementation AppDelegate
 
@@ -36,14 +37,16 @@
 	self.allWebtoonListViewController.type = HippoWebtoonListViewControllerTypeAllWebtoon;
 	
 	UINavigationController *myWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.myWebtoonListViewController];
-	myWebtoonListNavigationController.title = @"내 웹툰";
+	myWebtoonListNavigationController.tabBarItem.title = L(@"MY_WEBTOONS");
 	
 	UINavigationController *allWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.allWebtoonListViewController];
-	allWebtoonListNavigationController.title = @"검색";
+	allWebtoonListNavigationController.tabBarItem.title = L(@"SEARCH");
 	
 	UITabBarController *tabBarController = [[UITabBarController alloc] init];
 	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
-	self.window.rootViewController = tabBarController;
+	
+	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+	self.window.rootViewController = rootNavigationController;
 	
 	[self login];
 	
@@ -84,12 +87,32 @@
 - (void)login
 {
 	self.activityView = [DejalBezelActivityView activityViewForView:self.window withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
-//	NSDictionary *params = @{@"email": @"ceo@joyfl.net",
-//							 @"password": @"8479b164f1c6bcdb8b92787b1e25feca1ac64cef"};
 	
-	NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-	NSLog( @"UUID : %@", uuid );
-	NSDictionary *params = @{@"device_uuid": uuid, @"device_os": @"iOS"};
+	NSDictionary *params = nil;
+	NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:HippoSettingKeyEmail];
+	if( email )
+	{
+		NSString *password = [SSKeychain passwordForService:HIPPO account:email];
+		if( !password ) {
+			NSLog( @"No password saved." );
+			return;
+		}
+		
+		params = @{@"email": email, @"password": password};
+	}
+	else
+	{
+		NSString *uuid = [SSKeychain passwordForService:HIPPO account:@"UUID"];
+		if( !uuid ) {
+			uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+			[SSKeychain setPassword:uuid forService:HIPPO account:@"UUID"];
+		}
+		
+		params = @{@"device_uuid": uuid, @"device_os": @"iOS"};
+	}
+	
+	NSLog( @"Login params : %@", params );
+	
 	[[APILoader sharedLoader] api:@"login" method:@"POST" parameters:params success:^(id response) {
 		NSLog( @"Login succeed : %@", response );
 		

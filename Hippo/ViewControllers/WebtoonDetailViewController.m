@@ -9,6 +9,7 @@
 #import "WebtoonDetailViewController.h"
 #import "Episode.h"
 #import "EpisodeCell.h"
+#import "WebtoonViewerViewController.h"
 
 @implementation WebtoonDetailViewController
 
@@ -29,7 +30,7 @@
 	self.detailView.frame = CGRectMake( 0, 64, UIScreenWidth, self.detailView.frame.size.height );
 	[self.view addSubview:self.detailView];
 	
-	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + self.detailView.frame.size.height, UIScreenWidth, UIScreenHeight - 112 - self.detailView.frame.size.height)];
+	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 + self.detailView.frame.size.height, UIScreenWidth, UIScreenHeight - self.detailView.frame.size.height - 64)];
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	[self.view addSubview:self.tableView];
@@ -166,6 +167,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+	
+	WebtoonViewerViewController *viewer = [[WebtoonViewerViewController alloc] init];
+	viewer.episode = [self.episodes objectAtIndex:indexPath.row];
+	if( indexPath.row > 0 ) {
+		viewer.prevEpisode = [self.episodes objectAtIndex:indexPath.row - 1];
+	}
+	if( indexPath.row < self.episodes.count - 1 ) {
+		viewer.nextEpisode = [self.episodes objectAtIndex:indexPath.row + 1];
+	}
+	[self.navigationController pushViewController:viewer animated:YES];
 }
 
 @end
