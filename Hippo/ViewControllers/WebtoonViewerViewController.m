@@ -25,7 +25,10 @@
 	
 	UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload)];
 	UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithTitle:L(@"PREV_EPISODE") style:UIBarButtonItemStylePlain target:self action:@selector(loadPrevEpisode)];
+	prevButton.enabled = !!_prevEpisode;
+	
 	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:L(@"NEXT_EPISODE") style:UIBarButtonItemStylePlain target:self action:@selector(loadNextEpisode)];
+	nextButton.enabled = !!_nextEpisode;
 	
 	self.toolbarItems = @[reloadButton,
 						  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -55,14 +58,14 @@
 - (void)loadPrevEpisode
 {
 	NSInteger currentIndex = [self.episodes indexOfObject:self.episode];
-	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex - 1 webtoon:self.webtoon];
+	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex + 1 webtoon:self.webtoon];
 	[self reload];
 }
 
 - (void)loadNextEpisode
 {
 	NSInteger currentIndex = [self.episodes indexOfObject:self.episode];
-	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex + 1 webtoon:self.webtoon];
+	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex - 1 webtoon:self.webtoon];
 	[self reload];
 }
 
@@ -77,11 +80,11 @@
 	_episode = [episodes objectAtIndex:index];
 	
 	_prevEpisode = _nextEpisode = nil;
-	if( index > 0 ) {
-		_prevEpisode = [self.episodes objectAtIndex:index - 1];
-	}
 	if( index < episodes.count - 1 ) {
-		_nextEpisode = [self.episodes objectAtIndex:index + 1];
+		_prevEpisode = [self.episodes objectAtIndex:index + 1];
+	}
+	if( index > 0 ) {
+		_nextEpisode = [self.episodes objectAtIndex:index - 1];
 	}
 	
 	[[self.toolbarItems objectAtIndex:2] setEnabled:!!_prevEpisode];
