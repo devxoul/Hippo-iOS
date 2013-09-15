@@ -18,6 +18,14 @@
 	self.webView.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.webView];
 	
+	UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(webViewDidSwipe)];
+	swipeRecognizer.delegate = self;
+	swipeRecognizer.direction = UISwipeGestureRecognizerDirectionUp | UISwipeGestureRecognizerDirectionDown;
+	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(webViewDidTap)];
+	tapRecognizer.delegate = self;
+	[self.webView addGestureRecognizer:swipeRecognizer];
+	[self.webView addGestureRecognizer:tapRecognizer];
+	
 	self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	self.activityIndicatorView.center = CGPointMake( UIScreenWidth / 2, UIScreenHeight / 2 );
 	self.activityIndicatorView.hidesWhenStopped = YES;
@@ -164,7 +172,7 @@
 	CGFloat velocity = (scrollView.contentOffset.y - _lastOffsetY) / timedelta;
 //	NSLog( @"velocity : %f", velocity );
 	
-	if( scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < scrollView.contentSize.height )
+	if( scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= scrollView.contentSize.height )
 	{
 		// 아래로 스크롤
 		if( _lastOffsetY < scrollView.contentOffset.y )
@@ -172,8 +180,8 @@
 			self.barsHidden = YES;
 		}
 		
-		// 위로 스크롤할 경우에는 순간속력이 특정 값을 초과할 경우에만
-		else if( velocity < -2000 )
+		// 위로 스크롤할 경우에는 순간속력이 특정 값을 초과할 경우에만 || 맨 아래로 스크롤했을 경우
+		else if( velocity < -1500 || scrollView.contentOffset.y + scrollView.bounds.size.height - 44 == scrollView.contentSize.height )
 		{
 			self.barsHidden = NO;
 		}
@@ -181,6 +189,34 @@
 	
 	_lastOffsetY = scrollView.contentOffset.y;
 	_lastTime = [NSDate date];
+}
+
+
+#pragma mark -
+#pragma mark UIGestureRecognizer
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+	return YES;
+}
+
+- (void)webViewDidSwipe
+{
+//	NSLog( @"Swipe" );
+//	NSLog( @"self.webView.scrollView.contentSize.height : %f", self.webView.scrollView.contentSize.height );
+//	NSLog( @"self.webView.bounds.size.height : %f", self.webView.bounds.size.height );
+//	NSLog( @"self.webView.scrollView.bounds.size.height : %f", self.webView.scrollView.bounds.size.height );
+	
+	// 스마트툰
+	if( self.webView.scrollView.contentSize.height - 10 == self.webView.bounds.size.height )
+	{
+		self.barsHidden = NO;
+	}
+}
+
+- (void)webViewDidTap
+{
+	self.barsHidden = YES;
 }
 
 @end

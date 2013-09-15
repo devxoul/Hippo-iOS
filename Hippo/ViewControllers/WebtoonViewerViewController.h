@@ -10,7 +10,7 @@
 #import "Webtoon.h"
 #import "Episode.h"
 
-@interface WebtoonViewerViewController : GAITrackedViewController <UIWebViewDelegate, UIScrollViewDelegate>
+@interface WebtoonViewerViewController : GAITrackedViewController <UIWebViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
 	CGFloat _lastOffsetY;
 	NSDate *_lastTime;
