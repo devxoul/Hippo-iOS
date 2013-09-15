@@ -19,9 +19,9 @@
 	[super viewDidLoad];
 	
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-		self.navigationItem.title = @"내 웹툰";
+		self.tabBarController.navigationItem.title = L(@"MY_WEBTOONS");
 	} else {
-		self.navigationItem.title = @"검색";
+		self.tabBarController.navigationItem.title = L(@"SEARCH");
 	}
 	
 	self.weekdaySelector = [[WeekdaySelector alloc] init];
@@ -38,7 +38,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[self filterWebtoons];
+	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+		[self filterWebtoons];
+	}
 }
 
 
@@ -107,7 +109,7 @@
 	
 	WebtoonDetailViewController *detailViewController = [[WebtoonDetailViewController alloc] init];
 	detailViewController.webtoon = [self.webtoons objectAtIndex:indexPath.row];
-	[self.navigationController pushViewController:detailViewController animated:YES];
+	[self.tabBarController.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
@@ -116,7 +118,6 @@
 
 - (void)webtoonCell:(WebtoonCell *)webtoonCell subscribeButtonDidTouchUpInside:(UIButton *)subscribeButton
 {
-//	subscribeButton.showsActivityIndicatorView = YES;
 	subscribeButton.enabled = NO;
 	
 	Webtoon *webtoon = webtoonCell.webtoon;
@@ -124,13 +125,12 @@
 	{
 		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
 		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
-//			subscribeButton.showsActivityIndicatorView = NO;
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[[AppDelegate appDelegate] saveContext];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-//			subscribeButton.showsActivityIndicatorView = NO;
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:NO];
 			[webtoonCell layoutContentView];
@@ -140,13 +140,12 @@
 	{
 		NSString *api = [NSString stringWithFormat:@"/webtoon/%@/subscribe", webtoon.id];
 		[[APILoader sharedLoader] api:api method:@"DELETE" parameters:nil success:^(id response) {
-//			subscribeButton.showsActivityIndicatorView = NO;
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[[AppDelegate appDelegate] saveContext];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-//			subscribeButton.showsActivityIndicatorView = NO;
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:YES];
 			[webtoonCell layoutContentView];

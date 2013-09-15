@@ -13,10 +13,12 @@
 
 @dynamic date;
 @dynamic id;
+@dynamic mobile_url;
 @dynamic no;
 @dynamic read;
 @dynamic thumbnail_url;
 @dynamic title;
+@dynamic url;
 @dynamic webtoon_id;
 
 @end

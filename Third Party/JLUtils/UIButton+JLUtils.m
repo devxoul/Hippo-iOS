@@ -1,16 +1,20 @@
 //
-//  UIButton+ActivityIndicator.m
+//  UIButton+JLUtils.m
 //  Dish by.me
 //
 //  Created by 전수열 on 13. 3. 22..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
-#import "UIButton+ActivityIndicatorView.h"
+#import "UIButton+JLUtils.h"
 #import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 
-@implementation UIButton (ActivityIndicatorView)
+@implementation UIButton (JLUtils)
+
+
+#pragma mark -
+#pragma mark activityIndicatorView
 
 - (UIActivityIndicatorView *)activityIndicatorView
 {
@@ -86,6 +90,31 @@
 	{
 		self.imageEdgeInsets = [objc_getAssociatedObject( self, "_originalImageEdgeInsets" ) UIEdgeInsetsValue];
 	}
+}
+
+
+#pragma mark -
+#pragma mark touchAreaInsets
+
+- (UIEdgeInsets)touchAreaInsets
+{
+	return [objc_getAssociatedObject( self, "_touchAreaInsets" ) UIEdgeInsetsValue];
+}
+
+- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets
+{
+	objc_setAssociatedObject( self, "_touchAreaInsets", [NSValue valueWithUIEdgeInsets:touchAreaInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC );
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+	UIEdgeInsets touchAreaInsets = self.touchAreaInsets;
+	CGRect bounds = self.bounds;
+	bounds = CGRectMake( bounds.origin.x - touchAreaInsets.left,
+						bounds.origin.y - touchAreaInsets.top,
+						bounds.size.width + touchAreaInsets.left + touchAreaInsets.right,
+						bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom );
+	return CGRectContainsPoint( bounds, point );
 }
 
 @end

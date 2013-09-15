@@ -1,5 +1,5 @@
 //
-//  NSDictionary+Utils.h
+//  NSDictionary+JLUtils.h
 //  Dish by.me
 //
 //  Created by 전수열 on 13. 4. 25..
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Utils)
+@interface NSDictionary (JLUtils)
 
 - (id)objectForKeyNotNull:(id)key;
 

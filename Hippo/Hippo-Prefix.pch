@@ -17,12 +17,9 @@
 
 #import "Common.h"
 #import "Utils.h"
+#import "JLUtils.h"
 #import "HTBlock.h"
 #import "APILoader.h"
-#import "NSDictionary+Utils.h"
-#import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
 #import "GAI.h"
 #import "AppDelegate.h"
 #import "JLCoreData.h"
-#import "UILabel+JLUtils.h"
-#import "UIColor+JLUtils.h"

@@ -9,13 +9,6 @@
 /* Begin PBXBuildFile section */
 		032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335B817D350B3007EECCB /* WeekdaySelector.m */; };
 		032335BF17D35310007EECCB /* WebtoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335BE17D35310007EECCB /* WebtoonCell.m */; };
-		032335D217D35637007EECCB /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C517D35637007EECCB /* NSDictionary+Utils.m */; };
-		032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */; };
-		032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */; };
-		032335D517D35637007EECCB /* UIColor+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CB17D35637007EECCB /* UIColor+JLUtils.m */; };
-		032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CD17D35637007EECCB /* UIResponder+Dim.m */; };
-		032335D717D35637007EECCB /* UITableViewCell+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335CF17D35637007EECCB /* UITableViewCell+Utils.m */; };
-		032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335D117D35637007EECCB /* UIView+JLAnimations.m */; };
 		0324200517E2466A003025E3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200417E2466A003025E3 /* User.m */; };
 		03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFD17D345D700CFF891 /* CoreGraphics.framework */; };
@@ -52,18 +45,25 @@
 		03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BB717DA4B550038D895 /* EpisodeCell.m */; };
 		03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBA17DA894B0038D895 /* SettingsViewController.m */; };
 		03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03665BBE17DA8D5A0038D895 /* DejalActivityView.m */; };
+		03702CD417E51EDE00E5E345 /* WebtoonViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */; };
+		03702CD917E5363B00E5E345 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CD817E5363B00E5E345 /* SSKeychain.m */; };
+		03702CF217E53CF000E5E345 /* NSDictionary+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CE517E53CF000E5E345 /* NSDictionary+JLUtils.m */; };
+		03702CF317E53CF000E5E345 /* UIButton+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CE717E53CF000E5E345 /* UIButton+JLUtils.m */; };
+		03702CF517E53CF000E5E345 /* UIColor+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CEB17E53CF000E5E345 /* UIColor+JLUtils.m */; };
+		03702CF617E53CF000E5E345 /* UIImage+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CED17E53CF000E5E345 /* UIImage+JLUtils.m */; };
+		03702CF717E53CF000E5E345 /* UILabel+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CEF17E53CF000E5E345 /* UILabel+JLUtils.m */; };
+		03702CF817E53CF000E5E345 /* UIView+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03702CF117E53CF000E5E345 /* UIView+JLUtils.m */; };
+		03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */; };
 		0383BE9E17D349AE00E89D7A /* APILoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383BE9D17D349AE00E89D7A /* APILoader.m */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746B617D9E9A90099A2A5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */; };
 		03A746B817D9E9A90099A2A5 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
-		03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
 		03D2208417DEFB0B00E804AA /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208317DEFB0B00E804AA /* Episode.m */; };
 		03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208B17DF080500E804AA /* NSFetchRequest+JLCoreData.m */; };
 		03D2209017DF083900E804AA /* NSManagedObject+JLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */; };
 		03D2209317E01B9200E804AA /* Webtoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2209217E01B9200E804AA /* Webtoon.m */; };
-		03D2209617E01EFC00E804AA /* UILabel+JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */; };
 		03D2209A17E021FB00E804AA /* icon_daum.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209817E021FB00E804AA /* icon_daum.png */; };
 		03D2209B17E021FB00E804AA /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209917E021FB00E804AA /* icon_naver.png */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
@@ -84,20 +84,6 @@
 		032335B817D350B3007EECCB /* WeekdaySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekdaySelector.m; path = Controls/WeekdaySelector.m; sourceTree = "<group>"; };
 		032335BD17D35310007EECCB /* WebtoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonCell.h; sourceTree = "<group>"; };
 		032335BE17D35310007EECCB /* WebtoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebtoonCell.m; sourceTree = "<group>"; };
-		032335C417D35637007EECCB /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utils.h"; sourceTree = "<group>"; };
-		032335C517D35637007EECCB /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utils.m"; sourceTree = "<group>"; };
-		032335C617D35637007EECCB /* UIButton+ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActivityIndicatorView.h"; sourceTree = "<group>"; };
-		032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ActivityIndicatorView.m"; sourceTree = "<group>"; };
-		032335C817D35637007EECCB /* UIButton+TouchAreaInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TouchAreaInsets.h"; sourceTree = "<group>"; };
-		032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TouchAreaInsets.m"; sourceTree = "<group>"; };
-		032335CA17D35637007EECCB /* UIColor+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JLUtils.h"; sourceTree = "<group>"; };
-		032335CB17D35637007EECCB /* UIColor+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JLUtils.m"; sourceTree = "<group>"; };
-		032335CC17D35637007EECCB /* UIResponder+Dim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Dim.h"; sourceTree = "<group>"; };
-		032335CD17D35637007EECCB /* UIResponder+Dim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Dim.m"; sourceTree = "<group>"; };
-		032335CE17D35637007EECCB /* UITableViewCell+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Utils.h"; sourceTree = "<group>"; };
-		032335CF17D35637007EECCB /* UITableViewCell+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Utils.m"; sourceTree = "<group>"; };
-		032335D017D35637007EECCB /* UIView+JLAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JLAnimations.h"; sourceTree = "<group>"; };
-		032335D117D35637007EECCB /* UIView+JLAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JLAnimations.m"; sourceTree = "<group>"; };
 		0324200317E2466A003025E3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		0324200417E2466A003025E3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		03367CF817D345D700CFF891 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +150,24 @@
 		03665BBA17DA894B0038D895 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
 		03665BBD17DA8D5A0038D895 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		03665BBE17DA8D5A0038D895 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		03702CD217E51EDE00E5E345 /* WebtoonViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonViewerViewController.h; path = ViewControllers/WebtoonViewerViewController.h; sourceTree = "<group>"; };
+		03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonViewerViewController.m; path = ViewControllers/WebtoonViewerViewController.m; sourceTree = "<group>"; };
+		03702CD717E5363B00E5E345 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		03702CD817E5363B00E5E345 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		03702CE317E53CF000E5E345 /* JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUtils.h; sourceTree = "<group>"; };
+		03702CE417E53CF000E5E345 /* NSDictionary+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JLUtils.h"; sourceTree = "<group>"; };
+		03702CE517E53CF000E5E345 /* NSDictionary+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JLUtils.m"; sourceTree = "<group>"; };
+		03702CE617E53CF000E5E345 /* UIButton+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JLUtils.h"; sourceTree = "<group>"; };
+		03702CE717E53CF000E5E345 /* UIButton+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JLUtils.m"; sourceTree = "<group>"; };
+		03702CEA17E53CF000E5E345 /* UIColor+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JLUtils.h"; sourceTree = "<group>"; };
+		03702CEB17E53CF000E5E345 /* UIColor+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JLUtils.m"; sourceTree = "<group>"; };
+		03702CEC17E53CF000E5E345 /* UIImage+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JLUtils.h"; sourceTree = "<group>"; };
+		03702CED17E53CF000E5E345 /* UIImage+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JLUtils.m"; sourceTree = "<group>"; };
+		03702CEE17E53CF000E5E345 /* UILabel+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JLUtils.h"; sourceTree = "<group>"; };
+		03702CEF17E53CF000E5E345 /* UILabel+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JLUtils.m"; sourceTree = "<group>"; };
+		03702CF017E53CF000E5E345 /* UIView+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JLUtils.h"; sourceTree = "<group>"; };
+		03702CF117E53CF000E5E345 /* UIView+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JLUtils.m"; sourceTree = "<group>"; };
+		03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bookmark@2x.png"; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -176,8 +180,6 @@
 		03A746B317D9E9A90099A2A5 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
 		03A746B417D9E9A90099A2A5 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		03A746B517D9E9A90099A2A5 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
-		03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
-		03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2208A17DF080500E804AA /* NSFetchRequest+JLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+JLCoreData.h"; sourceTree = "<group>"; };
@@ -187,8 +189,6 @@
 		03D2208F17DF083900E804AA /* NSManagedObject+JLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JLCoreData.m"; sourceTree = "<group>"; };
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
 		03D2209217E01B9200E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
-		03D2209417E01EFC00E804AA /* UILabel+JLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JLUtils.h"; sourceTree = "<group>"; };
-		03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JLUtils.m"; sourceTree = "<group>"; };
 		03D2209817E021FB00E804AA /* icon_daum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_daum.png; sourceTree = "<group>"; };
 		03D2209917E021FB00E804AA /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -260,31 +260,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		032335C317D35637007EECCB /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				032335C417D35637007EECCB /* NSDictionary+Utils.h */,
-				032335C517D35637007EECCB /* NSDictionary+Utils.m */,
-				032335C617D35637007EECCB /* UIButton+ActivityIndicatorView.h */,
-				032335C717D35637007EECCB /* UIButton+ActivityIndicatorView.m */,
-				032335C817D35637007EECCB /* UIButton+TouchAreaInsets.h */,
-				032335C917D35637007EECCB /* UIButton+TouchAreaInsets.m */,
-				032335CA17D35637007EECCB /* UIColor+JLUtils.h */,
-				032335CB17D35637007EECCB /* UIColor+JLUtils.m */,
-				032335CC17D35637007EECCB /* UIResponder+Dim.h */,
-				032335CD17D35637007EECCB /* UIResponder+Dim.m */,
-				032335CE17D35637007EECCB /* UITableViewCell+Utils.h */,
-				032335CF17D35637007EECCB /* UITableViewCell+Utils.m */,
-				032335D017D35637007EECCB /* UIView+JLAnimations.h */,
-				032335D117D35637007EECCB /* UIView+JLAnimations.m */,
-				03A746C117D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */,
-				03A746C217D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
-				03D2209417E01EFC00E804AA /* UILabel+JLUtils.h */,
-				03D2209517E01EFC00E804AA /* UILabel+JLUtils.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		03367CEF17D345D700CFF891 = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +311,6 @@
 				032335BB17D352FF007EECCB /* Models */,
 				03367D7317D346D000CFF891 /* ViewControllers */,
 				032335BC17D352FF007EECCB /* Views */,
-				032335C317D35637007EECCB /* Categories */,
 				03367D0217D345D700CFF891 /* Supporting Files */,
 			);
 			path = Hippo;
@@ -372,6 +346,8 @@
 		03367D2E17D3464800CFF891 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				03702CE217E53CF000E5E345 /* JLUtils */,
+				03702CD617E5363B00E5E345 /* SSKeychain */,
 				03D2208917DF07ED00E804AA /* JLCoreData */,
 				03665BBC17DA8D5A0038D895 /* DejalActivityView */,
 				03A746AD17D9E9A90099A2A5 /* FacebookSDK.framework */,
@@ -435,6 +411,8 @@
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
 				03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */,
+				03702CD217E51EDE00E5E345 /* WebtoonViewerViewController.h */,
+				03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */,
 				03665BB917DA894B0038D895 /* SettingsViewController.h */,
 				03665BBA17DA894B0038D895 /* SettingsViewController.m */,
 			);
@@ -448,6 +426,35 @@
 				03665BBE17DA8D5A0038D895 /* DejalActivityView.m */,
 			);
 			path = DejalActivityView;
+			sourceTree = "<group>";
+		};
+		03702CD617E5363B00E5E345 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				03702CD717E5363B00E5E345 /* SSKeychain.h */,
+				03702CD817E5363B00E5E345 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
+		03702CE217E53CF000E5E345 /* JLUtils */ = {
+			isa = PBXGroup;
+			children = (
+				03702CE317E53CF000E5E345 /* JLUtils.h */,
+				03702CE417E53CF000E5E345 /* NSDictionary+JLUtils.h */,
+				03702CE517E53CF000E5E345 /* NSDictionary+JLUtils.m */,
+				03702CE617E53CF000E5E345 /* UIButton+JLUtils.h */,
+				03702CE717E53CF000E5E345 /* UIButton+JLUtils.m */,
+				03702CEA17E53CF000E5E345 /* UIColor+JLUtils.h */,
+				03702CEB17E53CF000E5E345 /* UIColor+JLUtils.m */,
+				03702CEC17E53CF000E5E345 /* UIImage+JLUtils.h */,
+				03702CED17E53CF000E5E345 /* UIImage+JLUtils.m */,
+				03702CEE17E53CF000E5E345 /* UILabel+JLUtils.h */,
+				03702CEF17E53CF000E5E345 /* UILabel+JLUtils.m */,
+				03702CF017E53CF000E5E345 /* UIView+JLUtils.h */,
+				03702CF117E53CF000E5E345 /* UIView+JLUtils.m */,
+			);
+			path = JLUtils;
 			sourceTree = "<group>";
 		};
 		03A746AE17D9E9A90099A2A5 /* GoogleAnalytics */ = {
@@ -482,6 +489,7 @@
 				03D220A017E0248E00E804AA /* Localizable.strings */,
 				03D2209817E021FB00E804AA /* icon_daum.png */,
 				03D2209917E021FB00E804AA /* icon_naver.png */,
+				03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -563,6 +571,7 @@
 			files = (
 				03D220A117E0248E00E804AA /* Localizable.strings in Resources */,
 				03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */,
+				03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */,
 				03D2209B17E021FB00E804AA /* icon_naver.png in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
 				03D2209A17E021FB00E804AA /* icon_daum.png in Resources */,
@@ -586,27 +595,23 @@
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				03367D5D17D3464900CFF891 /* AFImageRequestOperation.m in Sources */,
 				03D2209317E01B9200E804AA /* Webtoon.m in Sources */,
+				03702CF317E53CF000E5E345 /* UIButton+JLUtils.m in Sources */,
 				03367D6417D3464900CFF891 /* UIImageView+AFNetworking.m in Sources */,
 				03367D5B17D3464900CFF891 /* AFHTTPRequestOperation.m in Sources */,
 				03367D6317D3464900CFF891 /* UIButton+AFNetworking.m in Sources */,
 				03D2208C17DF080600E804AA /* NSFetchRequest+JLCoreData.m in Sources */,
-				03A746C317D9F4B30099A2A5 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
+				03702CF717E53CF000E5E345 /* UILabel+JLUtils.m in Sources */,
 				0324200517E2466A003025E3 /* User.m in Sources */,
-				03D2209617E01EFC00E804AA /* UILabel+JLUtils.m in Sources */,
 				03367D6017D3464900CFF891 /* AFPropertyListRequestOperation.m in Sources */,
 				03367D6817D3464900CFF891 /* UIActionSheet+HTBlock.m in Sources */,
-				032335D317D35637007EECCB /* UIButton+ActivityIndicatorView.m in Sources */,
 				03367D0C17D345D700CFF891 /* AppDelegate.m in Sources */,
 				03665BBB17DA894B0038D895 /* SettingsViewController.m in Sources */,
-				032335D617D35637007EECCB /* UIResponder+Dim.m in Sources */,
+				03702CD417E51EDE00E5E345 /* WebtoonViewerViewController.m in Sources */,
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
+				03702CF817E53CF000E5E345 /* UIView+JLUtils.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,
-				032335D717D35637007EECCB /* UITableViewCell+Utils.m in Sources */,
-				032335D217D35637007EECCB /* NSDictionary+Utils.m in Sources */,
 				032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */,
 				032335BF17D35310007EECCB /* WebtoonCell.m in Sources */,
-				032335D417D35637007EECCB /* UIButton+TouchAreaInsets.m in Sources */,
-				032335D817D35637007EECCB /* UIView+JLAnimations.m in Sources */,
 				03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */,
 				03367D6F17D3466D00CFF891 /* Utils.m in Sources */,
 				03665BB817DA4B550038D895 /* EpisodeCell.m in Sources */,
@@ -616,14 +621,17 @@
 				03367D5E17D3464900CFF891 /* AFJSONRequestOperation.m in Sources */,
 				03367D5F17D3464900CFF891 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03367D6917D3464900CFF891 /* UIAlertView+HTBlock.m in Sources */,
+				03702CF517E53CF000E5E345 /* UIColor+JLUtils.m in Sources */,
 				03367D0817D345D700CFF891 /* main.m in Sources */,
 				03367D5A17D3464900CFF891 /* AFHTTPClient.m in Sources */,
+				03702CF617E53CF000E5E345 /* UIImage+JLUtils.m in Sources */,
 				03367D6B17D3464900CFF891 /* UIImagePickerController+HTBlock.m in Sources */,
 				03367D7217D346CA00CFF891 /* WebtoonListViewController.m in Sources */,
 				03367D5C17D3464900CFF891 /* AFImageCache.m in Sources */,
-				032335D517D35637007EECCB /* UIColor+JLUtils.m in Sources */,
 				03D2208417DEFB0B00E804AA /* Episode.m in Sources */,
+				03702CD917E5363B00E5E345 /* SSKeychain.m in Sources */,
 				03367D6A17D3464900CFF891 /* UIControl+HTBlock.m in Sources */,
+				03702CF217E53CF000E5E345 /* NSDictionary+JLUtils.m in Sources */,
 				03665BAF17DA08DC0038D895 /* WebtoonDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
-#import "UIView+JLAnimations.h"
+#import "UIView+JLUtils.h"
 
-@implementation UIView (JLAnimations)
+@implementation UIView (JLUtils)
 
 //- (void)shakeCount:(NSInteger)count radius:(CGFloat)radius duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay completion:(void(^)(void))completion
 //{

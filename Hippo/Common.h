@@ -6,6 +6,8 @@
 //  Copyright (c) 2012년 Joyfl. All rights reserved.
 //
 
+#define HIPPO @"Hippo"
+
 #define VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define BUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 #define LANGUAGE [[NSLocale preferredLanguages] objectAtIndex:0]
@@ -16,6 +18,7 @@
 #define showErrorAlert() [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Status Code : %d\nError Code : %d\nMessage : %@", statusCode, errorCode, message] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 #define alert( title, msg ) [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 
+#define HippoSettingKeyEmail		@"HippoSettingKeyEmail"
 #define HippoSettingKeyRevision		@"HippoSettingKeyRevision"
 
 static NSString *HippoWeekdays[] = {@"all", @"mon", @"tue", @"wed", @"thu", @"fri", @"sat", @"sun", @"finished"};
