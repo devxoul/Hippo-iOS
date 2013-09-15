@@ -24,8 +24,8 @@
 	[self.view addSubview:self.activityIndicatorView];
 	
 	UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload)];
-	UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithTitle:L(@"PREV_EPISODE") style:UIBarButtonItemStylePlain target:nil action:nil];
-	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:L(@"NEXT_EPISODE") style:UIBarButtonItemStylePlain target:nil action:nil];
+	UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithTitle:L(@"PREV_EPISODE") style:UIBarButtonItemStylePlain target:self action:@selector(loadPrevEpisode)];
+	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:L(@"NEXT_EPISODE") style:UIBarButtonItemStylePlain target:self action:@selector(loadNextEpisode)];
 	
 	self.toolbarItems = @[reloadButton,
 						  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -43,6 +43,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+	self.barsHidden = NO;
 	[self.navigationController setToolbarHidden:YES animated:YES];
 }
 
@@ -51,13 +52,40 @@
 	[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.episode.mobile_url]]];
 }
 
+- (void)loadPrevEpisode
+{
+	NSInteger currentIndex = [self.episodes indexOfObject:self.episode];
+	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex - 1 webtoon:self.webtoon];
+	[self reload];
+}
+
+- (void)loadNextEpisode
+{
+	NSInteger currentIndex = [self.episodes indexOfObject:self.episode];
+	[self setEpisodes:self.episodes currentEpisodeIndex:currentIndex + 1 webtoon:self.webtoon];
+	[self reload];
+}
+
 
 #pragma mark -
 #pragma mark Getter/Setter
 
-- (void)setEpisode:(Episode *)episode
+- (void)setEpisodes:(NSArray *)episodes currentEpisodeIndex:(NSInteger)index webtoon:(Webtoon *)webtoon
 {
-	_episode = episode;
+	_webtoon = webtoon;
+	_episodes = episodes;
+	_episode = [episodes objectAtIndex:index];
+	
+	_prevEpisode = _nextEpisode = nil;
+	if( index > 0 ) {
+		_prevEpisode = [self.episodes objectAtIndex:index - 1];
+	}
+	if( index < episodes.count - 1 ) {
+		_nextEpisode = [self.episodes objectAtIndex:index + 1];
+	}
+	
+	[[self.toolbarItems objectAtIndex:2] setEnabled:!!_prevEpisode];
+	[[self.toolbarItems objectAtIndex:3] setEnabled:!!_nextEpisode];
 }
 
 - (void)setBarsHidden:(BOOL)hidden
@@ -94,6 +122,21 @@
 {
 	[self.activityIndicatorView stopAnimating];
 	self.barsHidden = YES;
+	
+	self.episode.read = @YES;
+	self.webtoon.bookmark = self.episode.id;
+	
+	[[AppDelegate appDelegate] saveContext];
+	
+	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", self.episode.id];
+	[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
+		NSLog( @"Read success" );
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		self.episode.read = @NO;
+		
+		NSLog( @"Read failure" );
+	}];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

@@ -40,6 +40,11 @@
 	[self compareRevision];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self.tableView reloadData];
+}
+
 - (void)updateNaviagtionItem
 {
 	UIBarButtonItem *subscribeButton = self.navigationItem.rightBarButtonItem;
@@ -119,7 +124,7 @@
 		[self.activityView layoutSubviews];
 		
 	} success:^(id response) {
-		self.bookmark = [[response objectForKeyNotNull:@"bookmark"] integerValue];
+		self.webtoon.bookmark = [response objectForKeyNotNull:@"bookmark"];
 		NSArray *data = [response objectForKey:@"data"];
 		for( NSDictionary *episodeData in data )
 		{
@@ -144,7 +149,7 @@
 {
 	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/bookmark", self.webtoon.id];
 	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil success:^(id response) {
-		self.bookmark = [[response objectForKey:@"bookmark"] integerValue];
+		self.webtoon.bookmark = [response objectForKey:@"bookmark"];
 		
 		[DejalBezelActivityView removeView];
 		[self.tableView reloadData];
@@ -157,7 +162,7 @@
 - (void)readEpisode:(Episode *)episode
 {
 	episode.read = @YES;
-	self.bookmark = episode.id.integerValue;
+	self.webtoon.bookmark = episode.id;
 	
 	[[AppDelegate appDelegate] saveContext];
 	[self.tableView reloadData];
@@ -195,7 +200,7 @@
 		cell = [[EpisodeCell alloc] initWithReuseIdentifier:cellId];
 	}
 	
-	[cell setEpisode:[self.episodes objectAtIndex:indexPath.row] bookmark:self.bookmark];
+	[cell setEpisode:[self.episodes objectAtIndex:indexPath.row] bookmark:self.webtoon.bookmark.integerValue];
 	
 	return cell;
 }
@@ -209,13 +214,8 @@
 	[self readEpisode:episode];
 	
 	WebtoonViewerViewController *viewer = [[WebtoonViewerViewController alloc] init];
-	viewer.episode = episode;
-	if( indexPath.row > 0 ) {
-		viewer.prevEpisode = [self.episodes objectAtIndex:indexPath.row - 1];
-	}
-	if( indexPath.row < self.episodes.count - 1 ) {
-		viewer.nextEpisode = [self.episodes objectAtIndex:indexPath.row + 1];
-	}
+	[viewer setEpisodes:self.episodes currentEpisodeIndex:indexPath.row webtoon:self.webtoon];
+	
 	[self.navigationController pushViewController:viewer animated:YES];
 }
 

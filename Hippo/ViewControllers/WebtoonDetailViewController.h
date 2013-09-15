@@ -15,7 +15,6 @@
 @property (nonatomic, strong) Webtoon *webtoon;
 @property (nonatomic, strong) WebtoonDetailView *detailView;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, assign) NSInteger bookmark;
 @property (nonatomic, strong) NSMutableArray *episodes;
 @property (nonatomic, strong) DejalActivityView *activityView;
 

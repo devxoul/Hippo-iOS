@@ -23,6 +23,7 @@
     </entity>
     <entity name="Webtoon" representedClassName="Webtoon" syncable="YES">
         <attribute name="artists" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="bookmark" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="fri" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>

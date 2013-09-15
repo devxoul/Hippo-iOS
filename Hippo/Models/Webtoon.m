@@ -11,6 +11,7 @@
 
 @implementation Webtoon
 
+@dynamic bookmark;
 @dynamic finished;
 @dynamic fri;
 @dynamic id;

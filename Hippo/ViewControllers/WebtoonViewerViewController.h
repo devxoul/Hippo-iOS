@@ -7,6 +7,7 @@
 //
 
 #import "GAITrackedViewController.h"
+#import "Webtoon.h"
 #import "Episode.h"
 
 @interface WebtoonViewerViewController : GAITrackedViewController <UIWebViewDelegate, UIScrollViewDelegate>
@@ -17,9 +18,13 @@
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
-@property (nonatomic, strong) Episode *episode;
-@property (nonatomic, strong) Episode *prevEpisode;
-@property (nonatomic, strong) Episode *nextEpisode;
+@property (nonatomic, readonly) Webtoon *webtoon;
+@property (nonatomic, readonly) Episode *episode;
+@property (nonatomic, readonly) Episode *prevEpisode;
+@property (nonatomic, readonly) Episode *nextEpisode;
+@property (nonatomic, readonly) NSArray *episodes;
 @property (nonatomic, assign) BOOL barsHidden;
+
+- (void)setEpisodes:(NSArray *)episodes currentEpisodeIndex:(NSInteger)index webtoon:(Webtoon *)webtoon;
 
 @end

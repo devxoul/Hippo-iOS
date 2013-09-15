@@ -12,6 +12,7 @@
 
 @interface Webtoon : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * bookmark;
 @property (nonatomic, retain) NSNumber * finished;
 @property (nonatomic, retain) NSNumber * fri;
 @property (nonatomic, retain) NSNumber * id;
