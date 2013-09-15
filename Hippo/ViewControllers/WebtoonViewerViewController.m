@@ -18,7 +18,7 @@
 	self.webView.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.webView];
 	
-	self.activityIndicatorView = [[UIActivityIndicatorView alloc] init];
+	self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	self.activityIndicatorView.center = CGPointMake( UIScreenWidth / 2, UIScreenHeight / 2 );
 	self.activityIndicatorView.hidesWhenStopped = YES;
 	[self.view addSubview:self.activityIndicatorView];
