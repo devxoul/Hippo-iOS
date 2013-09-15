@@ -21,21 +21,36 @@
 	self.titleLabel.font = [UIFont systemFontOfSize:13];
 	[self.contentView addSubview:self.titleLabel];
 	
+	self.bookmarkView = [[UIImageView alloc] initWithFrame:CGRectMake( 275, 0, 10, 16 )];
+	self.bookmarkView.image = [UIImage imageNamed:@"icon_bookmark.png"];
+	[self.contentView addSubview:self.bookmarkView];
+	
 	return self;
 }
 
-- (void)setEpisode:(Episode *)episode
+- (void)setEpisode:(Episode *)episode bookmark:(NSInteger)bookmark
 {
 	_episode = episode;
+	_bookmark = bookmark;
 	[self layoutContentView];
 }
 
 - (void)layoutContentView
 {
-	[self.thumbnailView setImageWithURL:[NSURL URLWithString:self.episode.thumbnail_url] placeholderImage:nil];
+	__block UIImageView *thumbnailView = self.thumbnailView;
+	__block Episode *episode = self.episode;
+	[self.thumbnailView setImageWithURL:[NSURL URLWithString:self.episode.thumbnail_url] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+		thumbnailView.image = episode.read.boolValue ? image.grayScaleImage : image;
+		
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+		
+	}];
 	
 	self.titleLabel.text = self.episode.title;
+	self.titleLabel.textColor = episode.read.boolValue ? [UIColor grayColor] : [UIColor blackColor];
 	[self.titleLabel sizeToFit];
+	
+	self.bookmarkView.hidden = self.episode.id.integerValue != self.bookmark;
 }
 
 @end

@@ -127,6 +127,7 @@
 		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:YES];
+			[[AppDelegate appDelegate] saveContext];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -141,6 +142,7 @@
 		[[APILoader sharedLoader] api:api method:@"DELETE" parameters:nil success:^(id response) {
 			subscribeButton.enabled = YES;
 			webtoon.subscribed = [NSNumber numberWithBool:NO];
+			[[AppDelegate appDelegate] saveContext];
 			[webtoonCell layoutContentView];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {

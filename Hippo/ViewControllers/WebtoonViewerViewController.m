@@ -39,7 +39,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self.navigationController setToolbarHidden:NO animated:YES];
-	self.barsHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -94,6 +93,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	[self.activityIndicatorView stopAnimating];
+	self.barsHidden = YES;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -109,7 +109,7 @@
 {
 	NSTimeInterval timedelta = -1 * [_lastTime timeIntervalSinceNow];
 	CGFloat velocity = (scrollView.contentOffset.y - _lastOffsetY) / timedelta;
-	NSLog( @"velocity : %f", velocity );
+//	NSLog( @"velocity : %f", velocity );
 	
 	if( scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < scrollView.contentSize.height )
 	{

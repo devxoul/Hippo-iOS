@@ -1,5 +1,5 @@
 //
-//  UIButton+ActivityIndicator.h
+//  UIButton+JLUtils.h
 //  Dish by.me
 //
 //  Created by 전수열 on 13. 3. 22..
@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (ActivityIndicatorView)
+@interface UIButton (JLUtils)
 
 @property (nonatomic, readonly) UIActivityIndicatorView *activityIndicatorView;
 
 @property (nonatomic, assign) BOOL titleLabelHidden;
 @property (nonatomic, assign) BOOL imageViewHidden;
+@property (nonatomic, assign) UIEdgeInsets touchAreaInsets;
 
 
 - (BOOL)showsActivityIndicatorView;

@@ -1,5 +1,5 @@
 //
-//  UIView+JLAnimations.h
+//  UIView+JLUtils.h
 //  Dish by.me
 //
 //  Created by 전수열 on 13. 4. 25..
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JLAnimations)
+@interface UIView (JLUtils)
 
 - (void)shakeCount:(NSInteger)count radius:(CGFloat)radius duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay completion:(void(^)(void))completion;
 

@@ -11,10 +11,13 @@
 
 @interface EpisodeCell : UITableViewCell
 
-@property (nonatomic, strong) Episode *episode;
+@property (nonatomic, readonly) Episode *episode;
+@property (nonatomic, readonly) NSInteger bookmark;
 @property (nonatomic, strong) UIImageView *thumbnailView;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *bookmarkView;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)setEpisode:(Episode *)episode bookmark:(NSInteger)bookmark;
 
 @end

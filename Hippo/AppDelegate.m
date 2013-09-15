@@ -117,7 +117,7 @@
 		NSLog( @"Login succeed : %@", response );
 		
 		User *user = [User insert];
-		[user safeSetValuesForKeysWithDictionary:response];
+		[user setValuesForKeysWithDictionary:response];
 		[self saveContext];
 		
 		[self compareRevision];
@@ -130,7 +130,6 @@
 - (void)compareRevision
 {
 	[[APILoader sharedLoader] api:@"/revision" method:@"GET" parameters:nil success:^(id response) {
-#warning 임시 코드
 		NSNumber *localRevision = [[NSUserDefaults standardUserDefaults] objectForKey:HippoSettingKeyRevision];
 		NSNumber *remoteRevision = [response objectForKey:@"revision"];
 		NSLog( @"Webtoon Revision (local/remote) : %@ / %@", localRevision, remoteRevision );
@@ -165,7 +164,7 @@
 			if( !webtoon ) {
 				webtoon = [Webtoon insert];
 			}
-			[webtoon safeSetValuesForKeysWithDictionary:webtoonData];
+			[webtoon setValuesForKeysWithDictionary:webtoonData];
 		}
 		
 		[[AppDelegate appDelegate] saveContext];
@@ -195,7 +194,7 @@
 				NSLog( @"WTF?? No webtoon!! : %@", webtoonData );
 				webtoon = [Webtoon insert];
 			}
-			[webtoon safeSetValuesForKeysWithDictionary:webtoonData];
+			[webtoon setValuesForKeysWithDictionary:webtoonData];
 		}
 		
 		[[AppDelegate appDelegate] saveContext];
