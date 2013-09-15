@@ -116,15 +116,22 @@
 #pragma mark -
 #pragma mark UIWebViewDelegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	[self.activityIndicatorView startAnimating];
+	self.barsHidden = NO;
+	return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	[self.activityIndicatorView stopAnimating];
-	self.barsHidden = YES;
+	
+	double delayInSeconds = 1.0;
+	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+		self.barsHidden = YES;
+	});
 	
 	self.episode.read = @YES;
 	self.webtoon.bookmark = self.episode.id;
@@ -166,7 +173,7 @@
 		}
 		
 		// 위로 스크롤할 경우에는 순간속력이 특정 값을 초과할 경우에만
-		else if( velocity < -2400 )
+		else if( velocity < -2000 )
 		{
 			self.barsHidden = NO;
 		}
