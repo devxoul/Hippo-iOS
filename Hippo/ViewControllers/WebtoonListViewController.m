@@ -59,12 +59,20 @@
 			request = [Webtoon request];
 		}
 	}
+	else if( [weekday isEqualToString:@"finished"] )
+	{
+		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+			request = [[Webtoon request] filter:@"subscribed=1&&finished=0"];
+		} else {
+			request = [[Webtoon request] filter:@"finished=1"];
+		}
+	}
 	else
 	{
 		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			request = [[Webtoon request] filter:@"subscribed=1&&%@=1", weekday];
+			request = [[Webtoon request] filter:@"subscribed=1&&%@=1&&finished=0", weekday];
 		} else {
-			request = [[Webtoon request] filter:@"%@=1", weekday];
+			request = [[Webtoon request] filter:@"%@=1&&finished=0", weekday];
 		}
 	}
 	
