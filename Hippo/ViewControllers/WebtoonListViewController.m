@@ -18,12 +18,6 @@
 {
 	[super viewDidLoad];
 	
-	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-		self.tabBarController.navigationItem.title = L(@"MY_WEBTOONS");
-	} else {
-		self.tabBarController.navigationItem.title = L(@"SEARCH");
-	}
-	
 	self.weekdaySelector = [[WeekdaySelector alloc] init];
 	self.weekdaySelector.frame = CGRectMake( 0, 64, UIScreenWidth, self.weekdaySelector.frame.size.height );
 	[self.view addSubview:self.weekdaySelector];
@@ -39,7 +33,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+		self.tabBarController.title = L(@"MY_WEBTOONS");
 		[self filterWebtoons];
+	} else {
+		self.tabBarController.title = L(@"SEARCH");
 	}
 }
 
