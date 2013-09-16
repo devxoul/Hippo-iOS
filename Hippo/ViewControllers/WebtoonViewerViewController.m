@@ -77,6 +77,37 @@
 	[self reload];
 }
 
+- (void)read
+{
+	self.episode.read = @YES;
+	self.webtoon.bookmark = self.episode.id;
+	
+	[[AppDelegate appDelegate] saveContext];
+	
+	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", self.episode.id];
+	[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
+		NSLog( @"Read success" );
+		
+	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
+		self.episode.read = @NO;
+		
+		NSLog( @"Read failure" );
+	}];
+
+	NSInteger newCount = 0;
+	for( Episode *episode in self.episodes )
+	{
+		if( episode.read.boolValue ) {
+			break;
+		}
+		newCount ++;
+	}
+	
+	NSLog( @"newCount : %d", newCount );
+	
+	self.webtoon.new_count = [NSNumber numberWithInteger:newCount];
+}
+
 
 #pragma mark -
 #pragma mark Getter/Setter
@@ -141,20 +172,7 @@
 		self.barsHidden = YES;
 	});
 	
-	self.episode.read = @YES;
-	self.webtoon.bookmark = self.episode.id;
-	
-	[[AppDelegate appDelegate] saveContext];
-	
-	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", self.episode.id];
-	[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
-		NSLog( @"Read success" );
-		
-	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-		self.episode.read = @NO;
-		
-		NSLog( @"Read failure" );
-	}];
+	[self read];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

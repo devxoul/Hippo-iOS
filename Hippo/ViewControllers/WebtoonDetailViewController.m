@@ -159,7 +159,7 @@
 	}];
 }
 
-- (void)readEpisode:(Episode *)episode
+/*- (void)readEpisode:(Episode *)episode
 {
 	episode.read = @YES;
 	self.webtoon.bookmark = episode.id;
@@ -176,7 +176,7 @@
 		
 		NSLog( @"Read failure" );
 	}];
-}
+}*/
 
 
 #pragma mark -
@@ -208,10 +208,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
-	
-	Episode *episode = [self.episodes objectAtIndex:indexPath.row];
-	
-	[self readEpisode:episode];
 	
 	WebtoonViewerViewController *viewer = [[WebtoonViewerViewController alloc] init];
 	[viewer setEpisodes:self.episodes currentEpisodeIndex:indexPath.row webtoon:self.webtoon];
