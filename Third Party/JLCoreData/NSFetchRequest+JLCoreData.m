@@ -54,8 +54,7 @@
 
 - (NSArray *)all
 {
-	NSManagedObjectContext *context = [AppDelegate appDelegate].managedObjectContext;
-	return [context executeFetchRequest:self error:nil];
+	return [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:nil];
 }
 
 @end

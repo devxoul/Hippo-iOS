@@ -82,7 +82,7 @@
 	self.episode.read = @YES;
 	self.webtoon.bookmark = self.episode.id;
 	
-	[[AppDelegate appDelegate] saveContext];
+	[JLCoreData saveContext];
 	
 	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", self.episode.id];
 	[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {

@@ -62,7 +62,7 @@
 		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
 			subscribeButton.enabled = YES;
 			self.webtoon.subscribed = [NSNumber numberWithBool:YES];
-			[[AppDelegate appDelegate] saveContext];
+			[JLCoreData saveContext];;
 			[self updateNaviagtionItem];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -82,7 +82,7 @@
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 			subscribeButton.enabled = YES;
 			self.webtoon.subscribed = [NSNumber numberWithBool:YES];
-			[[AppDelegate appDelegate] saveContext];
+			[JLCoreData saveContext];;
 			[self updateNaviagtionItem];
 		}];
 	}
@@ -102,7 +102,7 @@
 		{
 			[self loadEpisodes];
 			self.webtoon.revision = revision;
-			[[AppDelegate appDelegate] saveContext];
+			[JLCoreData saveContext];;
 		}
 		else
 		{
@@ -135,7 +135,7 @@
 			[episode setValuesForKeysWithDictionary:episodeData];
 			[self.episodes addObject:episode];
 		}
-		[[AppDelegate appDelegate] saveContext];
+		[JLCoreData saveContext];;
 		
 		[self loadBookmark];
 		
@@ -164,7 +164,7 @@
 	episode.read = @YES;
 	self.webtoon.bookmark = episode.id;
 	
-	[[AppDelegate appDelegate] saveContext];
+	[JLCoreData saveContext];;
 	[self.tableView reloadData];
 	
 	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", episode.id];

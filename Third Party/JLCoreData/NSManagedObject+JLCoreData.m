@@ -13,13 +13,13 @@
 
 + (id)insert
 {
-	id object = [NSEntityDescription insertNewObjectForEntityForName:[self description] inManagedObjectContext:[AppDelegate appDelegate].managedObjectContext];
+	id object = [NSEntityDescription insertNewObjectForEntityForName:[self description] inManagedObjectContext:[[JLCoreData sharedInstance] managedObjectContext]];
 	return object;
 }
 
 + (NSFetchRequest *)request
 {
-	NSManagedObjectContext *context = [AppDelegate appDelegate].managedObjectContext;
+	NSManagedObjectContext *context = [[JLCoreData sharedInstance] managedObjectContext];
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	request.entity = [NSEntityDescription entityForName:[self description] inManagedObjectContext:context];
@@ -28,7 +28,7 @@
 
 + (void)truncate
 {
-	NSManagedObjectContext *context = [AppDelegate appDelegate].managedObjectContext;
+	NSManagedObjectContext *context = [[JLCoreData sharedInstance] managedObjectContext];
 	NSArray *items = [[[self class] request] all];
 	for(id obj in items) {
 		[context deleteObject:obj];
