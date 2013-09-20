@@ -44,22 +44,21 @@
 	self.weekdaySelector.frame = CGRectMake( 10, 48, UIScreenWidth - 20, self.weekdaySelector.frame.size.height );
 	[self.weekdaySelector addTarget:self action:@selector(filterWebtoons) forControlEvents:UIControlEventValueChanged];
 	
-	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, UIScreenWidth, UIScreenHeight - 48)];
+	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, UIScreenWidth, UIScreenHeight - 48 )];
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	self.tableView.contentInset = self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake( 152, 0, 0, 0 );
 	[self.view addSubview:self.tableView];
 	
-	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake( 0, -44, UIScreenWidth, 44 )];
+	self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake( 0, 108, UIScreenWidth, 44 )];
 	self.searchBar.placeholder = L( @"SEARCH" );
 	self.searchBar.delegate = self;
-	[self.tableView addSubview:self.searchBar];
+	[self.view addSubview:self.searchBar];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	NSLog( @"[LIST(%@)] viewWillAppear animated:%@", self.title, animated ? @"YES" : @"NO" );
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
 		self.tabBarController.title = L(@"MY_WEBTOONS");
 		[self filterWebtoons];
@@ -80,13 +79,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	NSLog( @"[LIST(%@)] viewDidAppear animated:%@", self.title, animated ? @"YES" : @"NO" );
 	self.tableView.contentInset = self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake( 152, 0, 0, 0 );
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-	NSLog( @"[LIST(%@)] viewDidDisappear animated:%@", self.title, animated ? @"YES" : @"NO" );
 	[UIView animateWithDuration:0.25 animations:^{
 		self.weekdaySelector.alpha = 0;
 	} completion:^(BOOL finished) {
@@ -180,15 +177,17 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-	if( scrollView.contentOffset.y < -152 && self.searchBar.superview == self.tableView )
+	if( self.searchBar.isFirstResponder ) {
+		[self.searchBar resignFirstResponder];
+	}
+	
+	if( scrollView.contentOffset.y <= -152 )
 	{
 		self.searchBar.position = CGPointMake( 0, 108 );
-		[self.view addSubview:self.searchBar];
 	}
-	else if( scrollView.contentOffset.y >= -152 && self.searchBar.superview == self.view )
+	else if( scrollView.contentOffset.y > -152 )
 	{
-		self.searchBar.position = CGPointMake( 0, -44 );
-		[self.tableView addSubview:self.searchBar];
+		self.searchBar.position = CGPointMake( 0, -44 - scrollView.contentOffset.y );
 	}
 }
 
