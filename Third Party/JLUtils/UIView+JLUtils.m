@@ -10,10 +10,17 @@
 
 @implementation UIView (JLUtils)
 
-//- (void)shakeCount:(NSInteger)count radius:(CGFloat)radius duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay completion:(void(^)(void))completion
-//{
-//	
-//}
+- (CGPoint)position
+{
+	return self.frame.origin;
+}
+
+- (void)setPosition:(CGPoint)position
+{
+	CGRect frame = self.frame;
+	frame.origin = position;
+	self.frame = frame;
+}
 
 - (void)shakeCount:(NSInteger)count radius:(CGFloat)radius duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay completion:(void(^)(void))completion
 {

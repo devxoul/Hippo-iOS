@@ -17,7 +17,12 @@
 	NSString *predicate = [[NSString alloc] initWithFormat:format arguments:ap];
 	va_end( ap );
 	
-	self.predicate = [NSPredicate predicateWithFormat:predicate];
+	if( self.predicate ) {
+		self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[self.predicate, predicate]];
+	} else {
+		self.predicate = [NSPredicate predicateWithFormat:predicate];
+	}
+	
 	return self;
 }
 
@@ -54,7 +59,13 @@
 
 - (NSArray *)all
 {
-	return [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:nil];
+//	NSLog( @"predicate(%@) : %@", self.predicate.class, self.predicate );
+	NSError *error = nil;
+	NSArray *result = [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:&error];
+	if( error ) {
+		NSLog( @"error: %@", error );
+	}
+	return result;
 }
 
 @end

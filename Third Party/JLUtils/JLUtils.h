@@ -13,3 +13,9 @@
 #import "UILabel+JLUtils.h"
 #import "UIView+JLUtils.h"
 #import "NSDictionary+JLUtils.h"
+
+@interface JLUtils : NSObject
+
++ (void)traceSubviews:(UIView *)view;
+
+@end
