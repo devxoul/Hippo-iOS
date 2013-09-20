@@ -244,4 +244,9 @@
 	[self filterWebtoons];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[searchBar resignFirstResponder];
+}
+
 @end
