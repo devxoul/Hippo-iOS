@@ -43,6 +43,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self.tableView reloadData];
+	
+	UIView *weekdaySelector = nil;
+	for( weekdaySelector in self.navigationController.navigationBar.subviews )
+	{
+		if( [weekdaySelector isKindOfClass:WeekdaySelector.class] ) {
+			break;
+		}
+	}
+	
+	[UIView animateWithDuration:0.25 animations:^{
+		weekdaySelector.alpha = 0;
+		[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:0] setFrame:CGRectMake( 0, 0, 320, 64 )];
+		[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:1] setPosition:CGPointMake( 0, 64 )];
+	}];
 }
 
 - (void)updateNaviagtionItem

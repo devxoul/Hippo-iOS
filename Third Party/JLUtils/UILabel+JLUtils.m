@@ -27,18 +27,6 @@
 	}
 }
 
-- (CGPoint)position
-{
-	return self.frame.origin;
-}
-
-- (void)setPosition:(CGPoint)position
-{
-	CGRect frame = self.frame;
-	frame.origin = position;
-	self.frame = frame;
-}
-
 - (CGFloat)maxWidth
 {
 	return [objc_getAssociatedObject( self, @"maxWidth" ) floatValue];

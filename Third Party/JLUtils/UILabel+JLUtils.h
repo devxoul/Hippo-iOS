@@ -10,7 +10,6 @@
 
 @interface UILabel (JLUtils)
 
-@property (nonatomic, assign) CGPoint position;
 @property (nonatomic, assign) CGFloat maxWidth;
 
 - (id)initWithPosition:(CGPoint)position maxWidth:(CGFloat)maxWidth;
