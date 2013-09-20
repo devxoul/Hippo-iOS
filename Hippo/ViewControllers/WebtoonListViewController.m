@@ -59,6 +59,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	NSLog( @"[LIST(%@)] viewWillAppear animated:%@", self.title, animated ? @"YES" : @"NO" );
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
 		self.tabBarController.title = L(@"MY_WEBTOONS");
 		[self filterWebtoons];
@@ -66,6 +67,9 @@
 		self.tabBarController.title = L(@"SEARCH");
 	}
 	
+	if( animated ) {
+		self.weekdaySelector.alpha = 0;
+	}
 	[self.tabBarController.navigationController.navigationBar addSubview:self.weekdaySelector];
 	[UIView animateWithDuration:0.25 animations:^{
 		self.weekdaySelector.alpha = 1;
@@ -76,12 +80,18 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+	NSLog( @"[LIST(%@)] viewDidAppear animated:%@", self.title, animated ? @"YES" : @"NO" );
 	self.tableView.contentInset = self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake( 152, 0, 0, 0 );
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-	[self.weekdaySelector removeFromSuperview];
+	NSLog( @"[LIST(%@)] viewDidDisappear animated:%@", self.title, animated ? @"YES" : @"NO" );
+	[UIView animateWithDuration:0.25 animations:^{
+		self.weekdaySelector.alpha = 0;
+	} completion:^(BOOL finished) {
+		[self.weekdaySelector removeFromSuperview];
+	}];
 }
 
 

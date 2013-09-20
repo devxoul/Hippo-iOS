@@ -42,6 +42,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	NSLog( @"[DETAIL] viewWillAppear animated:%@", animated ? @"YES" : @"NO" );
 	[self.tableView reloadData];
 	
 	UIView *weekdaySelector = nil;
