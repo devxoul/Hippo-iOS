@@ -97,44 +97,47 @@
 
 - (void)filterWebtoons
 {
-	NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
-	NSFetchRequest *request = nil;
-	if( [weekday isEqualToString:@"all"] )
-	{
-		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			request = [[Webtoon request] filter:@"subscribed=1"];
-		} else {
-			request = [Webtoon request];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
+		NSFetchRequest *request = nil;
+		if( [weekday isEqualToString:@"all"] )
+		{
+			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+				request = [[Webtoon request] filter:@"subscribed=1"];
+			} else {
+				request = [Webtoon request];
+			}
 		}
-	}
-	else if( [weekday isEqualToString:@"finished"] )
-	{
-		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			request = [[Webtoon request] filter:@"subscribed=1&&finished=0"];
-		} else {
-			request = [[Webtoon request] filter:@"finished=1"];
+		else if( [weekday isEqualToString:@"finished"] )
+		{
+			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+				request = [[Webtoon request] filter:@"subscribed=1 AND finished=0"];
+			} else {
+				request = [[Webtoon request] filter:@"finished=1"];
+			}
 		}
-	}
-	else
-	{
-		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-			request = [[Webtoon request] filter:@"subscribed=1&&%@=1&&finished=0", weekday];
-//			request = [[[Webtoon request] filter:@"subscribed=1&&%@=1&&finished=0", weekday] filter:@"finished==0"];
-		} else {
-			request = [[Webtoon request] filter:@"%@=1&&finished=0", weekday];
-//			request = [[[Webtoon request] filter:@"%@==1", weekday] filter:@"finished==0"];
+		else
+		{
+			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+				request = [[Webtoon request] filter:@"subscribed=1 AND %@=1 AND finished=0", weekday];
+			} else {
+				request = [[Webtoon request] filter:@"%@=1&&finished=0", weekday];
+			}
 		}
-	}
-	
-	if( self.searchBar.text )
-	{
-//		request = [request filter:@"title=*%@*", self.searchBar.text];
-	}
-	
-	self.webtoons = [request orderBy:@"title"].all.mutableCopy;
-	
-	[self.tableView reloadData];
-	[DejalBezelActivityView removeView];
+		
+		if( self.searchBar.text.length )
+		{
+			request = [request filter:@"title like '*%@*'", self.searchBar.text];
+		}
+		
+		NSMutableArray *webtoons = [request orderBy:@"title"].all.mutableCopy;
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.webtoons = webtoons;
+			[self.tableView reloadData];
+			[DejalBezelActivityView removeView];
+		});
+	});
 }
 
 

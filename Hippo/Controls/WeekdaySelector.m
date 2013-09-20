@@ -14,7 +14,6 @@
 {
     self = [super initWithItems:@[@"전체", @"월", @"화", @"수", @"목", @"금", @"토", @"일", @"완결"]];
 	self.selectedSegmentIndex = 0;
-	[self setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:11]} forState:UIControlStateNormal];
     return self;
 }
 

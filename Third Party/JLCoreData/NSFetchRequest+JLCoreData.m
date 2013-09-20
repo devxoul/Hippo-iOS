@@ -18,7 +18,7 @@
 	va_end( ap );
 	
 	if( self.predicate ) {
-		self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[self.predicate, predicate]];
+		self.predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"%@ AND %@", self.predicate.predicateFormat, predicate]];
 	} else {
 		self.predicate = [NSPredicate predicateWithFormat:predicate];
 	}
@@ -59,11 +59,20 @@
 
 - (NSArray *)all
 {
-//	NSLog( @"predicate(%@) : %@", self.predicate.class, self.predicate );
 	NSError *error = nil;
-	NSArray *result = [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:&error];
+	NSArray *result = nil;
+	
+	@try {
+		result = [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:&error];
+	}
+	@catch (NSException *exception) {
+		NSLog( @"Caught Exception : %@", exception );
+		return nil;
+	}
+	
 	if( error ) {
-		NSLog( @"error: %@", error );
+		NSLog( @"Error : %@", error );
+		return nil;
 	}
 	return result;
 }
