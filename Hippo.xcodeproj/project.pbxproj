@@ -68,7 +68,6 @@
 		03D2209A17E021FB00E804AA /* icon_daum.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209817E021FB00E804AA /* icon_daum.png */; };
 		03D2209B17E021FB00E804AA /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209917E021FB00E804AA /* icon_naver.png */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
-		03E9162C17EC1ADF000A9A86 /* JLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E9162B17EC1ADF000A9A86 /* JLUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,8 +194,6 @@
 		03D2209817E021FB00E804AA /* icon_daum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_daum.png; sourceTree = "<group>"; };
 		03D2209917E021FB00E804AA /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		03E9162A17EB162B000A9A86 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
-		03E9162B17EC1ADF000A9A86 /* JLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +301,6 @@
 		03367D0117D345D700CFF891 /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
-				03E9162A17EB162B000A9A86 /* Empty.xib */,
 				03367D6C17D3466D00CFF891 /* Common.h */,
 				03367D0A17D345D700CFF891 /* AppDelegate.h */,
 				03367D0B17D345D700CFF891 /* AppDelegate.m */,
@@ -447,7 +443,6 @@
 			isa = PBXGroup;
 			children = (
 				03702CE317E53CF000E5E345 /* JLUtils.h */,
-				03E9162B17EC1ADF000A9A86 /* JLUtils.m */,
 				03702CE417E53CF000E5E345 /* NSDictionary+JLUtils.h */,
 				03702CE517E53CF000E5E345 /* NSDictionary+JLUtils.m */,
 				03702CE617E53CF000E5E345 /* UIButton+JLUtils.h */,
@@ -619,7 +614,6 @@
 				03367D6117D3464900CFF891 /* AFURLConnectionOperation.m in Sources */,
 				03702CF817E53CF000E5E345 /* UIView+JLUtils.m in Sources */,
 				03367D6217D3464900CFF891 /* AFXMLRequestOperation.m in Sources */,
-				03E9162C17EC1ADF000A9A86 /* JLUtils.m in Sources */,
 				032335B917D350B3007EECCB /* WeekdaySelector.m in Sources */,
 				032335BF17D35310007EECCB /* WebtoonCell.m in Sources */,
 				03665BBF17DA8D5A0038D895 /* DejalActivityView.m in Sources */,

@@ -26,18 +26,23 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	UITabBarController *tabBarController = [[UITabBarController alloc] init];
-	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-	self.window.rootViewController = rootNavigationController;
-	
 	self.myWebtoonListViewController = [[WebtoonListViewController alloc] init];
 	self.myWebtoonListViewController.type = HippoWebtoonListViewControllerTypeMyWebtoon;
-	self.myWebtoonListViewController.title = L(@"MY_WEBTOONS");
 	
 	self.allWebtoonListViewController = [[WebtoonListViewController alloc] init];
 	self.allWebtoonListViewController.type = HippoWebtoonListViewControllerTypeAllWebtoon;
-	self.allWebtoonListViewController.title = L(@"SEARCH");
-	tabBarController.viewControllers = @[self.myWebtoonListViewController, self.allWebtoonListViewController];
+	
+	UINavigationController *myWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.myWebtoonListViewController];
+	myWebtoonListNavigationController.tabBarItem.title = L(@"MY_WEBTOONS");
+	
+	UINavigationController *allWebtoonListNavigationController = [[UINavigationController alloc] initWithRootViewController:self.allWebtoonListViewController];
+	allWebtoonListNavigationController.tabBarItem.title = L(@"SEARCH");
+	
+	UITabBarController *tabBarController = [[UITabBarController alloc] init];
+	tabBarController.viewControllers = @[myWebtoonListNavigationController, allWebtoonListNavigationController];
+	
+	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+	self.window.rootViewController = rootNavigationController;
 	
 	[self login];
 	

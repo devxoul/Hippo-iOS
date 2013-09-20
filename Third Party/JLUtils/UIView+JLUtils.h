@@ -10,8 +10,6 @@
 
 @interface UIView (JLUtils)
 
-@property (nonatomic, assign) CGPoint position;
-
 - (void)shakeCount:(NSInteger)count radius:(CGFloat)radius duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay completion:(void(^)(void))completion;
 
 @end
