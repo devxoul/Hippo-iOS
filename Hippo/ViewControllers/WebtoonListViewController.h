@@ -10,6 +10,10 @@
 #import "WeekdaySelector.h"
 #import "WebtoonCell.h"
 
+@interface UINavigationBar (Hippo)
+@end
+
+
 @interface WebtoonListViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, WebtoonCellDelegate, UISearchBarDelegate>
 
 typedef enum {

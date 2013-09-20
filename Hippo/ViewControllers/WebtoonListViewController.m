@@ -11,6 +11,28 @@
 #import "WebtoonDetailViewController.h"
 #import "DejalActivityView.h"
 
+@implementation UINavigationBar (Hippo)
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+	if( !self.clipsToBounds && !self.hidden && self.alpha > 0 )
+	{
+        for (UIView *subview in self.subviews.reverseObjectEnumerator) {
+            CGPoint subPoint = [subview convertPoint:point fromView:self];
+            UIView *result = [subview hitTest:subPoint withEvent:event];
+            if (result != nil) {
+                return result;
+                break;
+            }
+        }
+    }
+	
+    return [super hitTest:point withEvent:event];
+}
+
+@end
+
+
 @implementation WebtoonListViewController
 
 
@@ -19,9 +41,8 @@
 	[super viewDidLoad];
 	
 	self.weekdaySelector = [[WeekdaySelector alloc] init];
-	self.weekdaySelector.frame = CGRectMake( 5, 48, UIScreenWidth - 10, self.weekdaySelector.frame.size.height );
+	self.weekdaySelector.frame = CGRectMake( 10, 48, UIScreenWidth - 20, self.weekdaySelector.frame.size.height );
 	[self.weekdaySelector addTarget:self action:@selector(filterWebtoons) forControlEvents:UIControlEventValueChanged];
-	self.tabBarController.navigationController.navigationBar.userInteractionEnabled = YES;
 	
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, UIScreenWidth, UIScreenHeight - 48)];
 	self.tableView.delegate = self;
@@ -51,6 +72,11 @@
 		[[[[self.tabBarController.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:0] setFrame:CGRectMake( 0, 0, 320, 108 )];
 		[[[[self.tabBarController.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:1] setPosition:CGPointMake( 0, 108 )];
 	}];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	self.tableView.contentInset = self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake( 152, 0, 0, 0 );
 }
 
 - (void)viewDidDisappear:(BOOL)animated
