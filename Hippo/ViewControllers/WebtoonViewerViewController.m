@@ -106,6 +106,7 @@
 	NSLog( @"newCount : %d", newCount );
 	
 	self.webtoon.new_count = [NSNumber numberWithInteger:newCount];
+	[JLCoreData saveContext];
 }
 
 
