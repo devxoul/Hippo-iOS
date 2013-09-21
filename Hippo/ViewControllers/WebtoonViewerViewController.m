@@ -199,7 +199,7 @@
 		}
 		
 		// 위로 스크롤할 경우에는 순간속력이 특정 값을 초과할 경우에만 || 맨 아래로 스크롤했을 경우
-		else if( velocity < -1500 || scrollView.contentOffset.y + scrollView.bounds.size.height - 44 == scrollView.contentSize.height )
+		else if( velocity < -1000 || scrollView.contentOffset.y + scrollView.bounds.size.height - 44 == scrollView.contentSize.height )
 		{
 			self.barsHidden = NO;
 		}
