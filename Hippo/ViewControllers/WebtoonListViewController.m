@@ -98,34 +98,22 @@
 {
 	dispatch_async(dispatch_get_global_queue(0, 0), ^{
 		NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
-		NSFetchRequest *request = nil;
-		if( [weekday isEqualToString:@"all"] )
-		{
-			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-				request = [[Webtoon request] filter:@"subscribed=1"];
-			} else {
-				request = [Webtoon request];
-			}
-		}
-		else if( [weekday isEqualToString:@"finished"] )
-		{
-			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-				request = [[Webtoon request] filter:@"subscribed=1 AND finished=0"];
-			} else {
-				request = [[Webtoon request] filter:@"finished=1"];
-			}
-		}
-		else
-		{
-			if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-				request = [[Webtoon request] filter:@"subscribed=1 AND %@=1 AND finished=0", weekday];
-			} else {
-				request = [[Webtoon request] filter:@"%@=1&&finished=0", weekday];
-			}
+		NSFetchRequest *request = [Webtoon request];
+		
+		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+			request = [request filter:@"subscribed=1"];
 		}
 		
-		if( self.searchBar.text.length )
+		if( [weekday isEqualToString:@"finished"] )
 		{
+			request = [request filter:@"finished=1"];
+		}
+		else if( ![weekday isEqualToString:@"all"] )
+		{
+			request = [request filter:@"%@=1 AND finished=0", weekday];
+		}
+		
+		if( self.searchBar.text.length ) {
 			request = [request filter:@"title like '*%@*'", self.searchBar.text];
 		}
 		

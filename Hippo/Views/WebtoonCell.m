@@ -88,7 +88,7 @@
 	else
 	{
 		NSMutableArray *weekdays = [NSMutableArray array];
-		for( NSInteger i = 1; i < 7; i++ )
+		for( NSInteger i = 1; i < 8; i++ )
 		{
 			NSString *weekday = HippoWeekdays[i];
 			if( [[self.webtoon valueForKey:weekday] boolValue] ) {
