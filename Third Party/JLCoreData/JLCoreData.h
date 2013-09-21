@@ -12,11 +12,10 @@
 
 @interface JLCoreData : NSObject
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-+ (id)sharedInstance;
 + (void)saveContext;
+
++ (NSManagedObjectContext *)managedObjectContext;
++ (NSManagedObjectModel *)managedObjectModel;
++ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
 
 @end
