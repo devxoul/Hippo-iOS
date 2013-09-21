@@ -39,6 +39,7 @@
         <attribute name="thumbnail_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tue" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="wed" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>

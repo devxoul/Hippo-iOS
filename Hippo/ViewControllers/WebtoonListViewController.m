@@ -117,7 +117,14 @@
 			request = [request filter:@"title like '*%@*'", self.searchBar.text];
 		}
 		
-		NSMutableArray *webtoons = [request orderBy:@"title"].all.mutableCopy;
+		NSString *orderBy = nil;
+		if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
+			orderBy = @"new_count desc";
+		} else {
+			orderBy = @"title";
+		}
+		
+		NSMutableArray *webtoons = [request orderBy:orderBy].all.mutableCopy;
 		dispatch_async(dispatch_get_main_queue(), ^{
 			self.webtoons = webtoons;
 			[self.tableView reloadData];

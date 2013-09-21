@@ -28,6 +28,7 @@
 @property (nonatomic, retain) NSString * thumbnail_url;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * tue;
+@property (nonatomic, retain) NSDate * updated;
 @property (nonatomic, retain) NSNumber * wed;
 @property (nonatomic, retain) id artists;
 

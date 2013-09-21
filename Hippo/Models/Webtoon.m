@@ -27,6 +27,7 @@
 @dynamic thumbnail_url;
 @dynamic title;
 @dynamic tue;
+@dynamic updated;
 @dynamic wed;
 @dynamic artists;
 
