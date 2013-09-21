@@ -79,7 +79,7 @@
 				[weekdays addObject:NSLocalizedString( weekday.uppercaseString, nil )];
 			}
 		}
-		NSLog( @"weekday : %@", [weekdays componentsJoinedByString:@", "] );
+		
 		self.weekdayLabel.text = [weekdays componentsJoinedByString:@", "];
 	}
 	[self.weekdayLabel sizeToFit];

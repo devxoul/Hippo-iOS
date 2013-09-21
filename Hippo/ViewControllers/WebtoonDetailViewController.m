@@ -37,7 +37,7 @@
 	
 	self.episodes = [NSMutableArray array];
 	
-//	[self compareRevision];
+	[self compareRevision];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,6 +108,10 @@
 
 - (void)compareRevision
 {
+	NSLog( @"Comparing webtoon revisions..." );
+	
+	self.activityView = [DejalBezelActivityView activityViewForView:self.navigationController.view withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
+	
 	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/revision", self.webtoon.id];
 	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil success:^(id response) {
 		NSNumber *revision = [response objectForKey:@"revision"];
@@ -116,12 +120,15 @@
 		{
 			[self loadEpisodes];
 			self.webtoon.revision = revision;
-			[JLCoreData saveContext];;
 		}
 		else
 		{
-			self.episodes = [[[[[Episode request] filter:@"webtoon_id==%@", self.webtoon.id] orderBy:@"no desc"] all] mutableCopy];
-			[self loadBookmark];
+			NSLog( @"Loading episodes from local db..." );
+			dispatch_async(dispatch_get_global_queue(0, 0), ^{
+				self.episodes = [[[[[Episode request] filter:@"webtoon_id==%@", self.webtoon.id] orderBy:@"no desc"] all] mutableCopy];
+				NSLog( @"Loaded %d episodes from local db.", self.episodes.count );
+				[self loadBookmark];
+			});
 		}
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -131,7 +138,8 @@
 
 - (void)loadEpisodes
 {
-	self.activityView = [DejalBezelActivityView activityViewForView:self.tabBarController.navigationController.view withLabel:[NSString stringWithFormat:@"%@...0%%", NSLocalizedString( @"LOADING", nil )]];
+	NSLog( @"Loading episodes from server..." );
+	
 	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/episodes?limit=9999", self.webtoon.id];
 	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil upload:nil download:^(long long bytesLoaded, long long bytesTotal) {
 		self.activityView.activityLabel.text = [NSString stringWithFormat:@"%@...%d%%", NSLocalizedString( @"LOADING", nil ), (NSInteger)(100.0 * bytesLoaded / bytesTotal)];
@@ -139,7 +147,9 @@
 		
 	} success:^(id response) {
 		self.webtoon.bookmark = [response objectForKeyNotNull:@"bookmark"];
+		
 		NSArray *data = [response objectForKey:@"data"];
+		NSLog( @"Loaded %d episodes. (bookmark : %@)", data.count, self.webtoon.bookmark );
 		for( NSDictionary *episodeData in data )
 		{
 			Episode *episode = [[[Episode request] filter:@"id==%@", [episodeData objectForKey:@"id"]] last];
@@ -149,9 +159,10 @@
 			[episode setValuesForKeysWithDictionary:episodeData];
 			[self.episodes addObject:episode];
 		}
-		[JLCoreData saveContext];;
+		[JLCoreData saveContext];
 		
-		[self loadBookmark];
+		[DejalBezelActivityView removeView];
+		[self.tableView reloadData];
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		[DejalBezelActivityView removeView];
@@ -161,9 +172,12 @@
 
 - (void)loadBookmark
 {
+	NSLog( @"Loading bookmark..." );
+	
 	NSString *api = [NSString stringWithFormat:@"/webtoon/%@/bookmark", self.webtoon.id];
 	[[APILoader sharedLoader] api:api method:@"GET" parameters:nil success:^(id response) {
 		self.webtoon.bookmark = [response objectForKey:@"bookmark"];
+		NSLog( @"Loaded bookmark : %@", self.webtoon.bookmark );
 		
 		[DejalBezelActivityView removeView];
 		[self.tableView reloadData];

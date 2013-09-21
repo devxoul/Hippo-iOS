@@ -63,7 +63,7 @@
 	NSArray *result = nil;
 	
 	@try {
-		result = [[[JLCoreData sharedInstance] managedObjectContext] executeFetchRequest:self error:&error];
+		result = [[JLCoreData managedObjectContext] executeFetchRequest:self error:&error];
 	}
 	@catch (NSException *exception) {
 		NSLog( @"Caught Exception : %@", exception );
