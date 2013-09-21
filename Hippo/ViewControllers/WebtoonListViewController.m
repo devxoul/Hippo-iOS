@@ -43,6 +43,7 @@
 	self.weekdaySelector = [[WeekdaySelector alloc] init];
 	self.weekdaySelector.frame = CGRectMake( 10, 48, UIScreenWidth - 20, self.weekdaySelector.frame.size.height );
 	[self.weekdaySelector addTarget:self action:@selector(filterWebtoons) forControlEvents:UIControlEventValueChanged];
+	[self.navigationController.navigationBar addSubview:self.weekdaySelector];
 	
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, UIScreenWidth, UIScreenHeight - 48 )];
 	self.tableView.delegate = self;
@@ -56,26 +57,21 @@
 	[self.view addSubview:self.searchBar];
 	
 	self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidTap)];
+	
+	[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:0] setFrame:CGRectMake( 0, 0, 320, 108 )];
+	[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:1] setPosition:CGPointMake( 0, 108 )];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	if( self.type == HippoWebtoonListViewControllerTypeMyWebtoon ) {
-		self.tabBarController.title = L(@"MY_WEBTOONS");
 		[self filterWebtoons];
-	} else {
-		self.tabBarController.title = L(@"SEARCH");
 	}
 	
-	if( animated ) {
-		self.weekdaySelector.alpha = 0;
-	}
-	[self.tabBarController.navigationController.navigationBar addSubview:self.weekdaySelector];
 	[UIView animateWithDuration:0.25 animations:^{
 		self.weekdaySelector.alpha = 1;
-		[[[[self.tabBarController.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:0] setFrame:CGRectMake( 0, 0, 320, 108 )];
-		[[[[self.tabBarController.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:1] setPosition:CGPointMake( 0, 108 )];
+		[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:0] setFrame:CGRectMake( 0, 0, 320, 108 )];
+		[[[[self.navigationController.navigationBar.subviews objectAtIndex:0] subviews] objectAtIndex:1] setPosition:CGPointMake( 0, 108 )];
 	}];
 }
 
@@ -86,6 +82,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+	return;
 	[UIView animateWithDuration:0.25 animations:^{
 		self.weekdaySelector.alpha = 0;
 	} completion:^(BOOL finished) {
@@ -99,7 +96,7 @@
 
 - (void)filterWebtoons
 {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+	dispatch_async(dispatch_get_global_queue(0, 0), ^{
 		NSString *weekday = HippoWeekdays[self.weekdaySelector.selectedSegmentIndex];
 		NSFetchRequest *request = nil;
 		if( [weekday isEqualToString:@"all"] )
@@ -133,7 +130,6 @@
 		}
 		
 		NSMutableArray *webtoons = [request orderBy:@"title"].all.mutableCopy;
-		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			self.webtoons = webtoons;
 			[self.tableView reloadData];
@@ -177,7 +173,10 @@
 	
 	WebtoonDetailViewController *detailViewController = [[WebtoonDetailViewController alloc] init];
 	detailViewController.webtoon = [self.webtoons objectAtIndex:indexPath.row];
-	[self.tabBarController.navigationController pushViewController:detailViewController animated:YES];
+	
+	self.hidesBottomBarWhenPushed = YES;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+	self.hidesBottomBarWhenPushed = NO;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

@@ -37,7 +37,7 @@
 	
 	self.episodes = [NSMutableArray array];
 	
-	[self compareRevision];
+//	[self compareRevision];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -26,18 +26,24 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	UITabBarController *tabBarController = [[UITabBarController alloc] init];
-	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-	self.window.rootViewController = rootNavigationController;
-	
 	self.myWebtoonListViewController = [[WebtoonListViewController alloc] init];
 	self.myWebtoonListViewController.type = HippoWebtoonListViewControllerTypeMyWebtoon;
 	self.myWebtoonListViewController.title = L(@"MY_WEBTOONS");
+
+	UINavigationController *myWebtoonListNavController = [[UINavigationController alloc] initWithRootViewController:self.myWebtoonListViewController];
 	
 	self.allWebtoonListViewController = [[WebtoonListViewController alloc] init];
 	self.allWebtoonListViewController.type = HippoWebtoonListViewControllerTypeAllWebtoon;
 	self.allWebtoonListViewController.title = L(@"SEARCH");
-	tabBarController.viewControllers = @[self.myWebtoonListViewController, self.allWebtoonListViewController];
+	
+	UINavigationController *allWebtoonListNavController = [[UINavigationController alloc] initWithRootViewController:self.allWebtoonListViewController];
+	
+	UITabBarController *tabBarController = [[UITabBarController alloc] init];
+	tabBarController.viewControllers = @[myWebtoonListNavController, allWebtoonListNavController];
+	self.window.rootViewController = tabBarController;
+	
+	tabBarController.selectedIndex = 1;
+	tabBarController.selectedIndex = 0;
 	
 	[self login];
 	
@@ -178,6 +184,7 @@
 	NSString *api = [NSString stringWithFormat:@"/user/%@/webtoons", user.id];
 	[[APILoader sharedLoader] api:api method:@"GET" parameters:@{@"limit": @"100000"} success:^(id response) {
 		NSArray *data = [response objectForKey:@"data"];
+		NSLog( @"Loaded %d my webtoons.", data.count );
 		for(NSDictionary *webtoonData in data)
 		{
 			Webtoon *webtoon = [[[Webtoon request] filter:@"id==%@", [webtoonData objectForKey:@"id"]] last];
