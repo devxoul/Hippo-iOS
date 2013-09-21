@@ -199,6 +199,7 @@
 		
 		[self.myWebtoonListViewController filterWebtoons];
 		[self.allWebtoonListViewController filterWebtoons];
+		[DejalBezelActivityView removeView];
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		showErrorAlert();

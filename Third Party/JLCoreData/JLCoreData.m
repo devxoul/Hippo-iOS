@@ -22,27 +22,41 @@
 
 + (void)saveContext
 {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = [JLCoreData managedObjectContext];
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-			// Replace this implementation with code to handle the error appropriately.
-			// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
+	NSMutableDictionary *managedObjectContexts = [JLCoreData managedObjectContexts];
+	for( NSNumber *hash in managedObjectContexts )
+	{
+		NSManagedObjectContext *context = [managedObjectContexts objectForKey:hash];
+		if( context.hasChanges ) {
+			NSError *error = nil;
+			[context save:&error];
+			
+			if( error )
+			{
+				if( [error isKindOfClass:[NSMergeConflict class]] ) {
+					NSLog( @"Merge conflict. : %@", error.userInfo );
+				} else {
+					NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+				}
+			}
+		}
+	}
 }
 
-// "Create a separate managed object context for each thread and share a single persistent store coordinator."
-// According to: https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Conceptual/CoreData/Articles/cdConcurrency.html
-+ (NSManagedObjectContext *)managedObjectContext
++ (NSMutableDictionary *)managedObjectContexts
 {
 	static NSMutableDictionary *managedObjectContexts = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		managedObjectContexts = [NSMutableDictionary dictionary];
 	});
+	return managedObjectContexts;
+}
+
+// "Create a separate managed object context for each thread and share a single persistent store coordinator."
+// According to: https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Conceptual/CoreData/Articles/cdConcurrency.html
++ (NSManagedObjectContext *)managedObjectContext
+{
+	NSMutableDictionary *managedObjectContexts = [JLCoreData managedObjectContexts];
 	
 	NSNumber *hash = [NSNumber numberWithInteger:[NSThread currentThread].hash];
 	NSManagedObjectContext *managedObjectContext = [managedObjectContexts objectForKey:hash];
@@ -54,6 +68,7 @@
 	if( coordinator ) {
 		managedObjectContext = [[NSManagedObjectContext alloc] init];
 		managedObjectContext.persistentStoreCoordinator = coordinator;
+		managedObjectContext.mergePolicy = [[NSMergePolicy alloc] initWithMergeType:NSOverwriteMergePolicyType];
 		[managedObjectContexts setObject:managedObjectContext forKey:hash];
 	}
 	

@@ -76,7 +76,7 @@
 		[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
 			subscribeButton.enabled = YES;
 			self.webtoon.subscribed = [NSNumber numberWithBool:YES];
-			[JLCoreData saveContext];;
+			[JLCoreData saveContext];
 			[self updateNaviagtionItem];
 			
 		} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
@@ -118,8 +118,12 @@
 		NSLog( @"Episode Revision (local/remote) : %@ / %@", self.webtoon.revision, revision );
 		if( [self.webtoon.revision integerValue] < [revision integerValue] )
 		{
-			[self loadEpisodes];
 			self.webtoon.revision = revision;
+			[JLCoreData saveContext];
+			
+			NSLog( @"self.webtoon.managedObjectContext : %@", self.webtoon.managedObjectContext );
+			
+			[self loadEpisodes];
 		}
 		else
 		{
@@ -159,6 +163,7 @@
 			[episode setValuesForKeysWithDictionary:episodeData];
 			[self.episodes addObject:episode];
 		}
+		
 		[JLCoreData saveContext];
 		
 		[DejalBezelActivityView removeView];
@@ -240,7 +245,9 @@
 	WebtoonViewerViewController *viewer = [[WebtoonViewerViewController alloc] init];
 	[viewer setEpisodes:self.episodes currentEpisodeIndex:indexPath.row webtoon:self.webtoon];
 	
+	self.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:viewer animated:YES];
+	self.hidesBottomBarWhenPushed = NO;
 }
 
 @end
