@@ -54,6 +54,8 @@
 	self.searchBar.placeholder = L( @"SEARCH" );
 	self.searchBar.delegate = self;
 	[self.view addSubview:self.searchBar];
+	
+	self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidTap)];
 }
 
 
@@ -239,6 +241,12 @@
 #pragma mark -
 #pragma UISearchBarDelegate
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+	[self.tableView addGestureRecognizer:self.tapRecognizer];
+	return YES;
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
 	[self filterWebtoons];
@@ -246,7 +254,13 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-	[searchBar resignFirstResponder];
+	[self viewDidTap];
+}
+
+- (void)viewDidTap
+{
+	[self.tableView removeGestureRecognizer:self.tapRecognizer];
+	[self.searchBar resignFirstResponder];
 }
 
 @end

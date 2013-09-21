@@ -26,6 +26,7 @@ typedef enum {
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *webtoons;
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 
 - (void)filterWebtoons;
 
