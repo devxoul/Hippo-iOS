@@ -120,9 +120,6 @@
 		{
 			self.webtoon.revision = revision;
 			[JLCoreData saveContext];
-			
-			NSLog( @"self.webtoon.managedObjectContext : %@", self.webtoon.managedObjectContext );
-			
 			[self loadEpisodes];
 		}
 		else
@@ -168,6 +165,7 @@
 		
 		[DejalBezelActivityView removeView];
 		[self.tableView reloadData];
+		[self scrollToBookmark];
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		[DejalBezelActivityView removeView];
@@ -186,30 +184,12 @@
 		
 		[DejalBezelActivityView removeView];
 		[self.tableView reloadData];
+		[self scrollToBookmark];
 		
 	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
 		
 	}];
 }
-
-/*- (void)readEpisode:(Episode *)episode
-{
-	episode.read = @YES;
-	self.webtoon.bookmark = episode.id;
-	
-	[JLCoreData saveContext];;
-	[self.tableView reloadData];
-	
-	NSString *api = [NSString stringWithFormat:@"/episode/%@/read", episode.id];
-	[[APILoader sharedLoader] api:api method:@"POST" parameters:nil success:^(id response) {
-		NSLog( @"Read success" );
-		
-	} failure:^(NSInteger statusCode, NSInteger errorCode, NSString *message) {
-		episode.read = @NO;
-		
-		NSLog( @"Read failure" );
-	}];
-}*/
 
 
 #pragma mark -
@@ -248,6 +228,19 @@
 	self.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:viewer animated:YES];
 	self.hidesBottomBarWhenPushed = NO;
+}
+
+- (void)scrollToBookmark
+{
+	for( NSInteger i = 0; i < self.episodes.count; i++ )
+	{
+		Episode *episode = [self.episodes objectAtIndex:i];
+		if( episode.id.integerValue == self.webtoon.bookmark.integerValue )
+		{
+			[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+			break;
+		}
+	}
 }
 
 @end
