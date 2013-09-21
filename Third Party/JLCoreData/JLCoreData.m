@@ -14,13 +14,26 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+// Create a separate managed object context for each thread and share a single persistent store coordinator.
+// According to: https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Conceptual/CoreData/Articles/cdConcurrency.html
 + (id)sharedInstance
 {
-	static id instance = nil;
+	NSThread *currentThread = [NSThread currentThread];
+	static NSMutableDictionary *instances = nil;
+	
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		instance = [[JLCoreData alloc] init];
+		instances = [NSMutableDictionary dictionary];
 	});
+	
+	NSNumber *hash = [NSNumber numberWithInteger:currentThread.hash];
+	
+	id instance = [instances objectForKey:hash];
+	if( !instance ) {
+		instance = [[JLCoreData alloc] init];
+		[instances setObject:instance forKey:hash];
+	}
+	
 	return instance;
 }
 
