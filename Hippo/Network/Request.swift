@@ -18,6 +18,7 @@ class Request {
 
     private struct __ {
         static var baseURLString = ""
+        static var HTTPHeaderFields = NSMutableDictionary()
         static let manager = AFHTTPRequestOperationManager()
     }
 
@@ -27,6 +28,15 @@ class Request {
         }
         get {
             return __.baseURLString
+        }
+    }
+
+    class var HTTPHeaderFields: NSMutableDictionary {
+        set(HTTPHeaderFields) {
+            __.HTTPHeaderFields = HTTPHeaderFields.mutableCopy() as NSMutableDictionary
+        }
+        get {
+            return __.HTTPHeaderFields
         }
     }
 
@@ -62,6 +72,11 @@ class Request {
                 parameters: info.parameters,
                 error: nil
             )
+
+            for (k, v) in self.HTTPHeaderFields {
+                request.setValue(v as? String, forHTTPHeaderField: k as String)
+            }
+
             let operation = manager.HTTPRequestOperationWithRequest(request, success: success, failure: failure)
             return operation
     }
