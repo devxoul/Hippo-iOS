@@ -10,6 +10,28 @@ import Foundation
 
 class WebtoonCell: UITableViewCell {
 
+    private var _webtoon: Webtoon?
+    var webtoon: Webtoon? {
+        get {
+            return _webtoon?
+        }
+        set {
+            self._webtoon = newValue
+            self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url))
+            self.titleLabel.text = newValue!.title
+
+            var artistNames = [String]()
+            for i in 0...(newValue!.artists.count - 1) {
+                let artist = newValue!.artists.objectAtIndex(i) as Artist
+                artistNames.append(artist.name)
+            }
+            self.artistLabel.text = ", ".join(artistNames)
+
+            self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")
+            self.subscribeButton.selected = newValue!.subscribing
+        }
+    }
+
     var thumbnailView = UIImageView()
     var titleLabel = UILabel()
     var countLabel = UILabel()
@@ -28,7 +50,7 @@ class WebtoonCell: UITableViewCell {
         self.contentView.addSubview(self.artistLabel)
         self.contentView.addSubview(self.portalIconView)
         self.contentView.addSubview(self.weekdayLabel)
-        self.contentView.addSubview(self.weekdayLabel)
+        self.contentView.addSubview(self.subscribeButton)
 
         self.thumbnailView.snp_makeConstraints { make in
             make.width.equalTo(55)
@@ -37,8 +59,8 @@ class WebtoonCell: UITableViewCell {
 
         self.titleLabel.snp_makeConstraints { make in
             make.left.equalTo(65)
+            make.right.equalTo(self.subscribeButton.snp_left).with.offset(-5)
             make.top.equalTo(4)
-            make.width.lessThanOrEqualTo(190)
         }
 
         self.countLabel.backgroundColor = UIColor.orangeColor()
@@ -54,8 +76,8 @@ class WebtoonCell: UITableViewCell {
         self.artistLabel.textColor = UIColor.grayColor()
         self.artistLabel.snp_makeConstraints { make in
             make.left.equalTo(65)
+            make.right.equalTo(self.titleLabel)
             make.top.equalTo(24)
-            make.width.lessThanOrEqualTo(190)
         }
 
         self.weekdayLabel.font = UIFont.systemFontOfSize(11)
@@ -66,11 +88,22 @@ class WebtoonCell: UITableViewCell {
             make.width.lessThanOrEqualTo(170)
         }
 
+        self.subscribeButton.setTitle("구독하기", forState: UIControlState.Normal)
+        self.subscribeButton.setTitle("구독중", forState: UIControlState.Selected)
         self.subscribeButton.titleLabel?.textAlignment = NSTextAlignment.Right
-        self.accessoryView = self.subscribeButton
+        self.subscribeButton.snp_makeConstraints { make in
+            make.right.equalTo(self.contentView).with.offset(-10)
+            make.centerY.equalTo(self.contentView)
+            make.width.equalTo(60)
+            make.height.equalTo(34)
+        }
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    class var height: CGFloat {
+        return 60;
     }
 }

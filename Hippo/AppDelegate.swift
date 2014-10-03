@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window.backgroundColor = UIColor.whiteColor()
         self.window.makeKeyAndVisible()
 
+        RLMRealm.useInMemoryDefaultRealm()
+
         Request.baseURLString = "http://127.0.0.1:8000"
         Request.HTTPHeaderFields = [
             "Accept": "application/json"

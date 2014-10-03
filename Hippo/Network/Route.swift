@@ -15,6 +15,7 @@ private let _map = [
     ("logout",          "POST", "/logout"),
 
     // webtoons
+    ("all_webtoons",    "GET", "/webtoons"),
     ("user_webtoons",   "GET", "/<username>/webtoons"),
 ]
 
