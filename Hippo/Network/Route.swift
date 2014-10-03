@@ -30,19 +30,6 @@ class Route {
         self.pattern = pattern
     }
 
-    func URLStringWithParameters(parameters: RequestParams) -> NSString? {
-        var URLString = self.pattern!
-        for (k, v) in parameters {
-            var pattern = "<\(k)>"
-            var value = v as String
-            URLString = URLString.stringByReplacingOccurrencesOfString(pattern,
-                                                                       withString: value,
-                                                                       options: .CaseInsensitiveSearch,
-                                                                       range: nil)
-        }
-        return URLString
-    }
-
     class func fromName(name: String) -> Route? {
         for row in _map {
             if row.0 == name {

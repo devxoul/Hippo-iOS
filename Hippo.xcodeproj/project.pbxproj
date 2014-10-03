@@ -10,7 +10,7 @@
 		032EA4B119DE68B700DD3C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4B019DE68B700DD3C7B /* AppDelegate.swift */; };
 		032EA4B319DE6C1300DD3C7B /* WebtoonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */; };
 		032EA4C719DE806D00DD3C7B /* WebtoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4C619DE806D00DD3C7B /* WebtoonCell.swift */; };
-		032EA4CF19DE85E800DD3C7B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4CD19DE85E800DD3C7B /* APIClient.swift */; };
+		032EA4CF19DE85E800DD3C7B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4CD19DE85E800DD3C7B /* Request.swift */; };
 		032EA4D019DE85E800DD3C7B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EA4CE19DE85E800DD3C7B /* Route.swift */; };
 		03367CFC17D345D700CFF891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFB17D345D700CFF891 /* Foundation.framework */; };
 		03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03367CFD17D345D700CFF891 /* CoreGraphics.framework */; };
@@ -54,7 +54,7 @@
 		032EA4B019DE68B700DD3C7B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebtoonListViewController.swift; path = ViewControllers/WebtoonListViewController.swift; sourceTree = "<group>"; };
 		032EA4C619DE806D00DD3C7B /* WebtoonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebtoonCell.swift; sourceTree = "<group>"; };
-		032EA4CD19DE85E800DD3C7B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		032EA4CD19DE85E800DD3C7B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		032EA4CE19DE85E800DD3C7B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		03367CF817D345D700CFF891 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03367CFB17D345D700CFF891 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,7 +172,7 @@
 		032EA4CC19DE85E800DD3C7B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				032EA4CD19DE85E800DD3C7B /* APIClient.swift */,
+				032EA4CD19DE85E800DD3C7B /* Request.swift */,
 				032EA4CE19DE85E800DD3C7B /* Route.swift */,
 			);
 			path = Network;
@@ -437,7 +437,7 @@
 				032EA4C719DE806D00DD3C7B /* WebtoonCell.swift in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				032EA4D019DE85E800DD3C7B /* Route.swift in Sources */,
-				032EA4CF19DE85E800DD3C7B /* APIClient.swift in Sources */,
+				032EA4CF19DE85E800DD3C7B /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
