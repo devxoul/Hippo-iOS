@@ -74,11 +74,11 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         ]
         Request.sendToRoute("all_webtoons", parameters: params,
             success: { (operation, responseObject) in
-                let data = (responseObject as NSDictionary)["data"] as NSArray
+                let data = responseObject["data"] as [NSDictionary]
 
                 RLMRealm.defaultRealm().beginWriteTransaction()
                 for webtoonData in data {
-                    let webtoon = Webtoon.createInDefaultRealmWithObject(webtoonData)
+                    Webtoon.createInDefaultRealmWithObject(webtoonData)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
                 self.webtoons = Webtoon.allObjects()
