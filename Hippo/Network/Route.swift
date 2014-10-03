@@ -15,7 +15,7 @@ private let _map = [
     ("logout",          "POST", "/logout"),
 
     // webtoons
-    ("user_webtoons", "GET", "/<username>/webtoons"),
+    ("user_webtoons",   "GET", "/<username>/webtoons"),
 ]
 
 class Route {
@@ -31,15 +31,6 @@ class Route {
     }
 
     class func fromName(name: String) -> Route? {
-        for row in _map {
-            if row.0 == name {
-                return Route(name: row.0, method: row.1, pattern: row.2)
-            }
-        }
-        return nil
-    }
-
-    class func fromName(name: String, withParameter: [String: AnyObject!]) -> Route? {
         for row in _map {
             if row.0 == name {
                 return Route(name: row.0, method: row.1, pattern: row.2)

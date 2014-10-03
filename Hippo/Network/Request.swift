@@ -16,10 +16,21 @@ struct RequestInfo {
 
 class Request {
 
-    class var manager: AFHTTPRequestOperationManager {
-        struct __ {
-            static let manager = AFHTTPRequestOperationManager()
+    private struct __ {
+        static var baseURLString = ""
+        static let manager = AFHTTPRequestOperationManager()
+    }
+
+    class var baseURLString: String {
+        set(baseURLString) {
+            __.baseURLString = baseURLString
         }
+        get {
+            return __.baseURLString
+        }
+    }
+
+    class var manager: AFHTTPRequestOperationManager {
         return __.manager
     }
 
@@ -47,7 +58,7 @@ class Request {
             let info = self.infoWithRouteName(name, parameters: parameters)
             let request = self.manager.requestSerializer.requestWithMethod(
                 info.method,
-                URLString: info.URLString,
+                URLString: self.baseURLString + info.URLString!,
                 parameters: info.parameters,
                 error: nil
             )
