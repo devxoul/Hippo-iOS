@@ -60,5 +60,9 @@ class APIClient {
         return operation
     }
 
-    // operation을 시작하는 method가 필요!
+    class func startOperationWithRouteName(name: String, parameters: RequestParams, success: RequestSuccessBlock, failure: RequestFailureBlock) -> AFHTTPRequestOperation {
+        let operation = self.operationWithRouteName(name, parameters: parameters, success: success, failure: failure)
+        self.manager.operationQueue.addOperation(operation)
+        return operation
+    }
 }
