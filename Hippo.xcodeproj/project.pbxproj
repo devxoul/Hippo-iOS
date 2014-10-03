@@ -77,6 +77,7 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>032EA4C619DE806D00DD3C7B</string>
 				<string>032335BD17D35310007EECCB</string>
 				<string>032335BE17D35310007EECCB</string>
 				<string>03665BAD17DA08DC0038D895</string>
@@ -196,6 +197,26 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>032EA4C619DE806D00DD3C7B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>WebtoonCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>032EA4C719DE806D00DD3C7B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>032EA4C619DE806D00DD3C7B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>03367CEF17D345D700CFF891</key>
 		<dict>
 			<key>children</key>
@@ -281,6 +302,7 @@
 			<array>
 				<string>032EA4B119DE68B700DD3C7B</string>
 				<string>032EA4B319DE6C1300DD3C7B</string>
+				<string>032EA4C719DE806D00DD3C7B</string>
 				<string>03A746BF17D9F25E0099A2A5</string>
 			</array>
 			<key>isa</key>

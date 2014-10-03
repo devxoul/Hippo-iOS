@@ -22,7 +22,7 @@ extension UINavigationBar {
     }
 }
 
-class WebtoonListViewController: UIViewController {
+class WebtoonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let weekdaySelector = UISegmentedControl(items: ["전체", "월", "화", "수", "목", "금", "토", "일", "완결"])
     let tableView = UITableView()
@@ -43,5 +43,20 @@ class WebtoonListViewController: UIViewController {
             make.bottom.equalTo(navBarBackground).equalTo(-12)
             return
         }
+
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.webtoons.count
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return nil
     }
 }
