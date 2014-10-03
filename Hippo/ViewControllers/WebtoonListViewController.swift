@@ -22,7 +22,7 @@ extension UINavigationBar {
     }
 }
 
-class WebtoonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WebtoonListViewController: UIViewController {
 
     let weekdaySelector = UISegmentedControl(items: ["전체", "월", "화", "수", "목", "금", "토", "일", "완결"])
     let tableView = UITableView()
@@ -44,19 +44,23 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
 
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+//        self.tableView.dataSource = self
+//        self.tableView.delegate = self
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.webtoons.count
+    func fetchWebtoons() {
+        APIClient.requestWithRouteName("user_webtoons", parameters: ["username": "devxoul"])
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return nil
-    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.webtoons.count
+//    }
+//
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 60
+//    }
+//
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        return nil
+//    }
 }
