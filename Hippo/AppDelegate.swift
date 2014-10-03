@@ -11,12 +11,23 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window = UIWindow()
+    var myWebtoonListViewController = WebtoonListViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions: [NSObject : AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.whiteColor()
-        self.window?.makeKeyAndVisible()
+        self.window.frame = UIScreen.mainScreen().bounds
+        self.window.backgroundColor = UIColor.whiteColor()
+        self.window.makeKeyAndVisible()
+
+        initTabBar()
+
         return true
+    }
+
+    func initTabBar() {
+        let nav = UINavigationController(rootViewController: self.myWebtoonListViewController)
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [nav]
+        self.window.rootViewController = tabBarController
     }
 }
