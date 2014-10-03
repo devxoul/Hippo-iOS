@@ -23,8 +23,8 @@ class Request {
     }
 
     class var baseURLString: String {
-        set(baseURLString) {
-            __.baseURLString = baseURLString
+        set {
+            __.baseURLString = newValue
         }
         get {
             return __.baseURLString
@@ -32,8 +32,8 @@ class Request {
     }
 
     class var HTTPHeaderFields: NSMutableDictionary {
-        set(HTTPHeaderFields) {
-            __.HTTPHeaderFields = HTTPHeaderFields.mutableCopy() as NSMutableDictionary
+        set {
+            __.HTTPHeaderFields = newValue.mutableCopy() as NSMutableDictionary
         }
         get {
             return __.HTTPHeaderFields
