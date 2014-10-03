@@ -1,4 +1,9 @@
+.DS_Store
 
-Hippo.xcodeproj/project.xcworkspace/xcuserdata/xoul.xcuserdatad/WorkspaceSettings.xcsettings
+**/xcuserdata
+**/xcshareddata
+*.pbxuser
+*.mode1v3
 
-*.xccheckout
+Podfile.lock
+Pods
