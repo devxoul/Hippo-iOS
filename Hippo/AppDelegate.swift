@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window.makeKeyAndVisible()
 
         Request.baseURLString = "http://127.0.0.1:8000"
+        Request.HTTPHeaderFields = [
+            "Accept": "application/json"
+        ]
 
         initTabBar()
 
