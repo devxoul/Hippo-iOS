@@ -26,6 +26,8 @@
 		033926C619DEBF970075A149 /* Webtoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C519DEBF970075A149 /* Webtoon.swift */; };
 		033926C819DEE9400075A149 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C719DEE9400075A149 /* Picture.swift */; };
 		033926CA19DF0E680075A149 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C919DF0E680075A149 /* Artist.swift */; };
+		033926CC19DF1B8F0075A149 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; };
+		033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
@@ -45,6 +47,20 @@
 			remoteInfo = Hippo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		033926CE19DF1B900075A149 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		032335B717D350B3007EECCB /* WeekdaySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekdaySelector.h; path = Controls/WeekdaySelector.h; sourceTree = "<group>"; };
@@ -82,6 +98,7 @@
 		033926C519DEBF970075A149 /* Webtoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webtoon.swift; sourceTree = "<group>"; };
 		033926C719DEE9400075A149 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		033926C919DF0E680075A149 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		033926CB19DF1B8F0075A149 /* Snappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Snappy.framework; path = "/Users/xoul/Library/Developer/Xcode/DerivedData/Hippo-fqnhddzpmizdokglxfvqvmlouigq/Build/Products/Debug-iphoneos/Snappy.framework"; sourceTree = "<absolute>"; };
 		03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonDetailViewController.h; path = ViewControllers/WebtoonDetailViewController.h; sourceTree = "<group>"; };
 		03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonDetailViewController.m; path = ViewControllers/WebtoonDetailViewController.m; sourceTree = "<group>"; };
 		03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonDetailView.h; sourceTree = "<group>"; };
@@ -117,6 +134,7 @@
 				0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */,
 				03367D7917D3471100CFF891 /* CoreData.framework in Frameworks */,
 				03367D7717D3470100CFF891 /* libsqlite3.0.dylib in Frameworks */,
+				033926CC19DF1B8F0075A149 /* Snappy.framework in Frameworks */,
 				03367D7517D346FA00CFF891 /* MobileCoreServices.framework in Frameworks */,
 				03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */,
 				03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */,
@@ -190,6 +208,7 @@
 		03367CEF17D345D700CFF891 = {
 			isa = PBXGroup;
 			children = (
+				033926CB19DF1B8F0075A149 /* Snappy.framework */,
 				03367D0117D345D700CFF891 /* Hippo */,
 				03D2209717E021FB00E804AA /* Resources */,
 				03367D1A17D345D700CFF891 /* HippoTests */,
@@ -320,6 +339,7 @@
 				03367CF517D345D700CFF891 /* Frameworks */,
 				03367CF617D345D700CFF891 /* Resources */,
 				8BA7AF582B64869F04AEADCD /* Copy Pods Resources */,
+				033926CE19DF1B900075A149 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -550,6 +570,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Hippo-fqnhddzpmizdokglxfvqvmlouigq/Build/Products/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Hippo/Hippo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -568,6 +592,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Hippo-fqnhddzpmizdokglxfvqvmlouigq/Build/Products/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Hippo/Hippo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
