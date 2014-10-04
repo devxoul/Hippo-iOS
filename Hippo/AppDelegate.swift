@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window = UIWindow()
     var myWebtoonListViewController = WebtoonListViewController()
+    var allWebtoonListViewController = WebtoonListViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions: [NSObject : AnyObject]?) -> Bool {
         self.window.frame = UIScreen.mainScreen().bounds
@@ -44,9 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func initTabBar() {
-        let nav = UINavigationController(rootViewController: self.myWebtoonListViewController)
+        self.myWebtoonListViewController.listType = WebtoonListType.Mine
+        self.allWebtoonListViewController.listType = WebtoonListType.All
+
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [nav]
+        tabBarController.viewControllers = [
+            UINavigationController(rootViewController: self.myWebtoonListViewController),
+            UINavigationController(rootViewController: self.allWebtoonListViewController),
+        ]
         self.window.rootViewController = tabBarController
     }
 }

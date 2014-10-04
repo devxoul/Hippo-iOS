@@ -98,6 +98,7 @@ class LoginViewController: UIViewController {
 
         let params = [
             "username": "me",
+            "limit": "99999",
         ]
 
         Request.sendToRoute("all_webtoons", parameters: params,
