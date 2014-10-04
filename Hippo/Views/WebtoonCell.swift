@@ -29,8 +29,8 @@ class WebtoonCell: UITableViewCell {
 
             self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")
 
-            if newValue!.finished {
-                self.weekdayLabel.text = "완결"
+            if newValue!.concluded {
+                self.weekdayLabel.text = __("Concluded")
             } else {
                 var weekdays = [String]()
                 for weekday in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] {

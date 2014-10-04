@@ -88,7 +88,7 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     func filterWebtoons() {
-        let options = ["all", "mon", "tue", "wed", "thu", "fri", "sat", "sun", "finished"]
+        let options = ["all", "mon", "tue", "wed", "thu", "fri", "sat", "sun", "concluded"]
         let option = options[self.weekdaySelector.selectedSegmentIndex]
 
         var predicate = ""

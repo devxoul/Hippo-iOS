@@ -23,7 +23,7 @@ class Webtoon: RLMObject {
     dynamic var fri: Bool = false
     dynamic var sat: Bool = false
     dynamic var sun: Bool = false
-    dynamic var finished: Bool = false
+    dynamic var concluded: Bool = false
     dynamic var subscribing: Bool = false
 
     override class func primaryKey() -> String {

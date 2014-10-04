@@ -6,10 +6,14 @@
   Copyright (c) 2013년 Joyfl. All rights reserved.
 */
 
-"MY_WEBTOONS" = "내 웹툰";
-"SEARCH" = "검색";
+"Retrieving login information..." = "로그인 정보 받아오는 중...";
+"Loading webtoons..." = "웹툰 정보 받아오는 중...";
+
+"My Webtoons" = "내 웹툰";
+"Search" = "검색";
 
 "LOADING" = "로딩중";
+
 "All" = "전체";
 "Mon" = "월";
 "Tue" = "화";
@@ -18,11 +22,11 @@
 "Fri" = "금";
 "Sat" = "토";
 "Sun" = "일";
-"Finished" = "완결";
+"Concluded" = "완결";
 
-"SUBSCRIBE" = "구독하기";
-"UNSUBSCRIBE" = "구독취소";
+"Subscribe" = "구독하기";
+"Subscribing" = "구독중";
 
-"RELOAD" = "새로고침";
-"PREV_EPISODE" = "이전화";
-"NEXT_EPISODE" = "다음화";
+"Reload" = "새로고침";
+"Previous" = "이전화";
+"Next" = "다음화";

@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
     }
 
     func tryLogin() {
-        self.loadingMessage = "로그인 정보 받아오는 중..."
+        self.loadingMessage = __("Retrieving login information...")
 
         let defaults = NSUserDefaults.standardUserDefaults()
         let username = defaults.stringForKey(UserDefaultsName.Username)
@@ -69,31 +69,39 @@ class LoginViewController: UIViewController {
             "uuid": UUID!,
             "os": "iOS"
         ]
+
+        println("Try to device login with uuid: \(UUID!)")
+
         Request.sendToRoute("login_device", parameters: params,
             success: { (operation, responseObject) -> Void in
+                println("Device login success.")
                 self.fetchWebtoons()
             },
             failure: { (operation, error) -> Void in
                 if operation.response.statusCode == 403 {
+                    println("Try to join with device")
                     Request.sendToRoute(
                         "join_device",
                         parameters: params,
                         success: { (operation, responseObject) -> Void in
+                            println("Device join success.")
                             self.fetchWebtoons()
                         },
                         failure: { (operation, error) -> Void in
-                            self.loadingMessage = "기기 정보 등록 실패"
+                            println("Device join failure: \(operation.responseObject)")
+                            self.loadingMessage = __("기기 정보 등록 실패")
                         }
                     )
                 } else {
-                    self.loadingMessage = "로그인 실패"
+                    println("Device login failed: \(operation.responseObject)")
+                    self.loadingMessage = __("로그인 실패")
                 }
             }
         )
     }
 
     func fetchWebtoons() {
-        self.loadingLabel.text = "웹툰 정보 받아오는 중..."
+        self.loadingLabel.text = __("Loading webtoons...")
         self.loadingLabel.sizeToFit()
 
         let params = [
@@ -118,7 +126,7 @@ class LoginViewController: UIViewController {
                 }
             },
             failure: { (operation, error) in
-                self.loadingMessage = "웹툰 정보 로딩 실패"
+                self.loadingMessage = __("웹툰 정보 로딩 실패")
             }
         )
     }
