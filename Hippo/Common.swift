@@ -12,3 +12,8 @@ struct UserDefaultsName {
     static let Username = "Username"
     static let UUID = "UUID"
 }
+
+
+func __(key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}

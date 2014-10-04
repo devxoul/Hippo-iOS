@@ -10,15 +10,15 @@
 "SEARCH" = "검색";
 
 "LOADING" = "로딩중";
-"ALL" = "전체";
-"MON" = "월";
-"TUE" = "화";
-"WED" = "수";
-"THU" = "목";
-"FRI" = "금";
-"SAT" = "토";
-"SUN" = "일";
-"FINISHED" = "완결";
+"All" = "전체";
+"Mon" = "월";
+"Tue" = "화";
+"Wed" = "수";
+"Thu" = "목";
+"Fri" = "금";
+"Sat" = "토";
+"Sun" = "일";
+"Finished" = "완결";
 
 "SUBSCRIBE" = "구독하기";
 "UNSUBSCRIBE" = "구독취소";

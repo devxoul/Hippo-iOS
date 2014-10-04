@@ -28,6 +28,20 @@ class WebtoonCell: UITableViewCell {
             self.artistLabel.text = ", ".join(artistNames)
 
             self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")
+
+            if newValue!.finished {
+                self.weekdayLabel.text = "완결"
+            } else {
+                var weekdays = [String]()
+                for weekday in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] {
+                    if newValue!.valueForKey(weekday.lowercaseString) as Bool {
+                        let weekdayName = __(weekday)
+                        weekdays.append(weekdayName)
+                    }
+                }
+                self.weekdayLabel.text = ", ".join(weekdays)
+            }
+
             self.subscribeButton.selected = newValue!.subscribing
         }
     }
@@ -90,7 +104,7 @@ class WebtoonCell: UITableViewCell {
         self.weekdayLabel.textColor = UIColor.grayColor()
         self.weekdayLabel.snp_makeConstraints { make in
             make.left.equalTo(81)
-            make.right.equalTo(41)
+            make.top.equalTo(41)
             make.width.lessThanOrEqualTo(170)
         }
 
