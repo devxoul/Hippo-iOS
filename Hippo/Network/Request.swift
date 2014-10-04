@@ -52,7 +52,7 @@ class Request {
             let pat = "<\(k)>"
             let range = info.URLString?.rangeOfString(pat, options: .CaseInsensitiveSearch, range: nil, locale: nil)
             if range? != nil && range?.isEmpty == false {
-                info.URLString?.replaceRange(range!, with: v as String)
+                info.URLString?.replaceRange(range!, with: "\(v)")
                 let params = info.parameters?.mutableCopy() as NSMutableDictionary
                 params.removeObjectForKey(k)
                 info.parameters = params

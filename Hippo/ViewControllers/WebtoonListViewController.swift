@@ -82,8 +82,9 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             let components = calendar.components(NSCalendarUnit.WeekdayCalendarUnit, fromDate: NSDate())
             let weekday = components.weekday
             self.weekdaySelector.selectedSegmentIndex = (weekday >= 2 ? weekday - 1 : 7)
-            filterWebtoons()
         }
+
+        filterWebtoons()
     }
 
     func filterWebtoons() {

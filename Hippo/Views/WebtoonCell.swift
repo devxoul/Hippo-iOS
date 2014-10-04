@@ -91,6 +91,8 @@ class WebtoonCell: UITableViewCell {
         self.subscribeButton.setTitle("구독하기", forState: UIControlState.Normal)
         self.subscribeButton.setTitle("구독중", forState: UIControlState.Selected)
         self.subscribeButton.titleLabel?.textAlignment = NSTextAlignment.Right
+        self.subscribeButton.addTarget(self, action: "subscribeButtonDidPress",
+            forControlEvents: UIControlEvents.TouchUpInside)
         self.subscribeButton.snp_makeConstraints { make in
             make.right.equalTo(self.contentView).with.offset(-10)
             make.centerY.equalTo(self.contentView)
@@ -105,5 +107,25 @@ class WebtoonCell: UITableViewCell {
 
     class var height: CGFloat {
         return 60;
+    }
+
+    func subscribeButtonDidPress() {
+        self.subscribeButton.selected = !self.subscribeButton.selected
+
+        var routeName = "subscribe_webtoon"
+        if !self.subscribeButton.selected {
+            routeName = "un" + routeName
+        }
+
+        Request.sendToRoute(routeName, parameters: ["webtoon_id": self.webtoon!.id],
+            success: { (operation, responseObject) -> Void in
+                RLMRealm.defaultRealm().beginWriteTransaction()
+                self.webtoon!.subscribing = self.subscribeButton.selected
+                RLMRealm.defaultRealm().commitWriteTransaction()
+            },
+            failure: { (operation, error) -> Void in
+                self.subscribeButton.selected = !self.subscribeButton.selected
+            }
+        )
     }
 }
