@@ -43,7 +43,7 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
 
-    let weekdaySelector = UISegmentedControl(items: ["전체", "월", "화", "수", "목", "금", "토", "일", "완결"])
+    let weekdaySelector = UISegmentedControl()
     let tableView = UITableView()
     var webtoons: RLMArray?
 
@@ -54,6 +54,11 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         navBarBackground.height = 108
         navBarBackground.userInteractionEnabled = true
         navBarBackground.addSubview(self.weekdaySelector)
+
+        let options = ["All", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Con"]
+        for i in 0...(options.count - 1) {
+            weekdaySelector.insertSegmentWithTitle(__(options[i]), atIndex: i, animated: false)
+        }
         self.weekdaySelector.addTarget(self, action: "filterWebtoons", forControlEvents: UIControlEvents.ValueChanged)
         self.weekdaySelector.snp_makeConstraints { make in
             make.left.equalTo(10)
