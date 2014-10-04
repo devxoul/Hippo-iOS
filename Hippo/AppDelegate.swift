@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window.backgroundColor = UIColor.whiteColor()
         self.window.makeKeyAndVisible()
 
-        RLMRealm.useInMemoryDefaultRealm()
+        self.dropRealm()
 
         Request.baseURLString = "http://127.0.0.1:8000"
         Request.HTTPHeaderFields = [
@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         showLoginViewController()
         return true
+    }
+
+    func dropRealm() {
+        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealm().path, error: nil)
     }
 
     func showLoginViewController() {
