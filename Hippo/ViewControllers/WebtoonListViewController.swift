@@ -131,4 +131,8 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         cell?.webtoon = self.webtoons?.objectAtIndex(UInt(indexPath.row)) as? Webtoon
         return cell!
     }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
 }
