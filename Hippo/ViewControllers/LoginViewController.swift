@@ -104,9 +104,11 @@ class LoginViewController: UIViewController {
             success: { (operation, responseObject) in
                 let data = responseObject["data"] as [NSDictionary]
 
+                let allWebtoons = Webtoon.allObjects()
+
                 RLMRealm.defaultRealm().beginWriteTransaction()
                 for webtoonData in data {
-                    Webtoon.createInDefaultRealmWithObject(webtoonData)
+                    Webtoon.createOrUpdateInDefaultRealmWithObject(webtoonData)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
 
