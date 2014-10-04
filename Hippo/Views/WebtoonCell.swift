@@ -80,6 +80,12 @@ class WebtoonCell: UITableViewCell {
             make.top.equalTo(24)
         }
 
+        self.portalIconView.snp_makeConstraints { make in
+            make.left.equalTo(65)
+            make.top.equalTo(41)
+            make.size.equalTo(CGSizeMake(12, 12))
+        }
+
         self.weekdayLabel.font = UIFont.systemFontOfSize(11)
         self.weekdayLabel.textColor = UIColor.grayColor()
         self.weekdayLabel.snp_makeConstraints { make in

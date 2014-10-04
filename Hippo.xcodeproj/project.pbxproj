@@ -30,12 +30,9 @@
 		033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		033926D019DFD3800075A149 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926CF19DFD3800075A149 /* Common.swift */; };
 		033926D219E036990075A149 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D119E036990075A149 /* LoginViewController.swift */; };
-		03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
-		03D2209A17E021FB00E804AA /* icon_daum.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209817E021FB00E804AA /* icon_daum.png */; };
-		03D2209B17E021FB00E804AA /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D2209917E021FB00E804AA /* icon_naver.png */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
 		D43F5B1BC50173FE05156E82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239066B9E76D27965EFCAA35 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -113,7 +110,6 @@
 		03665BBA17DA894B0038D895 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
 		03702CD217E51EDE00E5E345 /* WebtoonViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonViewerViewController.h; path = ViewControllers/WebtoonViewerViewController.h; sourceTree = "<group>"; };
 		03702CD317E51EDE00E5E345 /* WebtoonViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonViewerViewController.m; path = ViewControllers/WebtoonViewerViewController.m; sourceTree = "<group>"; };
-		03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bookmark@2x.png"; sourceTree = "<group>"; };
 		0383BE9C17D349AE00E89D7A /* APILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APILoader.h; sourceTree = "<group>"; };
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -122,8 +118,6 @@
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
 		03D2209217E01B9200E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
-		03D2209817E021FB00E804AA /* icon_daum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_daum.png; sourceTree = "<group>"; };
-		03D2209917E021FB00E804AA /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		239066B9E76D27965EFCAA35 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7123B7D7B66B64DEBFDAB5EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -317,9 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				03D220A017E0248E00E804AA /* Localizable.strings */,
-				03D2209817E021FB00E804AA /* icon_daum.png */,
-				03D2209917E021FB00E804AA /* icon_naver.png */,
-				03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -413,10 +404,7 @@
 			files = (
 				03D220A117E0248E00E804AA /* Localizable.strings in Resources */,
 				03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */,
-				03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */,
-				03D2209B17E021FB00E804AA /* icon_naver.png in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
-				03D2209A17E021FB00E804AA /* icon_daum.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
