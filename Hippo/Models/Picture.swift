@@ -13,4 +13,8 @@ class Picture: RLMObject {
     dynamic var width: Int = 0
     dynamic var height: Int = 0
     dynamic var url: String = ""
+
+    override class func primaryKey() -> String {
+        return "id"
+    }
 }
