@@ -28,6 +28,8 @@
 		033926CA19DF0E680075A149 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C919DF0E680075A149 /* Artist.swift */; };
 		033926CC19DF1B8F0075A149 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; };
 		033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		033926D019DFD3800075A149 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926CF19DFD3800075A149 /* Common.swift */; };
+		033926D219E036990075A149 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D119E036990075A149 /* LoginViewController.swift */; };
 		03702CFA17E5457A00E5E345 /* icon_bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03702CF917E5457A00E5E345 /* icon_bookmark@2x.png */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
@@ -99,6 +101,8 @@
 		033926C719DEE9400075A149 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		033926C919DF0E680075A149 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		033926CB19DF1B8F0075A149 /* Snappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Snappy.framework; path = "/Users/xoul/Library/Developer/Xcode/DerivedData/Hippo-fqnhddzpmizdokglxfvqvmlouigq/Build/Products/Debug-iphoneos/Snappy.framework"; sourceTree = "<absolute>"; };
+		033926CF19DFD3800075A149 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		033926D119E036990075A149 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonDetailViewController.h; path = ViewControllers/WebtoonDetailViewController.h; sourceTree = "<group>"; };
 		03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonDetailViewController.m; path = ViewControllers/WebtoonDetailViewController.m; sourceTree = "<group>"; };
 		03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonDetailView.h; sourceTree = "<group>"; };
@@ -208,7 +212,6 @@
 		03367CEF17D345D700CFF891 = {
 			isa = PBXGroup;
 			children = (
-				033926CB19DF1B8F0075A149 /* Snappy.framework */,
 				03367D0117D345D700CFF891 /* Hippo */,
 				03D2209717E021FB00E804AA /* Resources */,
 				03367D1A17D345D700CFF891 /* HippoTests */,
@@ -230,6 +233,7 @@
 		03367CFA17D345D700CFF891 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				033926CB19DF1B8F0075A149 /* Snappy.framework */,
 				0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */,
 				03367D7817D3471100CFF891 /* CoreData.framework */,
 				03367D7617D3470100CFF891 /* libsqlite3.0.dylib */,
@@ -246,6 +250,7 @@
 		03367D0117D345D700CFF891 /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
+				033926CF19DFD3800075A149 /* Common.swift */,
 				032EA4B019DE68B700DD3C7B /* AppDelegate.swift */,
 				032EA4CC19DE85E800DD3C7B /* Network */,
 				03367D6C17D3466D00CFF891 /* Common.h */,
@@ -294,6 +299,7 @@
 		03367D7317D346D000CFF891 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				033926D119E036990075A149 /* LoginViewController.swift */,
 				032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */,
 				03367D7017D346CA00CFF891 /* WebtoonListViewController.h */,
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
@@ -469,7 +475,9 @@
 				033926C819DEE9400075A149 /* Picture.swift in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				032EA4D019DE85E800DD3C7B /* Route.swift in Sources */,
+				033926D019DFD3800075A149 /* Common.swift in Sources */,
 				032EA4CF19DE85E800DD3C7B /* Request.swift in Sources */,
+				033926D219E036990075A149 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,14 @@ import Foundation
 
 private let _map = [
     // login
+    ("login_device",    "POST", "/login/device"),
     ("login_username",  "POST", "/login/username"),
     ("login_facebook",  "POST", "/login/facebook"),
     ("logout",          "POST", "/logout"),
+
+    // join
+    ("join_device",     "POST", "/join/device"),
+    ("join_username",   "POST", "/join/username"),
 
     // webtoons
     ("all_webtoons",    "GET", "/webtoons"),

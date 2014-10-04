@@ -63,9 +63,6 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             make.size.equalTo(self.view)
             return
         }
-
-
-        fetchWebtoons()
     }
 
     func fetchWebtoons() {

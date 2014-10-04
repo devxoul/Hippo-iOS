@@ -26,9 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "Accept": "application/json"
         ]
 
-        initTabBar()
-
+        showLoginViewController()
         return true
+    }
+
+    func showLoginViewController() {
+        let loginViewController = LoginViewController()
+        loginViewController.tryLogin()
+        loginViewController.finishBlock = {
+            self.initTabBar()
+        }
+        self.window.rootViewController = loginViewController
     }
 
     func initTabBar() {
