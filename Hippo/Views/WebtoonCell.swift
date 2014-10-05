@@ -17,33 +17,12 @@ class WebtoonCell: UITableViewCell {
         }
         set {
             self._webtoon = newValue
-
             let placeholder = UIImage(color: UIColor.whiteColor())
             self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url), placeholderImage: placeholder)
             self.titleLabel.text = newValue!.title
-
-            var artistNames = [String]()
-            for i in 0...(newValue!.artists.count - 1) {
-                let artist = newValue!.artists.objectAtIndex(i) as Artist
-                artistNames.append(artist.name)
-            }
-            self.artistLabel.text = ", ".join(artistNames)
-
+            self.artistLabel.text = newValue!.artistText()
             self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")
-
-            if newValue!.concluded {
-                self.weekdayLabel.text = __("Concluded")
-            } else {
-                var weekdays = [String]()
-                for weekday in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] {
-                    if newValue!.valueForKey(weekday.lowercaseString) as Bool {
-                        let weekdayName = __(weekday)
-                        weekdays.append(weekdayName)
-                    }
-                }
-                self.weekdayLabel.text = ", ".join(weekdays)
-            }
-
+            self.weekdayLabel.text = newValue!.weekdayText()
             self.subscribeButton.selected = newValue!.subscribing
         }
     }

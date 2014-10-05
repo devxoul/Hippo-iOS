@@ -29,4 +29,30 @@ class Webtoon: RLMObject {
     override class func primaryKey() -> String {
         return "id"
     }
+
+    func artistText() -> String {
+        if self.artists.count == 0 {
+            return ""
+        }
+        var artistNames = [String]()
+        for i in 0...(self.artists.count - 1) {
+            let artist = self.artists.objectAtIndex(i) as Artist
+            artistNames.append(artist.name)
+        }
+        return ", ".join(artistNames)
+    }
+
+    func weekdayText() -> String {
+        if self.concluded {
+            return __("Concluded")
+        }
+        var weekdays = [String]()
+        for weekday in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] {
+            if self.valueForKey(weekday.lowercaseString) as Bool {
+                let weekdayName = __(weekday)
+                weekdays.append(weekdayName)
+            }
+        }
+        return ", ".join(weekdays)
+    }
 }
