@@ -17,7 +17,9 @@ class WebtoonCell: UITableViewCell {
         }
         set {
             self._webtoon = newValue
-            self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url))
+
+            let placeholder = UIImage(color: UIColor.whiteColor())
+            self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url), placeholderImage: placeholder)
             self.titleLabel.text = newValue!.title
 
             var artistNames = [String]()
@@ -144,6 +146,7 @@ class WebtoonCell: UITableViewCell {
                 RLMRealm.defaultRealm().commitWriteTransaction()
             },
             failure: { (operation, error) -> Void in
+                println("\(operation.responseObject)")
                 self.subscribeButton.selected = !self.subscribeButton.selected
             }
         )
