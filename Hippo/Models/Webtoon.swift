@@ -26,6 +26,8 @@ class Webtoon: RLMObject {
     dynamic var concluded: Bool = false
     dynamic var subscribing: Bool = false
 
+    dynamic var episodes = RLMArray(objectClassName: Episode.className())
+
     override class func primaryKey() -> String {
         return "id"
     }

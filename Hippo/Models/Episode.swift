@@ -17,6 +17,8 @@ class Episode: RLMObject {
     dynamic var mobile_url = ""
     dynamic var read = false
 
+    dynamic var webtoon = Webtoon()
+
     override class func primaryKey() -> String {
         return "id"
     }

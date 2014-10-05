@@ -13,11 +13,11 @@ enum WebtoonListType {
     case Mine, All
 }
 
-struct CellID {
-    static let Webtoon = "Webtoon"
-}
-
 class WebtoonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    private struct CellID {
+        static let Webtoon = "Webtoon"
+    }
 
     private var _listType = WebtoonListType.All
     var listType: WebtoonListType {

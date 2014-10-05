@@ -37,6 +37,7 @@
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
+		03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */; };
 		D43F5B1BC50173FE05156E82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239066B9E76D27965EFCAA35 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
 		03D2209217E01B9200E804AA /* Webtoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webtoon.m; sourceTree = "<group>"; };
 		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		239066B9E76D27965EFCAA35 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7123B7D7B66B64DEBFDAB5EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EFA9890FAECA3D88B80020 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				032EA4C619DE806D00DD3C7B /* WebtoonCell.swift */,
 				033926D719E130C30075A149 /* WebtoonDetailView.swift */,
+				03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */,
 				032335BD17D35310007EECCB /* WebtoonCell.h */,
 				032335BE17D35310007EECCB /* WebtoonCell.m */,
 				03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */,
@@ -469,6 +472,7 @@
 				032EA4B319DE6C1300DD3C7B /* WebtoonListViewController.swift in Sources */,
 				033926CA19DF0E680075A149 /* Artist.swift in Sources */,
 				032EA4C719DE806D00DD3C7B /* WebtoonCell.swift in Sources */,
+				03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */,
 				033926C819DEE9400075A149 /* Picture.swift in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				032EA4D019DE85E800DD3C7B /* Route.swift in Sources */,
