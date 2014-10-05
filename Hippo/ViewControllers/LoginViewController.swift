@@ -105,7 +105,6 @@ class LoginViewController: UIViewController {
         self.loadingLabel.sizeToFit()
 
         let params = [
-            "username": "me",
             "limit": "99999",
         ]
 
