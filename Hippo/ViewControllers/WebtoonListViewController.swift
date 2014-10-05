@@ -133,5 +133,9 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
+        let detailViewController = WebtoonDetailViewController()
+        detailViewController.webtoon = self.webtoons!.objectAtIndex(UInt(indexPath.row)) as? Webtoon
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

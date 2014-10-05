@@ -30,6 +30,9 @@
 		033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		033926D019DFD3800075A149 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926CF19DFD3800075A149 /* Common.swift */; };
 		033926D219E036990075A149 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D119E036990075A149 /* LoginViewController.swift */; };
+		033926D619E12F300075A149 /* WebtoonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D519E12F300075A149 /* WebtoonDetailViewController.swift */; };
+		033926D819E130C30075A149 /* WebtoonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D719E130C30075A149 /* WebtoonDetailView.swift */; };
+		033926DA19E13B8A0075A149 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D919E13B8A0075A149 /* Episode.swift */; };
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
@@ -100,6 +103,9 @@
 		033926CB19DF1B8F0075A149 /* Snappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Snappy.framework; path = "/Users/xoul/Library/Developer/Xcode/DerivedData/Hippo-fqnhddzpmizdokglxfvqvmlouigq/Build/Products/Debug-iphoneos/Snappy.framework"; sourceTree = "<absolute>"; };
 		033926CF19DFD3800075A149 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		033926D119E036990075A149 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		033926D519E12F300075A149 /* WebtoonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebtoonDetailViewController.swift; path = ViewControllers/WebtoonDetailViewController.swift; sourceTree = "<group>"; };
+		033926D719E130C30075A149 /* WebtoonDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebtoonDetailView.swift; sourceTree = "<group>"; };
+		033926D919E13B8A0075A149 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebtoonDetailViewController.h; path = ViewControllers/WebtoonDetailViewController.h; sourceTree = "<group>"; };
 		03665BAA17DA059C0038D895 /* WebtoonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebtoonDetailViewController.m; path = ViewControllers/WebtoonDetailViewController.m; sourceTree = "<group>"; };
 		03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebtoonDetailView.h; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				033926C519DEBF970075A149 /* Webtoon.swift */,
+				033926D919E13B8A0075A149 /* Episode.swift */,
 				033926C919DF0E680075A149 /* Artist.swift */,
 				033926C719DEE9400075A149 /* Picture.swift */,
 				03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */,
@@ -184,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				032EA4C619DE806D00DD3C7B /* WebtoonCell.swift */,
+				033926D719E130C30075A149 /* WebtoonDetailView.swift */,
 				032335BD17D35310007EECCB /* WebtoonCell.h */,
 				032335BE17D35310007EECCB /* WebtoonCell.m */,
 				03665BAD17DA08DC0038D895 /* WebtoonDetailView.h */,
@@ -295,6 +303,7 @@
 			children = (
 				033926D119E036990075A149 /* LoginViewController.swift */,
 				032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */,
+				033926D519E12F300075A149 /* WebtoonDetailViewController.swift */,
 				03367D7017D346CA00CFF891 /* WebtoonListViewController.h */,
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
@@ -463,8 +472,11 @@
 				033926C819DEE9400075A149 /* Picture.swift in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
 				032EA4D019DE85E800DD3C7B /* Route.swift in Sources */,
+				033926D619E12F300075A149 /* WebtoonDetailViewController.swift in Sources */,
+				033926DA19E13B8A0075A149 /* Episode.swift in Sources */,
 				033926D019DFD3800075A149 /* Common.swift in Sources */,
 				032EA4CF19DE85E800DD3C7B /* Request.swift in Sources */,
+				033926D819E130C30075A149 /* WebtoonDetailView.swift in Sources */,
 				033926D219E036990075A149 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
