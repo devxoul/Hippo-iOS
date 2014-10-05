@@ -75,7 +75,12 @@ class LoginViewController: UIViewController {
         Request.sendToRoute("login_device", parameters: params,
             success: { (operation, responseObject) -> Void in
                 println("Device login success.")
-                self.fetchWebtoons()
+
+                if DebugOptions.DropRealmOnAppLaunch {
+                    self.fetchWebtoons()
+                } else if self.finishBlock != nil {
+                    self.finishBlock?()
+                }
             },
             failure: { (operation, error) -> Void in
                 if operation.response.statusCode == 403 {
@@ -101,6 +106,8 @@ class LoginViewController: UIViewController {
     }
 
     func fetchWebtoons() {
+        println("Fetch webtoons")
+
         self.loadingLabel.text = __("Loading webtoons...")
         self.loadingLabel.sizeToFit()
 

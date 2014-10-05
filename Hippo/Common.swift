@@ -14,6 +14,11 @@ struct UserDefaultsName {
 }
 
 
+struct DebugOptions {
+    static let DropRealmOnAppLaunch = false
+}
+
+
 func __(key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }

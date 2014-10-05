@@ -20,7 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window.backgroundColor = UIColor.whiteColor()
         self.window.makeKeyAndVisible()
 
-        self.dropRealm()
+        println("DebugOptions.DropRealmOnAppLaunch: \(DebugOptions.DropRealmOnAppLaunch)")
+
+        if DebugOptions.DropRealmOnAppLaunch {
+            println("Drop Realm")
+            self.dropRealm()
+        }
 
         Request.baseURLString = "http://hippo.xoul.kr"
         Request.HTTPHeaderFields = [
@@ -32,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func dropRealm() {
-        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealm().path, error: nil)
+        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
     }
 
     func showLoginViewController() {
