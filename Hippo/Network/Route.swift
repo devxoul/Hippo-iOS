@@ -25,6 +25,10 @@ private let _map = [
 
     ("subscribe_webtoon",   "PUT",    "/webtoons/<webtoon_id>/subscribe"),
     ("unsubscribe_webtoon", "DELETE", "/webtoons/<webtoon_id>/subscribe"),
+
+    // episodes
+    ("webtoon_episodes", "GET", "/webtoons/<webtoon_id>/episodes"),
+    ("read_episodes",    "PUT", "/episodes/<episode_id>/read"),
 ]
 
 class Route {
