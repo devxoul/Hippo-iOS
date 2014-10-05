@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.dropRealm()
 
-        Request.baseURLString = "http://127.0.0.1:8000"
+        Request.baseURLString = "http://hippo.xoul.kr"
         Request.HTTPHeaderFields = [
             "Accept": "application/json"
         ]
