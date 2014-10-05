@@ -9,19 +9,6 @@
 import Snappy
 import UIKit
 
-extension UINavigationBar {
-    override public func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        for subview in self.subviews {
-            let subPoint = subview.convertPoint(point, fromView:self)
-            let result = (subview as UIView).hitTest(subPoint, withEvent: event)
-            if result != nil {
-                return result
-            }
-        }
-        return super.hitTest(point, withEvent: event)
-    }
-}
-
 enum WebtoonListType {
     case Mine, All
 }
@@ -50,23 +37,6 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let navBarBackground = self.navigationController?.navigationBar.subviews[0] as UIView
-        navBarBackground.height = 108
-        navBarBackground.userInteractionEnabled = true
-        navBarBackground.addSubview(self.weekdaySelector)
-
-        let options = ["All", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Con"]
-        for i in 0...(options.count - 1) {
-            weekdaySelector.insertSegmentWithTitle(__(options[i]), atIndex: i, animated: false)
-        }
-        self.weekdaySelector.addTarget(self, action: "filterWebtoons", forControlEvents: UIControlEvents.ValueChanged)
-        self.weekdaySelector.snp_makeConstraints { make in
-            make.left.equalTo(10)
-            make.right.equalTo(navBarBackground).offset(-10)
-            make.bottom.equalTo(navBarBackground).equalTo(-12)
-            return
-        }
-
         self.tableView.registerClass(WebtoonCell.self, forCellReuseIdentifier: CellID.Webtoon)
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -75,6 +45,35 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.addSubview(self.tableView)
         self.tableView.snp_makeConstraints { make in
             make.size.equalTo(self.view)
+            return
+        }
+
+        let toolbar = UIToolbar()
+        self.view.addSubview(toolbar)
+        toolbar.snp_makeConstraints { make in
+            make.top.equalTo(64)
+            make.width.equalTo(self.view)
+        }
+
+        let toolbarBorder = UIView()
+        toolbarBorder.backgroundColor = UIColor.lightGrayColor()
+        toolbar.addSubview(toolbarBorder)
+        toolbarBorder.snp_makeConstraints { make in
+            make.width.equalTo(toolbar)
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(toolbar)
+        }
+
+        toolbar.addSubview(self.weekdaySelector)
+        let options = ["All", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Con"]
+        for i in 0...(options.count - 1) {
+            self.weekdaySelector.insertSegmentWithTitle(__(options[i]), atIndex: i, animated: false)
+        }
+        self.weekdaySelector.addTarget(self, action: "filterWebtoons", forControlEvents: UIControlEvents.ValueChanged)
+        self.weekdaySelector.snp_makeConstraints { make in
+            make.centerX.equalTo(toolbar)
+            make.centerY.equalTo(toolbar).with.offset(-1)
+            make.width.equalTo(toolbar).with.offset(-20)
             return
         }
     }
