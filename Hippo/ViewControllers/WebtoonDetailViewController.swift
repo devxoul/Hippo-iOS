@@ -21,7 +21,6 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         set {
             self.detailView.webtoon = newValue
             self.episodes = self.webtoon?.episodes
-            println("episodes: \(self.episodes)")
             self.tableView.reloadData()
         }
     }
@@ -30,6 +29,7 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
     let subscribeButton = UIBarButtonItem(title: nil, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     let detailView = WebtoonDetailView()
     let tableView = UITableView()
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
@@ -49,15 +49,32 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.tableView.registerClass(EpisodeCell.self, forCellReuseIdentifier: CellID.Episode)
         self.tableView.snp_makeConstraints { make in
             make.top.equalTo(self.detailView.snp_bottom)
-            make.bottom.equalTo(self.view)
+            make.bottom.equalTo(self.view).with.offset(-self.tabBarController!.tabBar.height)
             make.width.equalTo(self.view)
+        }
+
+        self.view.addSubview(self.activityIndicatorView)
+        self.activityIndicatorView.snp_makeConstraints { make in
+            make.centerX.equalTo(self.view)
+            make.centerY.equalTo(self.view).with.offset(self.detailView.height - 15)
+            return
+        }
+
+        self.fetchEpisodesIfNeeded()
+    }
+
+    func fetchEpisodesIfNeeded() {
+        if self.webtoon?.episodes.count == 0 {
+            self.fetchEpisodes()
         }
     }
 
     func fetchEpisodes() {
-        if self.webtoon? == nil {
-            return
-        }
+        println("Fetch episodes.")
+
+        self.tableView.hidden = true
+        self.activityIndicatorView.startAnimating()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         Request.sendToRoute("webtoon_episodes", parameters: ["webtoon_id": self.webtoon!.id],
             success: { (operation, responseObject) -> Void in
@@ -72,9 +89,14 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
                 self.episodes = self.webtoon?.episodes
                 self.tableView.reloadData()
+                self.tableView.hidden = false
+                self.activityIndicatorView.stopAnimating()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             },
             failure: { (operation, error) -> Void in
-
+                self.tableView.hidden = false
+                self.activityIndicatorView.stopAnimating()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         )
     }
