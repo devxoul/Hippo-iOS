@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
                 }
             },
             failure: { (operation, error) -> Void in
-                if operation.response.statusCode == 403 {
+                if operation.response?.statusCode == 403 {
                     println("Try to join with device")
                     Request.sendToRoute(
                         "join_device",
