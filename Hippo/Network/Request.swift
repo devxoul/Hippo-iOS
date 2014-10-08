@@ -63,8 +63,8 @@ class Request {
     }
 
     class func operationWithRouteName(name: String, parameters: NSDictionary,
-        success: (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void,
-        failure: (operation: AFHTTPRequestOperation!, error: NSError!) -> Void) -> AFHTTPRequestOperation {
+        success: ((operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void)?,
+        failure: ((operation: AFHTTPRequestOperation!, error: NSError!) -> Void)?) -> AFHTTPRequestOperation {
             let info = self.infoWithRouteName(name, parameters: parameters)
             let request = self.manager.requestSerializer.requestWithMethod(
                 info.method,
@@ -77,13 +77,23 @@ class Request {
                 request.setValue(v as? String, forHTTPHeaderField: k as String)
             }
 
-            let operation = manager.HTTPRequestOperationWithRequest(request, success: success, failure: failure)
+            let wrappedFailure: (AFHTTPRequestOperation!, NSError!) -> Void = { (operation, error) in
+                if error? != nil {
+                    println("* Request Error at \"\(name)\"; \(error.code): \(error.localizedDescription)")
+                }
+
+                if failure? != nil {
+                    failure!(operation: operation, error: error)
+                }
+            }
+
+            let operation = manager.HTTPRequestOperationWithRequest(request, success: success, failure: wrappedFailure)
             return operation
     }
 
     class func sendToRoute(name: String, parameters: NSDictionary,
-        success: (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void,
-        failure: (operation: AFHTTPRequestOperation!, error: NSError!) -> Void) -> AFHTTPRequestOperation {
+        success: ((operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void)?,
+        failure: ((operation: AFHTTPRequestOperation!, error: NSError!) -> Void)?) -> AFHTTPRequestOperation {
             let operation = self.operationWithRouteName(
                 name,
                 parameters: parameters,
