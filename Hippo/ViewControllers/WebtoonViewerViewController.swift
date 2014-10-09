@@ -101,6 +101,51 @@ UIGestureRecognizerDelegate {
         self.webView.loadRequest(request)
     }
 
+    func read() {
+        if self.episode? == nil {
+            return
+        }
+
+        if self.episode!.read {
+            return
+        }
+
+        let alreadRead = self.episode!.read
+        let originalBookmark = self.episode!.webtoon.bookmark
+
+        if !alreadRead {
+            RLMRealm.defaultRealm().beginWriteTransaction()
+            self.episode!.read = true
+            RLMRealm.defaultRealm().commitWriteTransaction()
+        }
+
+        if originalBookmark != self.episode!.id {
+            let webtoon = self.episode!.webtoon
+            let predicate = NSPredicate(format: "webtoon.id=\(webtoon.id) AND read=1")
+            let episodes = Episode.objectsWithPredicate(predicate).arraySortedByProperty("no", ascending: false)
+            if episodes.count > 0 {
+                RLMRealm.defaultRealm().beginWriteTransaction()
+                let bookmark = episodes.objectAtIndex(0) as? Episode
+                webtoon.bookmark = bookmark!.id
+                RLMRealm.defaultRealm().commitWriteTransaction()
+            }
+        }
+
+        Request.sendToRoute("read_episode", parameters: ["episode_id": self.episode!.id],
+            success: { (operation, responseObject) -> Void in
+
+            },
+            failure: { (operation, error) -> Void in
+                if !alreadRead {
+                    RLMRealm.defaultRealm().beginWriteTransaction()
+                    self.episode!.read = false
+                    self.episode!.webtoon.bookmark = originalBookmark
+                    RLMRealm.defaultRealm().commitWriteTransaction()
+                }
+            }
+        )
+    }
+
     // MARK: - UIWebViewDelegate
 
     func webView(webView: UIWebView, shouldStartLoadWithRequest: NSURLRequest,
@@ -112,7 +157,7 @@ UIGestureRecognizerDelegate {
 
     func webViewDidFinishLoad(webView: UIWebView) {
         self.activityIndicatorView.stopAnimating()
-//        self.read()
+        self.read()
 
         dispatch_after(1, dispatch_get_main_queue(), {
             self.barsHidden = true

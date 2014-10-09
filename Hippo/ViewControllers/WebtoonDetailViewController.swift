@@ -88,6 +88,7 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
                 RLMRealm.defaultRealm().beginWriteTransaction()
                 for episodeData in data {
                     let episode = Episode.createOrUpdateInDefaultRealmWithObject(episodeData)
+                    episode.webtoon = self.webtoon!
                     self.webtoon?.episodes.addObject(episode)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
