@@ -36,6 +36,7 @@
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
+		03ABD30C19E668B4002D5B3E /* WebtoonViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
 		03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */; };
 		D43F5B1BC50173FE05156E82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239066B9E76D27965EFCAA35 /* libPods.a */; };
@@ -121,6 +122,7 @@
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		03A746AB17D9E7880099A2A5 /* Hippo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hippo.xcdatamodel; sourceTree = "<group>"; };
+		03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebtoonViewerViewController.swift; path = ViewControllers/WebtoonViewerViewController.swift; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				033926D119E036990075A149 /* LoginViewController.swift */,
 				032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */,
 				033926D519E12F300075A149 /* WebtoonDetailViewController.swift */,
+				03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */,
 				03367D7017D346CA00CFF891 /* WebtoonListViewController.h */,
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
@@ -468,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				032EA4B119DE68B700DD3C7B /* AppDelegate.swift in Sources */,
+				03ABD30C19E668B4002D5B3E /* WebtoonViewerViewController.swift in Sources */,
 				033926C619DEBF970075A149 /* Webtoon.swift in Sources */,
 				032EA4B319DE6C1300DD3C7B /* WebtoonListViewController.swift in Sources */,
 				033926CA19DF0E680075A149 /* Artist.swift in Sources */,

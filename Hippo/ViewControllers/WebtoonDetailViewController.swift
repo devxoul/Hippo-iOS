@@ -120,5 +120,13 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
+        self.hidesBottomBarWhenPushed = true;
+
+        let viewer = WebtoonViewerViewController()
+        viewer.episode = self.episodes?.objectAtIndex(UInt(indexPath.row)) as? Episode
+        self.navigationController?.pushViewController(viewer, animated: true)
+
+        self.hidesBottomBarWhenPushed = false;
     }
 }
