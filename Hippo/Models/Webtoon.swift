@@ -58,4 +58,15 @@ class Webtoon: RLMObject {
         }
         return ", ".join(weekdays)
     }
+
+    func updateBookmark() {
+        let predicate = NSPredicate(format: "webtoon.id=\(self.id) AND read=1")
+        let episodes = Episode.objectsWithPredicate(predicate).arraySortedByProperty("no", ascending: false)
+        if episodes.count > 0 {
+            RLMRealm.defaultRealm().beginWriteTransaction()
+            let bookmark = episodes.objectAtIndex(0) as? Episode
+            self.bookmark = bookmark!.id
+            RLMRealm.defaultRealm().commitWriteTransaction()
+        }
+    }
 }

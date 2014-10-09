@@ -120,15 +120,7 @@ UIGestureRecognizerDelegate {
         }
 
         if originalBookmark != self.episode!.id {
-            let webtoon = self.episode!.webtoon
-            let predicate = NSPredicate(format: "webtoon.id=\(webtoon.id) AND read=1")
-            let episodes = Episode.objectsWithPredicate(predicate).arraySortedByProperty("no", ascending: false)
-            if episodes.count > 0 {
-                RLMRealm.defaultRealm().beginWriteTransaction()
-                let bookmark = episodes.objectAtIndex(0) as? Episode
-                webtoon.bookmark = bookmark!.id
-                RLMRealm.defaultRealm().commitWriteTransaction()
-            }
+            self.episode!.webtoon.updateBookmark()
         }
 
         Request.sendToRoute("read_episode", parameters: ["episode_id": self.episode!.id],

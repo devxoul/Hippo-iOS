@@ -21,6 +21,9 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         set {
             self.detailView.webtoon = newValue
             self.episodes = self.webtoon?.episodes
+            if newValue!.bookmark == 0 {
+                newValue!.updateBookmark()
+            }
             self.tableView.reloadData()
         }
     }
