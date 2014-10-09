@@ -12,8 +12,10 @@ class LoginViewController: UIViewController {
 
     var finishBlock: (() -> ())?
 
-    var loadingLabel = UILabel()
-    var loadingIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    let loadingLabel = UILabel()
+    let detailLabel = UILabel()
+    let loadingIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+
     var loadingMessage: String {
         set {
             self.loadingLabel.text = newValue
@@ -24,19 +26,41 @@ class LoginViewController: UIViewController {
         }
     }
 
+    var detailMessage: String {
+        get {
+            return self.detailLabel.text!
+        }
+        set {
+            self.detailLabel.text = newValue
+            self.detailLabel.sizeToFit()
+        }
+    }
+
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
 
-        self.loadingLabel.textColor = UIColor.darkGrayColor()
         self.view.addSubview(self.loadingLabel)
+        self.view.addSubview(self.detailLabel)
+        self.view.addSubview(self.loadingIndicatorView)
+
+        self.loadingLabel.textColor = UIColor.darkGrayColor()
         self.loadingLabel.snp_makeConstraints { make in
             make.centerX.equalTo(self.view).with.offset(-self.loadingIndicatorView.width / 2 - 4)
             make.centerY.equalTo(self.view)
             return
         }
 
+        self.detailLabel.font = UIFont.systemFontOfSize(12)
+        self.detailLabel.textColor = UIColor.grayColor()
+        self.detailLabel.numberOfLines = 0
+        self.detailLabel.snp_makeConstraints { make in
+            make.top.equalTo(self.loadingLabel.snp_bottom).with.offset(3)
+            make.centerX.equalTo(self.view)
+            make.width.lessThanOrEqualTo(self.view).with.offset(20)
+            return
+        }
+
         self.loadingIndicatorView.startAnimating()
-        self.view.addSubview(self.loadingIndicatorView)
         self.loadingIndicatorView.snp_makeConstraints { make in
             make.left.equalTo(self.loadingLabel.snp_right).with.offset(10)
             make.centerY.equalTo(self.view)
@@ -95,11 +119,13 @@ class LoginViewController: UIViewController {
                         failure: { (operation, error) -> Void in
                             println("Device join failure: \(operation.responseObject)")
                             self.loadingMessage = __("기기 정보 등록 실패")
+                            self.updateDetailMessage(operation, error: error)
                         }
                     )
                 } else {
                     println("Device login failed: \(operation.responseObject)")
                     self.loadingMessage = __("로그인 실패")
+                    self.updateDetailMessage(operation, error: error)
                 }
             }
         )
@@ -133,7 +159,18 @@ class LoginViewController: UIViewController {
             },
             failure: { (operation, error) in
                 self.loadingMessage = __("웹툰 정보 로딩 실패")
+                self.updateDetailMessage(operation, error: error)
             }
         )
+    }
+
+    func updateDetailMessage(operation: AFHTTPRequestOperation, error: NSError) {
+        if operation.responseObject? != nil {
+            let code = operation.response.statusCode
+            let description = operation.responseObject!["description"] as String
+            self.detailMessage = "\(code): \(description)"
+        } else {
+            self.detailMessage = "\(error.code): \(error.localizedDescription)"
+        }
     }
 }
