@@ -25,6 +25,7 @@ class Webtoon: RLMObject {
     dynamic var sun: Bool = false
     dynamic var concluded: Bool = false
     dynamic var subscribing: Bool = false
+    dynamic var bookmark: Int = 0
 
     dynamic var episodes = RLMArray(objectClassName: Episode.className())
 

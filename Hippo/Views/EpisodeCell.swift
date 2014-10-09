@@ -23,6 +23,17 @@ class EpisodeCell: UITableViewCell {
         }
     }
 
+    private var _bookmarked = false
+    var bookmarked: Bool {
+        get {
+            return self._bookmarked
+        }
+        set {
+            self._bookmarked = newValue
+            self.bookmarkView.hidden = !newValue
+        }
+    }
+
     let thumbnailView = UIImageView()
     let titleLabel = UILabel()
     let bookmarkView = UIImageView()

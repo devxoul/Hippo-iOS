@@ -114,7 +114,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellID.Episode) as? EpisodeCell
-        cell!.episode = self.episodes!.objectAtIndex(UInt(indexPath.row)) as? Episode
+        cell?.episode = self.episodes!.objectAtIndex(UInt(indexPath.row)) as? Episode
+        cell?.bookmarked = self.webtoon?.bookmark == cell?.episode?.id
         return cell!
     }
 
