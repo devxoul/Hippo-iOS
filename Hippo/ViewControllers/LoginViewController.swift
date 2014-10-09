@@ -100,7 +100,7 @@ class LoginViewController: UIViewController {
             success: { (operation, responseObject) -> Void in
                 println("Device login success.")
 
-                if DebugOptions.DropRealmOnAppLaunch {
+                if Webtoon.allObjects().count == 0 {
                     self.fetchWebtoons()
                 } else if self.finishBlock != nil {
                     self.finishBlock?()

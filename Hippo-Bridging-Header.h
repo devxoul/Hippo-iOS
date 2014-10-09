@@ -11,3 +11,5 @@
 #import <UIColor-Hex/UIColor+Hex.h>
 #import <UIImage+BetterAdditions/UIImage+BetterAdditions.h>
 #import <UIView+Positioning/UIView+Positioning.h>
+
+#import "RealmHelper.h"

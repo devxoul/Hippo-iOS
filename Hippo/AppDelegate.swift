@@ -20,11 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window.backgroundColor = UIColor.whiteColor()
         self.window.makeKeyAndVisible()
 
-        println("DebugOptions.DropRealmOnAppLaunch: \(DebugOptions.DropRealmOnAppLaunch)")
-
-        if DebugOptions.DropRealmOnAppLaunch {
-            println("Drop Realm")
-            self.dropRealm()
+        if RealmHelper.dropRealmIfNeeded() {
+            println("Dropped realm.")
         }
 
         Request.baseURLString = "http://hippo.xoul.kr"

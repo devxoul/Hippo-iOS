@@ -39,6 +39,7 @@
 		03ABD30C19E668B4002D5B3E /* WebtoonViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */; };
 		03ABD30E19E6BDB5002D5B3E /* UIImage+GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30D19E6BDB5002D5B3E /* UIImage+GrayScale.swift */; };
 		03ABD31319E6BFB7002D5B3E /* GrayScaleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */; };
+		03ABD31619E6E2B2002D5B3E /* RealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD31519E6E2B2002D5B3E /* RealmHelper.m */; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
 		03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */; };
 		D43F5B1BC50173FE05156E82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239066B9E76D27965EFCAA35 /* libPods.a */; };
@@ -127,6 +128,8 @@
 		03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebtoonViewerViewController.swift; path = ViewControllers/WebtoonViewerViewController.swift; sourceTree = "<group>"; };
 		03ABD30D19E6BDB5002D5B3E /* UIImage+GrayScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+GrayScale.swift"; path = "Extensions/UIImage+GrayScale.swift"; sourceTree = "<group>"; };
 		03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayScaleImageView.swift; sourceTree = "<group>"; };
+		03ABD31419E6E2B2002D5B3E /* RealmHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmHelper.h; sourceTree = "<group>"; };
+		03ABD31519E6E2B2002D5B3E /* RealmHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmHelper.m; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				033926CF19DFD3800075A149 /* Common.swift */,
 				032EA4B019DE68B700DD3C7B /* AppDelegate.swift */,
+				03ABD31419E6E2B2002D5B3E /* RealmHelper.h */,
+				03ABD31519E6E2B2002D5B3E /* RealmHelper.m */,
 				032EA4CC19DE85E800DD3C7B /* Network */,
 				03367D6C17D3466D00CFF891 /* Common.h */,
 				03367D0A17D345D700CFF891 /* AppDelegate.h */,
@@ -494,6 +499,7 @@
 				03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */,
 				033926C819DEE9400075A149 /* Picture.swift in Sources */,
 				03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */,
+				03ABD31619E6E2B2002D5B3E /* RealmHelper.m in Sources */,
 				032EA4D019DE85E800DD3C7B /* Route.swift in Sources */,
 				033926D619E12F300075A149 /* WebtoonDetailViewController.swift in Sources */,
 				033926DA19E13B8A0075A149 /* Episode.swift in Sources */,
