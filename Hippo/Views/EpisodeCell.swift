@@ -18,6 +18,7 @@ class EpisodeCell: UITableViewCell {
         set {
             _episode = newValue
             let placeholder = UIImage(color: UIColor.whiteColor())
+            self.thumbnailView.grayScaleEnabled = newValue!.read
             self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url), placeholderImage: placeholder)
             self.titleLabel.text = newValue!.title
         }
@@ -34,7 +35,7 @@ class EpisodeCell: UITableViewCell {
         }
     }
 
-    let thumbnailView = UIImageView()
+    let thumbnailView = GrayScaleImageView()
     let titleLabel = UILabel()
     let bookmarkView = UIImageView()
 

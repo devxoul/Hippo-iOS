@@ -63,6 +63,11 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.fetchEpisodesIfNeeded()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
     func fetchEpisodesIfNeeded() {
         if self.webtoon?.episodes.count == 0 {
             self.fetchEpisodes()
