@@ -20,6 +20,7 @@ class EpisodeCell: UITableViewCell {
             let placeholder = UIImage(color: UIColor.whiteColor())
             self.thumbnailView.grayScaleEnabled = newValue!.read
             self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url), placeholderImage: placeholder)
+            self.titleLabel.textColor = newValue!.read ? UIColor.lightGrayColor() : UIColor.blackColor()
             self.titleLabel.text = newValue!.title
         }
     }
