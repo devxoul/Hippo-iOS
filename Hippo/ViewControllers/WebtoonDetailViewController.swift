@@ -81,7 +81,11 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.activityIndicatorView.startAnimating()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        Request.sendToRoute("webtoon_episodes", parameters: ["webtoon_id": self.webtoon!.id],
+        let params = [
+            "webtoon_id": self.webtoon!.id,
+            "limit": 99999
+        ]
+        Request.sendToRoute("webtoon_episodes", parameters: params,
             success: { (operation, responseObject) -> Void in
                 let data = responseObject["data"] as [NSDictionary]
 
