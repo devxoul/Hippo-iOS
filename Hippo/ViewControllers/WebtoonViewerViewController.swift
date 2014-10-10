@@ -18,8 +18,22 @@ UIGestureRecognizerDelegate {
         }
         set {
             self._episode = newValue
+            self._prevEpisode = newValue!.prevEpisode()
+            self._nextEpisode = newValue!.nextEpisode()
+            self.prevButton.enabled = self.prevEpisode? != nil
+            self.nextButton.enabled = self.nextEpisode? != nil
             self.reload()
         }
+    }
+
+    private var _prevEpisode: Episode?
+    var prevEpisode: Episode? {
+        return self._prevEpisode
+    }
+
+    private var _nextEpisode: Episode?
+    var nextEpisode: Episode? {
+        return self._nextEpisode
     }
 
     private var _barsHidden = false
@@ -42,6 +56,8 @@ UIGestureRecognizerDelegate {
 
     let webView = UIWebView()
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    let prevButton = UIBarButtonItem(title: __("Prev"), style: .Plain, target: nil, action: "loadPrevEpisode")
+    let nextButton = UIBarButtonItem(title: __("Next"), style: .Plain, target: nil, action: "loadNextEpisode")
 
     override func viewDidLoad() {
         let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "webViewDidSwipe")
@@ -72,9 +88,9 @@ UIGestureRecognizerDelegate {
 
         let reloadButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "reload")
         let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let prevButton = UIBarButtonItem(title: __("Prev"), style: .Plain, target: self, action: "loadPrevEpisode")
-        let nextButton = UIBarButtonItem(title: __("Next"), style: .Plain, target: self, action: "loadNextEpisode")
-        self.toolbarItems = [reloadButton, spacer, prevButton, nextButton]
+        self.prevButton.target = self
+        self.nextButton.target = self
+        self.toolbarItems = [reloadButton, spacer, self.prevButton, self.nextButton]
 
         self.reload()
     }
@@ -136,6 +152,16 @@ UIGestureRecognizerDelegate {
                 }
             }
         )
+    }
+
+    func loadPrevEpisode() {
+        self.episode = self.prevEpisode
+        self.reload()
+    }
+
+    func loadNextEpisode() {
+        self.episode = self.nextEpisode
+        self.reload()
     }
 
     // MARK: - UIWebViewDelegate

@@ -22,4 +22,22 @@ class Episode: RLMObject {
     override class func primaryKey() -> String {
         return "id"
     }
+
+    func prevEpisode() -> Episode? {
+        let episodes = self.webtoon.sortedEpisodes()
+        let index = episodes.indexOfObject(self)
+        if index == episodes.count - 1 || Int(index) == NSNotFound {
+            return nil
+        }
+        return episodes.objectAtIndex(index + 1) as? Episode
+    }
+
+    func nextEpisode() -> Episode? {
+        let episodes = self.webtoon.sortedEpisodes()
+        let index = episodes.indexOfObject(self)
+        if index == 0 || Int(index) == NSNotFound {
+            return nil
+        }
+        return episodes.objectAtIndex(index - 1) as? Episode
+    }
 }
