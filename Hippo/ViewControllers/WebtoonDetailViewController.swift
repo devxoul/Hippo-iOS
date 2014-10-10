@@ -74,6 +74,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
     func fetchEpisodesIfNeeded() {
         if self.webtoon?.episodes.count == 0 {
             self.fetchEpisodes()
+        } else {
+            self.scrollToBookmark()
         }
     }
 
@@ -102,6 +104,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
                 self.episodes = self.webtoon?.episodes
                 self.tableView.reloadData()
+                self.scrollToBookmark(delay: 0.5)
+
                 self.tableView.hidden = false
                 self.activityIndicatorView.stopAnimating()
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -142,5 +146,18 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController?.pushViewController(viewer, animated: true)
 
         self.hidesBottomBarWhenPushed = false;
+    }
+
+    func scrollToBookmark(delay: NSTimeInterval = 0) {
+        dispatch_after(dispatch_time_t(delay), dispatch_get_main_queue(), {
+            for i in 0...self.episodes!.count - 1 {
+                let episode = self.episodes!.objectAtIndex(i) as? Episode
+                if self.webtoon!.bookmark == episode!.id {
+                    let indexPath = NSIndexPath(forRow: Int(i), inSection: 0)
+                    self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Middle, animated: true)
+                    break
+                }
+            }
+        })
     }
 }
