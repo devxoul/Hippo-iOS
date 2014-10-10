@@ -26,8 +26,6 @@
 		033926C619DEBF970075A149 /* Webtoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C519DEBF970075A149 /* Webtoon.swift */; };
 		033926C819DEE9400075A149 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C719DEE9400075A149 /* Picture.swift */; };
 		033926CA19DF0E680075A149 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926C919DF0E680075A149 /* Artist.swift */; };
-		033926CC19DF1B8F0075A149 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; };
-		033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		033926D019DFD3800075A149 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926CF19DFD3800075A149 /* Common.swift */; };
 		033926D219E036990075A149 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D119E036990075A149 /* LoginViewController.swift */; };
 		033926D619E12F300075A149 /* WebtoonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033926D519E12F300075A149 /* WebtoonDetailViewController.swift */; };
@@ -40,6 +38,10 @@
 		03ABD30E19E6BDB5002D5B3E /* UIImage+GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30D19E6BDB5002D5B3E /* UIImage+GrayScale.swift */; };
 		03ABD31319E6BFB7002D5B3E /* GrayScaleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */; };
 		03ABD31619E6E2B2002D5B3E /* RealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD31519E6E2B2002D5B3E /* RealmHelper.m */; };
+		03ABD31919E7B206002D5B3E /* Pods.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 03ABD31719E7B206002D5B3E /* Pods.debug.xcconfig */; };
+		03ABD31A19E7B206002D5B3E /* Pods.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 03ABD31819E7B206002D5B3E /* Pods.release.xcconfig */; };
+		03ABD31B19E7B29C002D5B3E /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; };
+		03ABD31C19E7B29C002D5B3E /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 033926CB19DF1B8F0075A149 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03D220A117E0248E00E804AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D220A017E0248E00E804AA /* Localizable.strings */; };
 		03DCC99119E19FC8002B2CEB /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */; };
 		D43F5B1BC50173FE05156E82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239066B9E76D27965EFCAA35 /* libPods.a */; };
@@ -56,13 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		033926CE19DF1B900075A149 /* Embed Frameworks */ = {
+		03ABD31D19E7B29C002D5B3E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				033926CD19DF1B8F0075A149 /* Snappy.framework in Embed Frameworks */,
+				03ABD31C19E7B29C002D5B3E /* Snappy.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +132,8 @@
 		03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayScaleImageView.swift; sourceTree = "<group>"; };
 		03ABD31419E6E2B2002D5B3E /* RealmHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmHelper.h; sourceTree = "<group>"; };
 		03ABD31519E6E2B2002D5B3E /* RealmHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmHelper.m; sourceTree = "<group>"; };
+		03ABD31719E7B206002D5B3E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		03ABD31819E7B206002D5B3E /* Pods.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		03D2208217DEFB0B00E804AA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		03D2208317DEFB0B00E804AA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		03D2209117E01B9200E804AA /* Webtoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webtoon.h; sourceTree = "<group>"; };
@@ -137,8 +141,6 @@
 		03D220A017E0248E00E804AA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		03DCC99019E19FC8002B2CEB /* EpisodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		239066B9E76D27965EFCAA35 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7123B7D7B66B64DEBFDAB5EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D8EFA9890FAECA3D88B80020 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +151,7 @@
 				0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */,
 				03367D7917D3471100CFF891 /* CoreData.framework in Frameworks */,
 				03367D7717D3470100CFF891 /* libsqlite3.0.dylib in Frameworks */,
-				033926CC19DF1B8F0075A149 /* Snappy.framework in Frameworks */,
+				03ABD31B19E7B29C002D5B3E /* Snappy.framework in Frameworks */,
 				03367D7517D346FA00CFF891 /* MobileCoreServices.framework in Frameworks */,
 				03367CFE17D345D700CFF891 /* CoreGraphics.framework in Frameworks */,
 				03367D0017D345D700CFF891 /* UIKit.framework in Frameworks */,
@@ -352,8 +354,8 @@
 		6A417B1E899D2FE76D36AE55 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7123B7D7B66B64DEBFDAB5EA /* Pods.debug.xcconfig */,
-				D8EFA9890FAECA3D88B80020 /* Pods.release.xcconfig */,
+				03ABD31719E7B206002D5B3E /* Pods.debug.xcconfig */,
+				03ABD31819E7B206002D5B3E /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -370,7 +372,7 @@
 				03367CF517D345D700CFF891 /* Frameworks */,
 				03367CF617D345D700CFF891 /* Resources */,
 				8BA7AF582B64869F04AEADCD /* Copy Pods Resources */,
-				033926CE19DF1B900075A149 /* Embed Frameworks */,
+				03ABD31D19E7B29C002D5B3E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -437,6 +439,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D220A117E0248E00E804AA /* Localizable.strings in Resources */,
+				03ABD31A19E7B206002D5B3E /* Pods.release.xcconfig in Resources */,
+				03ABD31919E7B206002D5B3E /* Pods.debug.xcconfig in Resources */,
 				03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */,
 				03367D0E17D345D700CFF891 /* Images.xcassets in Resources */,
 			);
@@ -602,7 +606,7 @@
 		};
 		03367D2517D345D700CFF891 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7123B7D7B66B64DEBFDAB5EA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 03ABD31719E7B206002D5B3E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -624,7 +628,7 @@
 		};
 		03367D2617D345D700CFF891 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8EFA9890FAECA3D88B80020 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 03ABD31819E7B206002D5B3E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
