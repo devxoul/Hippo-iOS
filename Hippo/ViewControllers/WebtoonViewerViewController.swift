@@ -18,6 +18,7 @@ UIGestureRecognizerDelegate {
         }
         set {
             self._episode = newValue
+            self.title = newValue!.title
             self._prevEpisode = newValue!.prevEpisode()
             self._nextEpisode = newValue!.nextEpisode()
             self.prevButton.enabled = self.prevEpisode? != nil
