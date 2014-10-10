@@ -26,7 +26,7 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         }
         set {
             _listType = newValue
-            self.title = (newValue == WebtoonListType.All ? "검색" : "내 웹툰")
+            self.title = newValue == WebtoonListType.All ? __("Search") : __("My Webtoons")
         }
     }
 
