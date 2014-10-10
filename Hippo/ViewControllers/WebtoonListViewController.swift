@@ -13,7 +13,7 @@ enum WebtoonListType {
     case Mine, All
 }
 
-class WebtoonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WebtoonListViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
 
     private struct CellID {
         static let Webtoon = "Webtoon"
@@ -31,7 +31,10 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     let weekdaySelector = UISegmentedControl()
+    let searchBar = UISearchBar()
     let tableView = UITableView()
+    let tapRecognizer = UITapGestureRecognizer()
+
     var webtoons: RLMArray?
 
     override func viewDidLoad() {
@@ -40,7 +43,7 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.registerClass(WebtoonCell.self, forCellReuseIdentifier: CellID.Webtoon)
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(88, 0, 0, 0)
         self.tableView.scrollIndicatorInsets = self.tableView.contentInset
         self.view.addSubview(self.tableView)
         self.tableView.snp_makeConstraints { make in
@@ -48,20 +51,15 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
 
+        self.searchBar.delegate = self
+        self.searchBar.placeholder = __("Search")
+        self.view.addSubview(self.searchBar)
+
         let toolbar = UIToolbar()
         self.view.addSubview(toolbar)
         toolbar.snp_makeConstraints { make in
             make.top.equalTo(64)
             make.width.equalTo(self.view)
-        }
-
-        let toolbarBorder = UIView()
-        toolbarBorder.backgroundColor = UIColor.lightGrayColor()
-        toolbar.addSubview(toolbarBorder)
-        toolbarBorder.snp_makeConstraints { make in
-            make.width.equalTo(toolbar)
-            make.height.equalTo(0.5)
-            make.bottom.equalTo(toolbar)
         }
 
         toolbar.addSubview(self.weekdaySelector)
@@ -76,6 +74,14 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             make.width.equalTo(toolbar).with.offset(-20)
             return
         }
+
+        self.searchBar.snp_makeConstraints { make in
+            make.top.equalTo(toolbar.snp_bottom)
+            make.width.equalTo(self.view)
+            make.height.equalTo(44)
+        }
+
+        self.tapRecognizer.addTarget(self, action: "viewDidTap")
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -90,6 +96,8 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
 
         filterWebtoons()
     }
+
+    // MARK: - Filter
 
     func filterWebtoons() {
         let options = ["all", "mon", "tue", "wed", "thu", "fri", "sat", "sun", "concluded"]
@@ -106,6 +114,13 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
             predicate += "\(option)=1"
         }
 
+        if !self.searchBar.text.isEmpty {
+            if predicate != "" {
+                predicate += " AND "
+            }
+            predicate += "title CONTAINS[c] '\(self.searchBar.text)'"
+        }
+
         if predicate == "" {
             self.webtoons = Webtoon.allObjects()
         } else {
@@ -113,6 +128,8 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         }
         self.tableView.reloadData()
     }
+
+    // MARK: - UITableViewDeleagate
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.webtoons == nil {
@@ -137,5 +154,39 @@ class WebtoonListViewController: UIViewController, UITableViewDataSource, UITabl
         let detailViewController = WebtoonDetailViewController()
         detailViewController.webtoon = self.webtoons!.objectAtIndex(UInt(indexPath.row)) as? Webtoon
         self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if self.searchBar.isFirstResponder() {
+            self.searchBar.resignFirstResponder()
+        }
+
+        if scrollView.contentOffset.y <= -152 {
+            self.searchBar.y = 108
+        } else if scrollView.contentOffset.y > -152 {
+            self.searchBar.y = -44 - scrollView.contentOffset.y
+        }
+    }
+
+    // MARK: - UISearchBarDelegate
+
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        self.tableView.addGestureRecognizer(self.tapRecognizer)
+        return true
+    }
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterWebtoons()
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.viewDidTap()
+    }
+
+    // MARK: - UITapGestureRecognizer
+
+    func viewDidTap() {
+        self.tableView.removeGestureRecognizer(self.tapRecognizer)
+        self.searchBar.resignFirstResponder()
     }
 }
