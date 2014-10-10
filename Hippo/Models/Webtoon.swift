@@ -33,6 +33,13 @@ class Webtoon: RLMObject {
         return "id"
     }
 
+    func sortedEpisodes() -> RLMArray {
+        if self.episodes.count == 0 {
+            return self.episodes
+        }
+        return self.episodes.arraySortedByProperty("no", ascending: false)
+    }
+
     func artistText() -> String {
         if self.artists.count == 0 {
             return ""

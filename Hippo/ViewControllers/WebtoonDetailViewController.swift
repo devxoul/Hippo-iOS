@@ -20,7 +20,7 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         }
         set {
             self.detailView.webtoon = newValue
-            self.episodes = self.webtoon?.episodes
+            self.episodes = self.webtoon?.sortedEpisodes()
             if newValue!.bookmark == 0 {
                 newValue!.updateBookmark()
             }
@@ -102,7 +102,7 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
 
-                self.episodes = self.webtoon?.episodes
+                self.episodes = self.webtoon?.sortedEpisodes()
                 self.tableView.reloadData()
                 self.scrollToBookmark(delay: 0.5)
 
