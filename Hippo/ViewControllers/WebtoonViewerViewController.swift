@@ -56,6 +56,8 @@ UIGestureRecognizerDelegate {
 
     let webView = UIWebView()
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+
+    let reloadButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: nil, action: "reload")
     let prevButton = UIBarButtonItem(title: __("Prev"), style: .Plain, target: nil, action: "loadPrevEpisode")
     let nextButton = UIBarButtonItem(title: __("Next"), style: .Plain, target: nil, action: "loadNextEpisode")
 
@@ -86,8 +88,8 @@ UIGestureRecognizerDelegate {
             return
         }
 
-        let reloadButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "reload")
         let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        self.reloadButton.target = self
         self.prevButton.target = self
         self.nextButton.target = self
         self.toolbarItems = [reloadButton, spacer, self.prevButton, self.nextButton]
@@ -112,6 +114,8 @@ UIGestureRecognizerDelegate {
         if self.episode? == nil {
             return
         }
+
+        self.reloadButton.enabled = false
 
         let request = NSURLRequest(URL: NSURL(string:self.episode!.mobile_url))
         self.webView.loadRequest(request)
@@ -174,6 +178,7 @@ UIGestureRecognizerDelegate {
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
+        self.reloadButton.enabled = true
         self.activityIndicatorView.stopAnimating()
         self.read()
 
