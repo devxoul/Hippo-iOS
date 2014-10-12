@@ -18,7 +18,12 @@ class WebtoonDetailView: UIView {
         set {
             _webtoon = newValue
             let placeholder = UIImage(color: UIColor.whiteColor())
-            self.thumbnailView.setImageWithURL(NSURL(string: newValue!.picture.url), placeholderImage: placeholder)
+            if newValue!.picture? == nil {
+                self.thumbnailView.image = placeholder
+            } else {
+                let url = NSURL(string: newValue!.picture!.url)
+                self.thumbnailView.setImageWithURL(url, placeholderImage: placeholder)
+            }
             self.titleLabel.text = newValue!.title
             self.artistLabel.text = newValue!.artistText()
             self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")

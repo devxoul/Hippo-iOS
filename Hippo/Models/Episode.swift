@@ -12,7 +12,7 @@ class Episode: RLMObject {
     dynamic var id = 0
     dynamic var no = 0
     dynamic var title = ""
-    dynamic var picture = Picture()
+    dynamic var picture: Picture?
     dynamic var desktop_url = ""
     dynamic var mobile_url = ""
     dynamic var read = false

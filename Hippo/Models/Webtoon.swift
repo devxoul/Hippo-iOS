@@ -14,7 +14,7 @@ class Webtoon: RLMObject {
     dynamic var portal_id: String = ""
     dynamic var title: String = ""
     dynamic var introduction: String = ""
-    dynamic var picture: Picture = Picture()
+    dynamic var picture: Picture?
     dynamic var artists = RLMArray(objectClassName: Artist.className())
     dynamic var mon: Bool = false
     dynamic var tue: Bool = false
