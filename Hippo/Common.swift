@@ -11,6 +11,7 @@ let Hippo = "Hippo"
 struct UserDefaultsName {
     static let Username = "Username"
     static let UUID = "UUID"
+    static let VendorRevisions = "VendorRevisions"
 }
 
 func __(key: String) -> String {
