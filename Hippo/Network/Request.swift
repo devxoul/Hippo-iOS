@@ -44,11 +44,15 @@ class Request {
         return __.manager
     }
 
-    class func infoWithRouteName(name: String, parameters: NSDictionary) -> RequestInfo! {
+    class func infoWithRouteName(name: String, parameters: NSDictionary?) -> RequestInfo! {
         let route = Route.fromName(name)
         var info = RequestInfo(method: route?.method, URLString: route?.pattern, parameters: parameters)
 
-        for (k, v) in parameters {
+        if parameters? == nil {
+            return info
+        }
+
+        for (k, v) in parameters! {
             let pat = "<\(k)>"
             let range = info.URLString?.rangeOfString(pat, options: .CaseInsensitiveSearch, range: nil, locale: nil)
             if range? != nil && range?.isEmpty == false {
@@ -62,10 +66,10 @@ class Request {
         return info
     }
 
-    class func operationWithRouteName(name: String, parameters: NSDictionary,
+    class func operationWithRouteName(name: String, parameters: NSDictionary?,
         success: ((operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void)?,
         failure: ((operation: AFHTTPRequestOperation!, error: NSError!) -> Void)?) -> AFHTTPRequestOperation {
-            let info = self.infoWithRouteName(name, parameters: parameters)
+            let info = self.infoWithRouteName(name, parameters: parameters?)
             let request = self.manager.requestSerializer.requestWithMethod(
                 info.method,
                 URLString: self.baseURLString + info.URLString!,
@@ -91,7 +95,7 @@ class Request {
             return operation
     }
 
-    class func sendToRoute(name: String, parameters: NSDictionary,
+    class func sendToRoute(name: String, parameters: NSDictionary?,
         success: ((operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void)?,
         failure: ((operation: AFHTTPRequestOperation!, error: NSError!) -> Void)?) -> AFHTTPRequestOperation {
             let operation = self.operationWithRouteName(

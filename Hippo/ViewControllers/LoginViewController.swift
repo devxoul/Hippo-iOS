@@ -99,12 +99,7 @@ class LoginViewController: UIViewController {
         Request.sendToRoute("login_device", parameters: params,
             success: { (operation, responseObject) -> Void in
                 println("Device login success.")
-
-                if Webtoon.allObjects().count == 0 {
-                    self.fetchWebtoons()
-                } else if self.finishBlock != nil {
-                    self.finishBlock?()
-                }
+                self.compareVendorRevisions()
             },
             failure: { (operation, error) -> Void in
                 if operation.response?.statusCode == 403 {
@@ -114,7 +109,7 @@ class LoginViewController: UIViewController {
                         parameters: params,
                         success: { (operation, responseObject) -> Void in
                             println("Device join success.")
-                            self.fetchWebtoons()
+                            self.compareVendorRevisions()
                         },
                         failure: { (operation, error) -> Void in
                             println("Device join failure: \(operation.responseObject)")
@@ -131,14 +126,39 @@ class LoginViewController: UIViewController {
         )
     }
 
-    func fetchWebtoons() {
-        println("Fetch webtoons")
+    func compareVendorRevisions() {
+        println("Compare vendor revisions")
+        self.loadingMessage = __("Comparing revisions...")
+
+        Request.sendToRoute("revisions_vendors", parameters: nil,
+            success: { (operation, responseObject) -> Void in
+                let defaults = NSUserDefaults.standardUserDefaults()
+                let vendorRevisions = defaults.dictionaryForKey(UserDefaultsName.VendorRevisions) as? [String: String]
+                let newRevisions = responseObject as [String: String]
+
+                if vendorRevisions? == nil || vendorRevisions! != newRevisions {
+                    self.fetchWebtoons(revisions: newRevisions)
+                    return
+                }
+
+                self.finishBlock?()
+            },
+            failure: { (operation, error) -> Void in
+                self.loadingMessage = __("Failed to fetch revision.")
+                self.updateDetailMessage(operation, error: error)
+            }
+        );
+    }
+
+    func fetchWebtoons(offset: Int = 0, limit: Int = 100, revisions: [String: String]? = nil) {
+        println("Fetch webtoons \(offset + 1)~\(offset + limit)")
 
         self.loadingLabel.text = __("Loading webtoons...")
         self.loadingLabel.sizeToFit()
 
         let params = [
-            "limit": "99999",
+            "offset": offset,
+            "limit": limit,
         ]
 
         Request.sendToRoute("all_webtoons", parameters: params,
@@ -153,7 +173,15 @@ class LoginViewController: UIViewController {
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
 
-                if self.finishBlock != nil {
+                if data.count == limit {
+                    self.fetchWebtoons(offset: offset + limit, limit: limit, revisions: revisions)
+                } else {
+                    if revisions? != nil {
+                        let detaults = NSUserDefaults.standardUserDefaults()
+                        detaults.setValue(revisions!, forKey: UserDefaultsName.VendorRevisions)
+                        detaults.synchronize()
+                        println("Save revisions")
+                    }
                     self.finishBlock?()
                 }
             },
