@@ -62,25 +62,44 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
             make.centerY.equalTo(self.view).with.offset(self.detailView.height - 15)
             return
         }
-
-        self.fetchEpisodesIfNeeded()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.compareRevision()
         self.tableView.reloadData()
     }
 
-    func fetchEpisodesIfNeeded() {
-        if self.webtoon?.episodes.count == 0 {
-            self.fetchEpisodes()
-        } else {
-            self.scrollToBookmark()
+    func compareRevision() {
+        if self.webtoon? == nil {
+            return
         }
+
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
+        Request.sendToRoute("webtoon_revision", parameters: ["webtoon_id": self.webtoon!.id],
+            success: { (operation, responseObject) in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "YYYY:MM:dd HH:mm:ss"
+
+                let data = responseObject as? [String: String]
+                let updatedAt = formatter.dateFromString(data!["updated_at"]!)
+                if self.webtoon!.updated_at != updatedAt? {
+                    self.fetchEpisodes(updatedAt: updatedAt)
+                } else {
+                    self.scrollToBookmark()
+                }
+            },
+            failure: { (operation, error) in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            }
+        )
     }
 
-    func fetchEpisodes() {
-        println("Fetch episodes.")
+    func fetchEpisodes(offset: Int = 0, limit: Int = 100, updatedAt: NSDate? = nil) {
+        println("Fetch episodes \(offset)~\(offset + limit - 1)")
 
         self.tableView.hidden = true
         self.activityIndicatorView.startAnimating()
@@ -88,7 +107,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
         let params = [
             "webtoon_id": self.webtoon!.id,
-            "limit": 99999
+            "offset": offset,
+            "limit": limit,
         ]
         Request.sendToRoute("webtoon_episodes", parameters: params,
             success: { (operation, responseObject) -> Void in
@@ -101,6 +121,17 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
                     self.webtoon?.episodes.addObject(episode)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
+
+                if data.count == limit {
+                    self.fetchEpisodes(offset: offset + limit, limit: limit, updatedAt: updatedAt)
+                    return
+                }
+
+                if updatedAt? != nil {
+                    RLMRealm.defaultRealm().beginWriteTransaction()
+                    self.webtoon?.updated_at = updatedAt!
+                    RLMRealm.defaultRealm().commitWriteTransaction()
+                }
 
                 self.episodes = self.webtoon?.sortedEpisodes()
                 self.tableView.reloadData()

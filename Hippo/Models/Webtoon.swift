@@ -26,6 +26,7 @@ class Webtoon: RLMObject {
     dynamic var concluded: Bool = false
     dynamic var subscribing: Bool = false
     dynamic var bookmark: Int = 0
+    dynamic var updated_at: NSDate = NSDate(timeIntervalSince1970: 0)
 
     dynamic var episodes = RLMArray(objectClassName: Episode.className())
 

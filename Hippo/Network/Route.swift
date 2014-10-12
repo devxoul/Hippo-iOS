@@ -20,8 +20,8 @@ private let _map = [
     ("join_username",   "POST", "/join/username"),
 
     // revisions
-    ("revisions_vendors",  "GET", "/revisions/vendors"),
-    ("revisions_webtoons", "GET", "/revisions/subscribing-webtoons"),
+    ("revisions_vendors", "GET", "/revisions/vendors"),
+    ("webtoon_revision",  "GET", "/webtoons/<webtoon_id>/revision"),
 
     // webtoons
     ("all_webtoons",    "GET", "/webtoons"),

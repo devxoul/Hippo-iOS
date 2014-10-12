@@ -19,6 +19,7 @@
     }
     @catch (NSException *exception) {
         [self dropRealm];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"VendorRevisions"];
         return YES;
     }
     return NO;
