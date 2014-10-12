@@ -19,6 +19,10 @@ private let _map = [
     ("join_device",     "POST", "/join/device"),
     ("join_username",   "POST", "/join/username"),
 
+    // revisions
+    ("revisions_vendors",  "GET", "/revisions/vendors"),
+    ("revisions_webtoons", "GET", "/revisions/subscribing-webtoons"),
+
     // webtoons
     ("all_webtoons",    "GET", "/webtoons"),
     ("user_webtoons",   "GET", "/<username>/webtoons"),
