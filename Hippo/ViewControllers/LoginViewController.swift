@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
             }
         }
 
-        var UUID = defaults.stringForKey(UserDefaultsName.UUID)
+        var UUID = SSKeychain.passwordForService(Hippo, account: Hippo)
         if UUID == nil {
             UUID = UIDevice.currentDevice().identifierForVendor.UUIDString
         }
@@ -99,6 +99,7 @@ class LoginViewController: UIViewController {
         Request.sendToRoute("login_device", parameters: params,
             success: { (operation, responseObject) -> Void in
                 println("Device login success.")
+                SSKeychain.setPassword(UUID, forService: Hippo, account: Hippo)
                 self.compareVendorRevisions()
             },
             failure: { (operation, error) -> Void in
