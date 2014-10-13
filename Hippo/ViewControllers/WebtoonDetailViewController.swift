@@ -35,6 +35,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         self.view.backgroundColor = UIColor.whiteColor()
         self.navigationItem.title = self.webtoon?.title
         self.navigationItem.rightBarButtonItem = self.subscribeButton

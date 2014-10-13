@@ -63,6 +63,8 @@ UIGestureRecognizerDelegate {
     let nextButton = UIBarButtonItem(title: __("Next"), style: .Plain, target: nil, action: "loadNextEpisode")
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "webViewDidSwipe")
         swipeRecognizer.delegate = self
         swipeRecognizer.direction = .Up | .Down
