@@ -34,6 +34,7 @@
 		0383BEA017D34A5800E89D7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */; };
 		03A746BF17D9F25E0099A2A5 /* Hippo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
 		03A746C017D9F3190099A2A5 /* Hippo.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 03A746AA17D9E7880099A2A5 /* Hippo.xcdatamodeld */; };
+		03AA16D919EC411B00F92398 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AA16D819EC411B00F92398 /* SettingsViewController.swift */; };
 		03ABD30C19E668B4002D5B3E /* WebtoonViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */; };
 		03ABD30E19E6BDB5002D5B3E /* UIImage+GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD30D19E6BDB5002D5B3E /* UIImage+GrayScale.swift */; };
 		03ABD31319E6BFB7002D5B3E /* GrayScaleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */; };
@@ -127,6 +128,7 @@
 		0383BE9D17D349AE00E89D7A /* APILoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APILoader.m; sourceTree = "<group>"; };
 		0383BE9F17D34A5800E89D7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		03A746AB17D9E7880099A2A5 /* Hippo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hippo.xcdatamodel; sourceTree = "<group>"; };
+		03AA16D819EC411B00F92398 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebtoonViewerViewController.swift; path = ViewControllers/WebtoonViewerViewController.swift; sourceTree = "<group>"; };
 		03ABD30D19E6BDB5002D5B3E /* UIImage+GrayScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+GrayScale.swift"; path = "Extensions/UIImage+GrayScale.swift"; sourceTree = "<group>"; };
 		03ABD31219E6BFB7002D5B3E /* GrayScaleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayScaleImageView.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				032EA4B219DE6C1300DD3C7B /* WebtoonListViewController.swift */,
 				033926D519E12F300075A149 /* WebtoonDetailViewController.swift */,
 				03ABD30B19E668B4002D5B3E /* WebtoonViewerViewController.swift */,
+				03AA16D819EC411B00F92398 /* SettingsViewController.swift */,
 				03367D7017D346CA00CFF891 /* WebtoonListViewController.h */,
 				03367D7117D346CA00CFF891 /* WebtoonListViewController.m */,
 				03665BA917DA059C0038D895 /* WebtoonDetailViewController.h */,
@@ -496,6 +499,7 @@
 				032EA4B119DE68B700DD3C7B /* AppDelegate.swift in Sources */,
 				03ABD30C19E668B4002D5B3E /* WebtoonViewerViewController.swift in Sources */,
 				033926C619DEBF970075A149 /* Webtoon.swift in Sources */,
+				03AA16D919EC411B00F92398 /* SettingsViewController.swift in Sources */,
 				032EA4B319DE6C1300DD3C7B /* WebtoonListViewController.swift in Sources */,
 				033926CA19DF0E680075A149 /* Artist.swift in Sources */,
 				032EA4C719DE806D00DD3C7B /* WebtoonCell.swift in Sources */,

@@ -19,7 +19,7 @@
     }
     @catch (NSException *exception) {
         [self dropRealm];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"VendorRevisions"];
+        [self clearRevision];
         return YES;
     }
     return NO;
@@ -28,6 +28,11 @@
 + (void)dropRealm
 {
     [[NSFileManager defaultManager] removeItemAtPath:[RLMRealm defaultRealmPath] error: nil];
+}
+
++ (void)clearRevision
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"VendorRevisions"];
 }
 
 @end

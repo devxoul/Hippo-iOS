@@ -12,5 +12,6 @@
 
 + (BOOL)dropRealmIfNeeded;
 + (void)dropRealm;
++ (void)clearRevision;
 
 @end

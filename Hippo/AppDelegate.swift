@@ -49,11 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initTabBar() {
         self.myWebtoonListViewController.listType = WebtoonListType.Mine
         self.allWebtoonListViewController.listType = WebtoonListType.All
+        let settingsViewController = SettingsViewController()
+        settingsViewController.title = __("Settings")
 
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
             UINavigationController(rootViewController: self.myWebtoonListViewController),
             UINavigationController(rootViewController: self.allWebtoonListViewController),
+            UINavigationController(rootViewController: settingsViewController),
         ]
         self.window.rootViewController = tabBarController
     }
