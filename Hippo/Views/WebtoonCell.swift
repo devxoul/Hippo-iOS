@@ -28,6 +28,11 @@ class WebtoonCell: UITableViewCell {
             self.artistLabel.text = newValue!.artistText()
             self.portalIconView.image = UIImage(named: "icon_\(newValue!.portal)")
             self.weekdayLabel.text = newValue!.weekdayText()
+
+            let normalText = !newValue!.concluded ? __("Subscribe") : __("Collect")
+            let selectedText = !newValue!.concluded ? __("Subscribing") : __("Collected")
+            self.subscribeButton.setTitle(normalText, forState: UIControlState.Normal)
+            self.subscribeButton.setTitle(selectedText, forState: UIControlState.Selected)
             self.subscribeButton.selected = newValue!.subscribing
         }
     }
@@ -94,8 +99,6 @@ class WebtoonCell: UITableViewCell {
             make.width.lessThanOrEqualTo(170)
         }
 
-        self.subscribeButton.setTitle("구독하기", forState: UIControlState.Normal)
-        self.subscribeButton.setTitle("구독중", forState: UIControlState.Selected)
         self.subscribeButton.titleLabel?.textAlignment = NSTextAlignment.Right
         self.subscribeButton.addTarget(self, action: "subscribeButtonDidPress",
             forControlEvents: UIControlEvents.TouchUpInside)
