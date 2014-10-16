@@ -115,16 +115,21 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
         Request.sendToRoute("webtoon_episodes", parameters: params,
             success: { (operation, responseObject) -> Void in
                 let data = responseObject["data"] as [NSDictionary]
+                var loadMore = true
 
                 RLMRealm.defaultRealm().beginWriteTransaction()
                 for episodeData in data {
                     let episode = Episode.createOrUpdateInDefaultRealmWithObject(episodeData)
+                    if self.webtoon?.episodes.indexOfObject(episode as RLMObject) != UInt(NSNotFound) {
+                        loadMore = false
+                        break
+                    }
                     episode.webtoon = self.webtoon!
                     self.webtoon?.episodes.addObject(episode)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
 
-                if data.count == limit {
+                if loadMore && data.count == limit {
                     self.fetchEpisodes(offset: offset + limit, limit: limit, updatedAt: updatedAt)
                     return
                 }
