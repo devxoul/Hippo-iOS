@@ -13,8 +13,8 @@ class Episode: RLMObject {
     dynamic var no = 0
     dynamic var title = ""
     dynamic var picture: Picture?
-    dynamic var desktop_url = ""
-    dynamic var mobile_url = ""
+    dynamic var desktopUrl = ""
+    dynamic var mobileUrl = ""
     dynamic var read = false
 
     dynamic var webtoon = Webtoon()

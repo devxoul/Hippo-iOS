@@ -87,8 +87,8 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
                 formatter.dateFormat = "YYYY:MM:dd HH:mm:ss"
 
                 let data = responseObject as? [String: String]
-                let updatedAt = formatter.dateFromString(data!["updated_at"]!)
-                if self.webtoon!.updated_at != updatedAt? {
+                let updatedAt = formatter.dateFromString(data!["updatedAt"]!)
+                if self.webtoon!.updatedAt != updatedAt? {
                     self.fetchEpisodes(updatedAt: updatedAt)
                 } else {
                     self.scrollToBookmark()
@@ -136,7 +136,7 @@ class WebtoonDetailViewController: UIViewController, UITableViewDataSource, UITa
 
                 if updatedAt? != nil {
                     RLMRealm.defaultRealm().beginWriteTransaction()
-                    self.webtoon?.updated_at = updatedAt!
+                    self.webtoon?.updatedAt = updatedAt!
                     RLMRealm.defaultRealm().commitWriteTransaction()
                 }
 

@@ -11,7 +11,7 @@ import Foundation
 class Webtoon: RLMObject {
     dynamic var id: Int = 0
     dynamic var portal: String = ""
-    dynamic var portal_id: String = ""
+    dynamic var portalId: String = ""
     dynamic var title: String = ""
     dynamic var introduction: String = ""
     dynamic var picture: Picture?
@@ -26,7 +26,7 @@ class Webtoon: RLMObject {
     dynamic var concluded: Bool = false
     dynamic var subscribing: Bool = false
     dynamic var bookmark: Int = 0
-    dynamic var updated_at: NSDate = NSDate(timeIntervalSince1970: 0)
+    dynamic var updatedAt: NSDate = NSDate(timeIntervalSince1970: 0)
 
     dynamic var episodes = RLMArray(objectClassName: Episode.className())
 

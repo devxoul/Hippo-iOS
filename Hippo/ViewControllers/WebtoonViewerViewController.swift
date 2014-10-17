@@ -120,7 +120,7 @@ UIGestureRecognizerDelegate {
 
         self.reloadButton.enabled = false
 
-        let request = NSURLRequest(URL: NSURL(string:self.episode!.mobile_url))
+        let request = NSURLRequest(URL: NSURL(string:self.episode!.mobileUrl))
         self.webView.loadRequest(request)
     }
 

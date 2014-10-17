@@ -175,7 +175,7 @@ class LoginViewController: UIViewController {
                     // properties cannot be nil yet.
                     // http://stackoverflow.com/questions/25345625/realm-io-optional-properties
                     var dict: NSMutableDictionary = webtoonData.mutableCopy() as NSMutableDictionary
-                    dict.setValue(NSDate(timeIntervalSince1970: 0), forKey: "updated_at")
+                    dict.setValue(NSDate(timeIntervalSince1970: 0), forKey: "updatedAt")
                     Webtoon.createOrUpdateInDefaultRealmWithObject(dict)
                 }
                 RLMRealm.defaultRealm().commitWriteTransaction()
